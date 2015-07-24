@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/WZDP.iml" filepath="$PROJECT_DIR$/WZDP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myapplication/myapplication.iml" filepath="$PROJECT_DIR$/myapplication/myapplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdingmenufony/sdingmenufony.iml" filepath="$PROJECT_DIR$/sdingmenufony/sdingmenufony.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wZDP/wZDP.iml" filepath="$PROJECT_DIR$/wZDP/wZDP.iml" />
+    </modules>
+  </component>
+</project>

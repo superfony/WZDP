@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="70dp"
+    android:background="@drawable/top_bg" >
+
+    <ImageView
+        android:id="@+id/title_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="520dip"/>
+
+    <TextView
+        android:id="@+id/titles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold" />
+    <RelativeLayout 
+         android:layout_width="wrap_content"
+         android:layout_height="70dp"
+        android:layout_alignParentRight="true"
+        >
+
+    <RelativeLayout
+        android:id="@+id/search_lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/select_btn_bg" />
+        
+          <!--  <TextView android:id="@+id/search_tx"
+            android:layout_width="31dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="查询"
+            android:textSize="8sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/search_btn"
+            />  -->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/add_lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/search_lay"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/add_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/add_btn_bg" />
+        
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/present_lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_toRightOf="@id/search_lay"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/present_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:layout_centerVertical="true"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:background="@drawable/present_btn_bg" />
+        
+    </RelativeLayout>
+     <RelativeLayout
+        android:id="@+id/question_lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/present_lay"
+        android:visibility="gone"
+       >
+
+        <Button
+            android:id="@+id/question_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:layout_centerVertical="true"
+            android:text="@string/question"
+            android:textColor="@color/white"
+            android:background="@drawable/present_btn_bg" />
+        
+    </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
