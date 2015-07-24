@@ -1,2 +1,2 @@
-include ':sdingmenufony', ':myapplication'
+include ':sdingmenufony'
 include ':wZDP'
