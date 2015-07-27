@@ -254,11 +254,6 @@ public class MainActivity extends ClientActivity {
 	}
 
 
-
-
-
-
-
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 
