@@ -289,6 +289,7 @@ public class MainActivity extends ClientActivity {
 			public void onClick(View v) {
 				dialog.dismiss();
 				activity.finish();
+				 //TODO
 			}
 		});
 		exit_cancel.setOnClickListener(new OnClickListener() {
