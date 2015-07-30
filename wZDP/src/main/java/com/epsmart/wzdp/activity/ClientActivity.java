@@ -23,8 +23,7 @@ import com.epsmart.wzdp.common.PermissHelp;
 public class ClientActivity extends Activity {
     public static final String TAG = "ClientActivity";
 
-    private static final String BIND_ACTION = "com.epsmart.wzdp.aidl.service";
-    private ExecuteServiceAIDL executeService;
+
     private Handler handler;
     protected AppContext appContext;
 
@@ -35,58 +34,4 @@ public class ClientActivity extends Activity {
     }
 
 
-    protected void getServiceConnect(Handler handler) {
-        this.handler = handler;
-        Intent intent = new Intent();
-        intent.setAction(BIND_ACTION);
-        startService(intent);
-        bindService(intent, mserviceConnection, BIND_AUTO_CREATE);
-    }
-
-    ServiceConnection mserviceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            Log.d(TAG, "onServiceDisconnected");
-
-        }
-
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            Log.d(TAG, "onServiceConnected");
-            executeService = ExecuteServiceAIDL.Stub.asInterface(service);
-            if (executeService != null) {
-                handlerInfo();
-            }
-        }
-    };
-
-    private void handlerInfo() {
-
-        AppInfo mInfo = new AppInfo();
-
-        try {
-            UserInfo userInfo = new UserInfo();
-            userInfo = executeService.getServerHarlanInfo(mInfo, mCallBack);
-            String userAllInfo = userInfo.getUserAllInfo();
-            if (userAllInfo != null) {
-                try {
-                    User user = PermissHelp.getUser(userAllInfo);
-                    handler.sendEmptyMessage(111);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            unbindService(mserviceConnection);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
-
-    ICallBack.Stub mCallBack = new ICallBack.Stub() {
-        @Override
-        public void handleByServer(String param) throws RemoteException {
-            Toast.makeText(getApplicationContext(), param, Toast.LENGTH_LONG)
-                    .show();
-        }
-    };
 }

@@ -32,11 +32,7 @@ public class PerferenceModel {
 
 	}
 
-	/**
-	 * �������� SharedPreferences
-	 * @param key
-	 * @param value
-	 */
+
 	public void insertPreference(String key, String value) {
 		SharedPreferences perference = null;
 		int sdk = VERSION.SDK_INT;
@@ -49,12 +45,7 @@ public class PerferenceModel {
 		perference.edit().putString(key, value).commit();
 	}
 
-	/**
-	 * ȡ����
-	 * @param key
-	 * @param flag
-	 * @return
-	 */
+
 	public String getValue(String key, String flag) {
 		String value = null;
 		SharedPreferences perference = null;

@@ -13,20 +13,20 @@ public class RequestParamConfig {
 	public final static String IP = "127.0.0.1";
 	public final static int PORT = 28080;// 暂时用不到
 	/**************** 正式库 **************************/
-//	 public final static  String ServerUrl =
-//	 "http://127.0.0.1:28080/wzdp/services/cmisService";
-//	 public final static String loginUrl =
-//	 "http://127.0.0.1:28099/lnptgl/webservices/IMobilePlatformsWebservices";
+	 public final static  String ServerUrl =
+	 "http://127.0.0.1:28080/wzdp/services/cmisService";
+	 public final static String loginUrl =
+	 "http://127.0.0.1:28099/lnptgl/webservices/IMobilePlatformsWebservices";
 	/************* 本地测试地址 apn方式访问 ***********************/
 	// 148cmis 服务器
-	 public final static  String ServerUrl =
-	 "http://127.0.0.1:8551/wzdp/services/cmisService";
+//	 public final static  String ServerUrl =
+//	 "http://127.0.0.1:8551/wzdp/services/cmisService";
 //	// 153 cmis服务器
 //	 public static String ServerUrl =
 //	 "http://127.0.0.1:8553/wzdp/services/cmisService";
 	// 153 中间件服务器
-	 public static String loginUrl =
-	 "http://127.0.0.1:8554/lnptgl/webservices/IMobilePlatformsWebservices";
+//	 public static String loginUrl =
+//	 "http://127.0.0.1:8554/lnptgl/webservices/IMobilePlatformsWebservices";
 	 /************* 本地测试地址 电脑模拟器访问 ***********************/
 	// 148cmis 服务器
 //	 public static String ServerUrl =
