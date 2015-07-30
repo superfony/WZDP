@@ -1,5 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzdp"
+    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzcc"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,7 @@
     tools:ignore="HardcodedText"
     tools:context=".ContractActivity" >
 
-	 <com.epsmart.wzdp.view.CircleLayoutTwo
+	 <com.epsmart.wzcc.view.CircleLayoutTwo
         android:id="@+id/contract_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -21,21 +21,21 @@
                
 <!--         circle:circleBackground="@drawable/green"  > -->
 
-     <com.epsmart.wzdp.view.CircleImageView
+     <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/plan_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_allplan_btn"
             circle:name="@string/plan_control" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/progress_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_allprogress_btn"
             circle:name="@string/progress_control" />
 
-    </com.epsmart.wzdp.view.CircleLayoutTwo>
+    </com.epsmart.wzcc.view.CircleLayoutTwo>
 
 
 

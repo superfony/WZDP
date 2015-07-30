@@ -1,5 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzdp"
+    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzcc"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,7 @@
     tools:context=".MovedActivity"
     tools:ignore="HardcodedText" >
 
-    <com.epsmart.wzdp.view.CircleLayoutTwo
+    <com.epsmart.wzcc.view.CircleLayoutTwo
         android:id="@+id/daily_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -17,23 +17,23 @@
         circle:isRotating="true"
         circle:rotateToCenter="true" >
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/pronotice_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/daily_notice_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/prowork_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/daily_work_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/proonline_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/daily_online_btn" />
-    </com.epsmart.wzdp.view.CircleLayoutTwo>
+    </com.epsmart.wzcc.view.CircleLayoutTwo>
 
 </RelativeLayout>

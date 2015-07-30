@@ -1,5 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzdp"
+    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzcc"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,7 @@
     tools:ignore="HardcodedText"
     tools:context=".MovedActivity" >
 
-	 <com.epsmart.wzdp.view.CircleLayoutTwo
+	 <com.epsmart.wzcc.view.CircleLayoutTwo
         android:id="@+id/scene_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -22,7 +22,7 @@
 
 
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/proinfo_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,13 +37,13 @@
 	  
  -->
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/procheck_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_procheck_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/proservice_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/icon_work_btn"/> -->
 
-    </com.epsmart.wzdp.view.CircleLayoutTwo>
+    </com.epsmart.wzcc.view.CircleLayoutTwo>
 
 
 

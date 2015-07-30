@@ -24,7 +24,7 @@
 
 	        <fragment
 	            android:id="@+id/fragment_left"
-	            android:name="com.epsmart.wzdp.activity.supply.fragment.LeftFragment"
+	            android:name="com.epsmart.wzcc.activity.supply.fragment.LeftFragment"
 	            android:layout_width="match_parent"
 	            android:layout_height="match_parent" />
 	    </LinearLayout>

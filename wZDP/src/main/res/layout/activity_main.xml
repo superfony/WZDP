@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzdp"
+    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzcc"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/supplied"
     tools:context=".HosoolListTt" >
 
-    <com.epsmart.wzdp.view.CircleLayout
+    <com.epsmart.wzcc.view.CircleLayout
         android:id="@+id/main_circle_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -20,7 +20,7 @@
         <!-- circle:circleBackground="@drawable/green"  > -->
         <!-- 在线分析 -->
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/online_image"
             circle:name="@string/online"
             android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
             android:background="@drawable/icon_online_btn" />
         <!-- 供应商现场管理 -->
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/supply_image"
             circle:name="@string/supply"
             android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
             android:background="@drawable/icon_supply_btn" />
         <!-- 项目现场管理 -->
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/project_image"
             circle:name="@string/project"
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:background="@drawable/icon_project_btn" />
         <!-- 视频会议 -->
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/conference_image"
             circle:name="@string/conference"
             android:layout_width="wrap_content"
@@ -52,25 +52,25 @@
             android:background="@drawable/icon_conference_btn" />
         <!-- 移动审批 -->
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/move_approval"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/icon_approval_btn" />
         <!-- 日常办公 -->
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/move_office"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/icon_office_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/move_contract"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/icon_contract_btn" />
-    </com.epsmart.wzdp.view.CircleLayout>
+    </com.epsmart.wzcc.view.CircleLayout>
 
     <TextView
         android:id="@+id/main_selected_textView"
@@ -102,7 +102,7 @@
                 android:orientation="horizontal" 
                 android:visibility="invisible">
 
-                <com.epsmart.wzdp.view.Marquee
+                <com.epsmart.wzcc.view.Marquee
                     android:id="@+id/banners_content"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                 android:orientation="horizontal" 
                 android:visibility="invisible">
 
-                <com.epsmart.wzdp.view.Marquee
+                <com.epsmart.wzcc.view.Marquee
                     android:id="@+id/banners_text"
                     android:layout_width="200dip"
                     android:layout_height="wrap_content"

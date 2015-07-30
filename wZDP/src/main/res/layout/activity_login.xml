@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/com.epsmart.wzdp"
+    xmlns:app="http://schemas.android.com/apk/res/com.epsmart.wzcc"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -94,7 +94,7 @@
                 android:background="@drawable/login_btn_bg" />
         </RelativeLayout>
 
-        <com.epsmart.wzdp.view.SwitchButton
+        <com.epsmart.wzcc.view.SwitchButton
             android:id="@+id/switch_btn"
             style="@style/item"
             android:layout_below="@id/pwd_lay"

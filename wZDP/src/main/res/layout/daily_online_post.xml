@@ -41,11 +41,11 @@
                 android:background="@drawable/daily_theme"
                 android:scrollbars="none" >
 
-                <com.epsmart.wzdp.activity.dailyoffice.fragment.FixedGridLayout
+                <com.epsmart.wzcc.activity.dailyoffice.fragment.FixedGridLayout
                     android:id="@+id/navigation"
                     android:layout_width="wrap_content"
                     android:layout_height="55dip" >
-                </com.epsmart.wzdp.activity.dailyoffice.fragment.FixedGridLayout>
+                </com.epsmart.wzcc.activity.dailyoffice.fragment.FixedGridLayout>
             </HorizontalScrollView>
         </LinearLayout>
 

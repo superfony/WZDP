@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.epsmart.wzdp"
+    package="com.epsmart.wzcc"
     android:versionCode="15"
     android:versionName="1.4.2" >
 
@@ -39,7 +39,7 @@
     <android:uses-permission android:name="android.permission.READ_CALL_LOG" />
 
     <application
-        android:name=".activity.AppContext"
+        android:name="com.epsmart.wzcc.activity.AppContext"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -47,7 +47,7 @@
 
         <!-- android:name=".activity.AppStart  .db.HelloAndroid"     .activity.AppStart -->
         <activity
-            android:name=".activity.LoginAct"
+            android:name="com.epsmart.wzcc.activity.LoginAct"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
@@ -58,11 +58,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.supply.SupplyActivity"
+            android:name="com.epsmart.wzcc.activity.supply.SupplyActivity"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.epsmart.wzcc.activity.MainActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
@@ -77,31 +77,31 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.achar.DoStatisticsAct"
+            android:name="com.epsmart.wzcc.activity.achar.DoStatisticsAct"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.achar.ContractLineCharAct"
+            android:name="com.epsmart.wzcc.activity.achar.ContractLineCharAct"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.achar.ProductionFromAct"
+            android:name="com.epsmart.wzcc.activity.achar.ProductionFromAct"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.achar.SettleCharAct"
+            android:name="com.epsmart.wzcc.activity.achar.SettleCharAct"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.achar.SubstanceaNalysisAct"
+            android:name="com.epsmart.wzcc.activity.achar.SubstanceaNalysisAct"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.achar.SubstanceaNalysisActNew"
+            android:name="com.epsmart.wzcc.activity.achar.SubstanceaNalysisActNew"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.supply.SupplyMenuActivity"
+            android:name="com.epsmart.wzcc.activity.supply.SupplyMenuActivity"
             android:screenOrientation="landscape" >
         </activity>
         <activity
@@ -109,17 +109,17 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.AboutUsAct"
+            android:name="com.epsmart.wzcc.activity.AboutUsAct"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name=".activity.InstallActivity"
+            android:name="com.epsmart.wzcc.activity.InstallActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name=".activity.more.MoreAct"
+            android:name="com.epsmart.wzcc.activity.more.MoreAct"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
@@ -160,19 +160,19 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.achar.ScheduleAct"
+            android:name="com.epsmart.wzcc.activity.achar.ScheduleAct"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.achar.WeeklyAct"
+            android:name="com.epsmart.wzcc.activity.achar.WeeklyAct"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.achar.PlanCommonAct"
+            android:name="com.epsmart.wzcc.activity.achar.PlanCommonAct"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".activity.more.OffLineCommonAct"
+            android:name="com.epsmart.wzcc.activity.more.OffLineCommonAct"
             android:screenOrientation="landscape" >
         </activity>
         <activity
@@ -214,7 +214,7 @@
 
         <!-- 离线数据 -->
         <activity
-            android:name=".activity.more.OffLineData"
+            android:name="com.epsmart.wzcc.activity.more.OffLineData"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>

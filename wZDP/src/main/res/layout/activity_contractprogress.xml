@@ -1,5 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzdp"
+    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzcc"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,7 @@
     tools:context=".ContractActivity"
     tools:ignore="HardcodedText" >
 
-    <com.epsmart.wzdp.view.CircleLayoutThree
+    <com.epsmart.wzcc.view.CircleLayoutThree
         android:id="@+id/contract_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -17,54 +17,54 @@
         circle:isRotating="true"
         circle:rotateToCenter="true" >
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/tower_pro"
             circle:name="@string/progress_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_progress_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/Porcelain_pro"
             circle:name="@string/progress_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_progressci_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/composite_pro"
             circle:name="@string/progress_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_progressfuhe_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/wireway_pro"
             circle:name="@string/progress_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_progressdao_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/ground_pro"
             circle:name="@string/progress_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_progressdi_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/cable_pro"
             circle:name="@string/progress_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_progressguang_btn" />
 
-        <com.epsmart.wzdp.view.CircleImageView
+        <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/fittings_pro"
             circle:name="@string/progress_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_progressjinju_btn" />
-    </com.epsmart.wzdp.view.CircleLayoutThree>
+    </com.epsmart.wzcc.view.CircleLayoutThree>
 
 </RelativeLayout>
