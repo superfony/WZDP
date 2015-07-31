@@ -11,18 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.epsmart.wzcc.R;
-import com.epsmart.wzcc.activity.achar.DoStatisticsAct;
-import com.epsmart.wzcc.activity.more.MoreAct;
-import com.epsmart.wzcc.activity.supply.SupplyMenuActivity;
 import com.epsmart.wzcc.http.BaseHttpModule;
 import com.epsmart.wzcc.updata.UpdateManager;
 import com.epsmart.wzcc.view.CircleImageView;
-import com.epsmart.wzcc.view.CircleLayout;
 
 /**
  *首页显示
@@ -41,49 +35,19 @@ public class MainActivity extends ClientActivity {
 		activity = this;
 		setContentView(R.layout.activity_main);
 		UpdateManager.getUpdateManager().checkAppUpdate(this, false);// 检查是否更新
-		ImageView install = (ImageView) findViewById(R.id.install_image);// 设置按钮
-
-		install.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				Intent intent = new Intent(activity, MoreAct.class);
-				activity.startActivity(intent);
-			}
-		});
-
-		CircleLayout circleMenu = (CircleLayout) findViewById(R.id.main_circle_layout);
-		TextView selectedTextView = (TextView) findViewById(R.id.main_selected_textView);
-		selectedTextView.setText(((CircleImageView) circleMenu
-				.getSelectedItem()).getName());
-
-		supply = (CircleImageView) circleMenu.findViewById(R.id.supply_image);
-
-		supply.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-
-				provenance = "supply";
-				Intent intent = new Intent(MainActivity.this,
-						SupplyMenuActivity.class);
-				MainActivity.this.startActivity(intent);
-			}
-		});
+//		ImageView install = (ImageView) findViewById(R.id.install_image);// 设置按钮
+//
+//		install.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View arg0) {
+//				Intent intent = new Intent(activity, MoreAct.class);
+//				activity.startActivity(intent);
+//			}
+//		});
 
 
 
-		online = (CircleImageView) circleMenu.findViewById(R.id.online_image);// 在线统计
-		online.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
 
-				provenance = "statistics";
-				Intent intent = new Intent();
-				intent.setClass(MainActivity.this, DoStatisticsAct.class);
-				MainActivity.this.startActivity(intent);
-			}
-		});
-		CircleImageView conference = (CircleImageView) circleMenu
-				.findViewById(R.id.conference_image);// 视频会
 	}
 
 	@Override
@@ -96,8 +60,6 @@ public class MainActivity extends ClientActivity {
 		return false;
 
 	}
-
-
 
 	// 退出弹出框
 	Dialog dialog;
