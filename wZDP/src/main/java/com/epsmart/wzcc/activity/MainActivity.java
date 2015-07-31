@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import com.epsmart.wzcc.R;
@@ -35,16 +36,59 @@ public class MainActivity extends ClientActivity {
 		activity = this;
 		setContentView(R.layout.activity_main);
 		UpdateManager.getUpdateManager().checkAppUpdate(this, false);// 检查是否更新
-//		ImageView install = (ImageView) findViewById(R.id.install_image);// 设置按钮
-//
-//		install.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View arg0) {
-//				Intent intent = new Intent(activity, MoreAct.class);
-//				activity.startActivity(intent);
-//			}
-//		});
+		ImageButton transfer = (ImageButton) findViewById(R.id.transfer);//货物交接
+		ImageButton ruku = (ImageButton) findViewById(R.id.ruku);//验收入库
+		ImageButton chuku = (ImageButton) findViewById(R.id.chuku);//领料出库
+		ImageButton info = (ImageButton) findViewById(R.id.info);//库存信息
+		ImageButton data = (ImageButton) findViewById(R.id.data);//数据同步
+		ImageButton setting = (ImageButton) findViewById(R.id.setting);//系统设置
 
+				transfer.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View arg0) {
+//						Intent intent = new Intent(activity, .class);
+//						activity.startActivity(intent);
+					}
+				});
+		ruku.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+//				Intent intent = new Intent(activity, .class);
+//				activity.startActivity(intent);
+			}
+		});
+
+		chuku.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				//				Intent intent = new Intent(activity, .class);
+				//				activity.startActivity(intent);
+			}
+		});
+
+		info.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				//				Intent intent = new Intent(activity, .class);
+				//				activity.startActivity(intent);
+			}
+		});
+
+		data.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				//				Intent intent = new Intent(activity, .class);
+				//				activity.startActivity(intent);
+			}
+		});
+
+		setting.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				//				Intent intent = new Intent(activity, .class);
+				//				activity.startActivity(intent);
+			}
+		});
 
 
 
