@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import com.epsmart.wzcc.R;
@@ -19,87 +20,132 @@ import com.epsmart.wzcc.updata.UpdateManager;
 import com.epsmart.wzcc.view.CircleImageView;
 
 /**
- * 首页显示
+ *首页显示
  */
 public class MainActivity extends ClientActivity {
-    private String TAG = MainActivity.class.getName();
-    public static String provenance;
-    private BaseHttpModule httpModule;
-    private Activity activity;
-    private CircleImageView supply;// 供应商现场管理
-    private CircleImageView online;// 在线分析
-    private PackageManager pm = null;
+	private String TAG = MainActivity.class.getName();
+	public static String provenance;
+	private BaseHttpModule httpModule;
+	private Activity activity;
+	private CircleImageView supply;// 供应商现场管理
+	private CircleImageView online;// 在线分析
+	private PackageManager pm = null;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		activity = this;
+		setContentView(R.layout.activity_main);
+		UpdateManager.getUpdateManager().checkAppUpdate(this, false);// 检查是否更新
+		ImageButton transfer = (ImageButton) findViewById(R.id.transfer);//货物交接
+		ImageButton ruku = (ImageButton) findViewById(R.id.ruku);//验收入库
+		ImageButton chuku = (ImageButton) findViewById(R.id.chuku);//领料出库
+		ImageButton info = (ImageButton) findViewById(R.id.info);//库存信息
+		ImageButton data = (ImageButton) findViewById(R.id.data);//数据同步
+		ImageButton setting = (ImageButton) findViewById(R.id.setting);//系统设置
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        activity = this;
-        setContentView(R.layout.activity_main);
-        UpdateManager.getUpdateManager().checkAppUpdate(this, false);// 检查是否更新
-//		ImageView install = (ImageView) findViewById(R.id.install_image);// 设置按钮
-//
-//		install.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View arg0) {
-//				Intent intent = new Intent(activity, MoreAct.class);
+				transfer.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View arg0) {
+//						Intent intent = new Intent(activity, .class);
+//						activity.startActivity(intent);
+					}
+				});
+		ruku.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+//				Intent intent = new Intent(activity, .class);
 //				activity.startActivity(intent);
-//			}
-//		});
+			}
+		});
+
+		chuku.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				//				Intent intent = new Intent(activity, .class);
+				//				activity.startActivity(intent);
+			}
+		});
+
+		info.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				//				Intent intent = new Intent(activity, .class);
+				//				activity.startActivity(intent);
+			}
+		});
+
+		data.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				//				Intent intent = new Intent(activity, .class);
+				//				activity.startActivity(intent);
+			}
+		});
+
+		setting.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				//				Intent intent = new Intent(activity, .class);
+				//				activity.startActivity(intent);
+			}
+		});
 
 
-    }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+	}
 
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            dialog();
-            return false;
-        }
-        return false;
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-    }
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			dialog();
+			return false;
+		}
+		return false;
 
-    // 退出弹出框
-    Dialog dialog;
+	}
 
-    private void dialog() {
+	// 退出弹出框
+	Dialog dialog;
 
-        LayoutInflater inflater = LayoutInflater.from(activity);
-        RelativeLayout layout = (RelativeLayout) inflater.inflate(
-                R.layout.exit_dialog, null);
+	private void dialog() {
 
-        dialog = new AlertDialog.Builder(activity).create();
-        dialog.setCancelable(false);
-        dialog.show();
-        dialog.getWindow().setContentView(layout);
+		LayoutInflater inflater = LayoutInflater.from(activity);
+		RelativeLayout layout = (RelativeLayout) inflater.inflate(
+				R.layout.exit_dialog, null);
 
-        Button exit_cancel = (Button) layout.findViewById(R.id.exit_cancel);
-        Button drop_out = (Button) layout.findViewById(R.id.drop_out);
+		dialog = new AlertDialog.Builder(activity).create();
+		dialog.setCancelable(false);
+		dialog.show();
+		dialog.getWindow().setContentView(layout);
 
-        drop_out.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                activity.finish();
-            }
-        });
-        exit_cancel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-    }
+		Button exit_cancel = (Button) layout.findViewById(R.id.exit_cancel);
+		Button drop_out = (Button) layout.findViewById(R.id.drop_out);
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
+		drop_out.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+				activity.finish();
+				 //TODO
+			}
+		});
+		exit_cancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+	}
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+	}
 
-    }
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+	}
 }
