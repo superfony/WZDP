@@ -112,8 +112,10 @@ public class PaginationWidget<T> {
 	protected String serviceName;
 	protected BaseHttpModule httpModule = null;
 	protected OnItemLongClick onLongClick;
-	
 
+	/**
+	 * 网络请求返回的结果
+	 */
 	protected RequestListener requestListener = new RequestListener() {
 
 		@Override
@@ -278,6 +280,13 @@ public class PaginationWidget<T> {
 
 	}
 
+	/**
+	 * 网络请求初始化
+	 * @param context
+	 * @param container
+	 * @param viewCreator
+	 * @return
+	 */
 	public PaginationWidget<T> init(Context context, View container,
 			ViewCreator<T> viewCreator) {
 		this.context = context;
@@ -451,10 +460,10 @@ public class PaginationWidget<T> {
 	}
 
 	/**
-	 * 加载数据.
+	 * 网络请求
 	 */
 	public void loadPaginationData() {
-		// showProgressDialog();
+
 		requestAction.serviceName = serviceName;
 		httpModule.executeRequest(requestAction, parseHandler,
 				new ProcessResponse(), requestType);

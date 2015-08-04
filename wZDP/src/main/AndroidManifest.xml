@@ -26,17 +26,13 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    <!--
-     To retrieve OAuth 2.0 tokens or invalidate tokens to disconnect a user. This disconnect
-     option is required to comply with the Google+ Sign-In developer policies
-    -->
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" /> <!-- To retrieve the account name (email) as part of sign-in: -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
 
     <application
         android:name="com.epsmart.wzcc.activity.AppContext"
@@ -44,10 +40,9 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-        <!-- android:name=".activity.AppStart  .db.HelloAndroid"     .activity.AppStart -->
+        <!--LoginAct-->
         <activity
-            android:name="com.epsmart.wzcc.activity.LoginAct"
+            android:name="com.epsmart.wzcc.activity.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
@@ -61,21 +56,14 @@
             android:name="com.epsmart.wzcc.activity.supply.SupplyActivity"
             android:screenOrientation="landscape" >
         </activity>
-        <activity
-            android:name="com.epsmart.wzcc.activity.MainActivity"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
-        </activity>
-        <activity
-            android:name=".scan.example.qr_codescan.MipcaActivityCapture"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
-        <activity
-            android:name=".activity.scene.SceneActivity"
-            android:screenOrientation="landscape" >
-        </activity>
+        <!--<activity-->
+            <!--android:name="com.epsmart.wzcc.activity.MainActivity"-->
+            <!--android:screenOrientation="landscape"-->
+            <!--android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >-->
+        <!--</activity>-->
+
+
+
         <activity
             android:name="com.epsmart.wzcc.activity.achar.DoStatisticsAct"
             android:screenOrientation="landscape" >
@@ -104,10 +92,7 @@
             android:name="com.epsmart.wzcc.activity.supply.SupplyMenuActivity"
             android:screenOrientation="landscape" >
         </activity>
-        <activity
-            android:name=".activity.scene.SceneMenuActivity"
-            android:screenOrientation="landscape" >
-        </activity>
+
         <activity
             android:name="com.epsmart.wzcc.activity.AboutUsAct"
             android:screenOrientation="landscape"
@@ -123,42 +108,7 @@
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
-        <activity
-            android:name=".activity.contract.ContractActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.contract.ContractPlanActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.contract.ContractMenuActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.contract.ContractMenuProgressActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.contract.ContractMenuPlanActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.contract.fragment.ProductPlanAct"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.contract.fragment.HosoolListTt"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.contract.fragment.ProductProList"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.contract.fragment.ProductProgressAct"
-            android:screenOrientation="landscape" >
-        </activity>
+
         <activity
             android:name="com.epsmart.wzcc.activity.achar.ScheduleAct"
             android:screenOrientation="landscape" >
@@ -175,42 +125,8 @@
             android:name="com.epsmart.wzcc.activity.more.OffLineCommonAct"
             android:screenOrientation="landscape" >
         </activity>
-        <activity
-            android:name=".activity.dailyoffice.DailyActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.dailyoffice.DailyMenuActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.dailyoffice.fragment.DailyOnlineAct"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.dailyoffice.DailyCommonAct"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.dailyoffice.fragment.DailyReplyThemeAct"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.dailyoffice.fragment.DailyNoticeAct"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.movedapprove.MovedActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.movedapprove.MovedMenuActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".activity.dailyoffice.fragment.DailyOnlineDeAct"
-            android:screenOrientation="landscape" >
-        </activity>
+
+
 
         <!-- 离线数据 -->
         <activity
@@ -218,11 +134,7 @@
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
+
 
 
     </application>
