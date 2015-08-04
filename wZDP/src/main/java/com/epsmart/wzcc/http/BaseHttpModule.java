@@ -146,6 +146,7 @@ public class BaseHttpModule {
 				requestListener.onSuccess(response);
 				return;
 			}
+			//
 			if (null == xmlParserProvider) {
 				processResponse(BaseHttpModule.this, response,
 						getBaseXmlParser(response, parseHandler),
@@ -194,7 +195,6 @@ public class BaseHttpModule {
 		XmlParseModule xmlParseModule = new XmlParseModule(response);
 		xmlParseModule.setBaseXmlParser(baseXmlParser);
 		// 开始解析
-
 		xmlParseModule.parseXml();
 		if (null != callBack) {
 			callBack.processResponse(httpModule, xmlParseModule

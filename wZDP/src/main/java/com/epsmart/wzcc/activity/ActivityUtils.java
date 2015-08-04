@@ -20,7 +20,6 @@ public class ActivityUtils {
 
 	/**
 	 * 全屏
-	 * 
 	 * @param mActivity
 	 */
 	public static void requestFullscreen(final Activity mActivity) {

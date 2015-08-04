@@ -88,13 +88,15 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 			RequestCallback requestCallback) {
 		this.requestAction = requestAction;
 		this.requestCallback = requestCallback;
-		if (null == httpClient)
-			httpClient = new DefaultHttpClient();
+//		if (null == httpClient)// 本例用不到
+//			httpClient = new DefaultHttpClient();
 	}
 
 	public void run() {
 		try {
-			if (requestType == RequestType.HTTP) {
+			if(requestType == RequestType.TXTTEST){
+				responseProcess(nativeTxtTest());
+			}else if (requestType == RequestType.HTTP) {
 				responseProcess(buildAndExecuteHttpRequest());
 			} else if (requestType == RequestType.WEBSERVICE) {
 				responseProcess(buildAndExecuteWebServiceRequest());
@@ -582,13 +584,16 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 		return respStr;
 	}
 
-	// 本地文件 测试用例
-	// protected String buildAndExecuteWebServiceRequest() {
-	// Bundle queryBundle = requestAction.queryBundle;
-	// String fileName = (String) queryBundle.get("txt");
-	// Log.i("AsyncHttpRequest", "....text fileName..>>" + fileName);
-	// return getFileToStr(fileName);//
-	// }
+	/**
+	 * 本地本件模拟测试方法 数据来本项目根目录txt文件
+	 * @return
+	 */
+	 protected String nativeTxtTest() {
+	 Bundle queryBundle = requestAction.queryBundle;
+	 String fileName = (String) queryBundle.get("txt");
+	 Log.w("AsyncHttpRequest", "....text fileName..>>" + fileName);
+	 return getFileToStr(fileName);//
+	 }
 
 	@Override
 	protected String buildAndExecuteWebServiceRequest() throws IOException,
@@ -696,6 +701,7 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 		} catch (Exception e) {
 		}
 		String result = temp.toString();
+		Log.w("AsyncHttpRequset","项目文件内容="+result);
 		return result;
 	}
 

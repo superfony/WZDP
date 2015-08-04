@@ -91,7 +91,7 @@ public class LoginAct extends Activity {
 				userpwdMd5 = Pub_method.Md5(userpwd).toLowerCase();
 				deviceID = Pub_method.getDeviceID(LoginAct.this);
 				System.out.println("devices.....deviceID=" + deviceID);
-				Log.d("deviceid", "........." + deviceID);
+
 				if (username.equals("") || userpwd.equals("")) {
 					toast(activity, "用户名、密码不能为空,请输入!");
 					closeDialog();
@@ -110,8 +110,7 @@ public class LoginAct extends Activity {
 
 	private void sendLogin(String userName, String userpwdMd5, String deviceID,
 			int systemID) {
-		// Client client = new Client();
-		// rbp = client.getLoginInfo(userName, userpwdMd5, deviceID, systemID);
+
 		user = new User();
 		user.setFace(username);
 		user.setPwd(userpwd);

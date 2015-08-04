@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -16,8 +15,8 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
             android:layout_marginRight="50dip"
+            android:layout_marginTop="200dp"
             android:gravity="center_vertical">
 
             <!--货物交接 -->
@@ -25,23 +24,23 @@
                 android:id="@+id/transfer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sr_transfer_btn"/>
+                android:background="@drawable/sr_transfer_btn" />
             <!--验收入库 -->
             <ImageButton
                 android:id="@+id/ruku"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/transfer"
                 android:layout_marginLeft="70dip"
-                android:background="@drawable/sr_ruku_btn"/>
+                android:layout_toRightOf="@id/transfer"
+                android:background="@drawable/sr_ruku_btn" />
             <!--领料出库 -->
             <ImageButton
                 android:id="@+id/chuku"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/ruku"
                 android:layout_marginLeft="70dip"
-                android:background="@drawable/sr_chuku_btn"/>
+                android:layout_toRightOf="@id/ruku"
+                android:background="@drawable/sr_chuku_btn" />
 
         </RelativeLayout>
 
@@ -57,23 +56,23 @@
                 android:id="@+id/info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/sr_info_btn"/>
+                android:background="@drawable/sr_info_btn" />
             <!--数据同步 -->
             <ImageButton
                 android:id="@+id/data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/info"
                 android:layout_marginLeft="70dip"
-                android:background="@drawable/sr_data_btn"/>
+                android:layout_toRightOf="@id/info"
+                android:background="@drawable/sr_data_btn" />
             <!--系统设置 -->
             <ImageButton
                 android:id="@+id/setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/data"
                 android:layout_marginLeft="70dip"
-                android:background="@drawable/sr_setting_btn"/>
+                android:layout_toRightOf="@id/data"
+                android:background="@drawable/sr_setting_btn" />
 
         </RelativeLayout>
     </LinearLayout>

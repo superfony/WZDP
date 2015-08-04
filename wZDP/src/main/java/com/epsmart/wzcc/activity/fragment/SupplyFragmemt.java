@@ -21,29 +21,14 @@ public class SupplyFragmemt extends CommonFragment implements
 		CommonActivity.state=position;
 		switch (position) {
 		case 0:
-			// 生产过程管理
-			if(!PermissHelp.isPermiss("003")){
-				PermissHelp.showToast(activity);
-				return;
-			}
+
 			Common.replaceRightFragment(activity, new ProductionFragment(), false,R.id.fragment_right_container);
 			break;
 		case 1:
-			// 质量监督管理
-			if(!PermissHelp.isPermiss("004")){
-				PermissHelp.showToast(activity);
-				return;
-			}
 			Common.replaceRightFragment(activity, new ItemFragment(), false,R.id.fragment_right_container);
 			break;
 		case 2:
-			// 关键点见证
-			if(!PermissHelp.isPermiss("005")){
-				PermissHelp.showToast(activity);
-				return;
-			}
 			Common.replaceRightFragment(activity, new PointFragment(), false,R.id.fragment_right_container);
-
 			break;
 		default:
 			break;
