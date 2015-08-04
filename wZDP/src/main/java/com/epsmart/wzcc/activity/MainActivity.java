@@ -90,8 +90,6 @@ public class MainActivity extends ClientActivity {
 			}
 		});
 
-
-
 	}
 
 	@Override
