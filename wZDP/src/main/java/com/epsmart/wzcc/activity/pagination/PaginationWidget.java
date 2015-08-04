@@ -463,8 +463,8 @@ public class PaginationWidget<T> {
 	 * 网络请求
 	 */
 	public void loadPaginationData() {
-
 		requestAction.serviceName = serviceName;
+		requestAction.queryBundle.putString("txt","listtest.txt");// 测试语句
 		httpModule.executeRequest(requestAction, parseHandler,
 				new ProcessResponse(), requestType);
 	}

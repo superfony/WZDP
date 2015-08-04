@@ -31,7 +31,7 @@ public class BaseRequest implements Runnable, Serializable {
 	protected String serviceUrl = null;
 
 	public enum RequestType {
-		HTTP, WEBSERVICE,THRIFT
+		HTTP, WEBSERVICE,THRIFT,TXTTEST
 	}
 
 	public void run() {

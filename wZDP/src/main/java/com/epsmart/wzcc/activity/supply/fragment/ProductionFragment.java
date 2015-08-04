@@ -102,7 +102,7 @@ public class ProductionFragment extends CommonFragment {
                     RequestParamConfig.serviceNameSpace);
             paginationWidget.getHttpModule().setServiceUrl(
                     RequestParamConfig.ServerUrl);
-            paginationWidget.setRequestType(RequestType.THRIFT);// TODO
+            paginationWidget.setRequestType(RequestType.TXTTEST);// TODO
             initPaginationWidget(paginationWidget);
             paginationWidget.loadPaginationData();
         } else {
@@ -119,7 +119,7 @@ public class ProductionFragment extends CommonFragment {
                     RequestParamConfig.serviceNameSpace);
             paginationWidget.getHttpModule().setServiceUrl(
                     RequestParamConfig.ServerUrl);
-            paginationWidget.setRequestType(RequestType.THRIFT);
+            paginationWidget.setRequestType(RequestType.TXTTEST);
             initPaginationWidget(paginationWidget);
             paginationWidget.requestAction = requestAction;
             paginationWidget.lv_page_body.setTag(tag);
