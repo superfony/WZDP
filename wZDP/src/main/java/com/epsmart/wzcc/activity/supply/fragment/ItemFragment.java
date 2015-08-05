@@ -201,7 +201,7 @@ public class ItemFragment extends SupplyFragmemt {
 		ActionBar actionBar = activity.getActionBar();
 		View view = actionBar.getCustomView();
 		ImageView title_image = (ImageView) view.findViewById(R.id.title_image);
-		title_image.setBackgroundResource(R.drawable.supply_cs);
+		title_image.setBackgroundResource(R.drawable.sr_transfer_title);
 
 	}
 

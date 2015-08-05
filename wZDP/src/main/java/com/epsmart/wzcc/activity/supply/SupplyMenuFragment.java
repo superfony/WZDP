@@ -24,10 +24,9 @@ import com.fony.menu.widget.slidingmenu.fragment.SlidingMenuFragment;
 public class SupplyMenuFragment extends SlidingMenuFragment {
 	private View contextView = null;
 	private LayoutInflater inflater = null;
-	public ImageView point_imag;
-	public ImageView product_imag;
-	public ImageView zl_imag;
-	public ImageView equip_imag;
+	public ImageView transfer_left;
+	public ImageView ruku_left;
+	public ImageView chuku_left;
 	private Fragment newContent = null;
 
 	public void setNewContent(Fragment newContent) {
@@ -40,25 +39,22 @@ public class SupplyMenuFragment extends SlidingMenuFragment {
 		this.inflater = inflater;
 		contextView = inflater.inflate(R.layout.slide_menu_support, container,
 				false);
-		point_imag = (ImageView) contextView.findViewById(R.id.point_imag);
-		product_imag = (ImageView) contextView.findViewById(R.id.product_imag);
-		zl_imag = (ImageView) contextView.findViewById(R.id.zl_imag);
-		equip_imag = (ImageView) contextView.findViewById(R.id.equip_imag);
+
+		transfer_left = (ImageView) contextView.findViewById(R.id.transfer_left);
+		ruku_left = (ImageView) contextView.findViewById(R.id.ruku_left);
+		chuku_left = (ImageView) contextView.findViewById(R.id.chuku_left);
 
 		if (newContent instanceof ProductionFragment) {
-			product_imag.setBackgroundResource(R.drawable.product_down);
+			ruku_left.setBackgroundResource(R.drawable.sr_ruku_down);
 		} else if (newContent instanceof ItemFragment) {
-			zl_imag.setBackgroundResource(R.drawable.zl_down);
-		} else if (newContent instanceof PointFragment) {
-			point_imag.setBackgroundResource(R.drawable.point_down);
+			transfer_left.setBackgroundResource(R.drawable.sr_transfer_down);
 		} else if (newContent instanceof EquipmentFragment) {
-			equip_imag.setBackgroundResource(R.drawable.equip_down);
+			chuku_left.setBackgroundResource(R.drawable.sr_chuku_down);
 		}
 
-		point_imag.setOnClickListener(click_image);
-		product_imag.setOnClickListener(click_image);
-		zl_imag.setOnClickListener(click_image);
-		equip_imag.setOnClickListener(click_image);
+		ruku_left.setOnClickListener(click_image);
+		transfer_left.setOnClickListener(click_image);
+		chuku_left.setOnClickListener(click_image);
 		return contextView;
 	}
 
@@ -67,30 +63,21 @@ public class SupplyMenuFragment extends SlidingMenuFragment {
 		public void onClick(View v) {
 
 			int id = v.getId();
-			if (id == R.id.product_imag) {
+			if (id == R.id.ruku_left) {
 				newContent = new ProductionFragment();
-				product_imag.setBackgroundResource(R.drawable.product_down);
-				zl_imag.setBackgroundResource(R.drawable.zl_up);
-				point_imag.setBackgroundResource(R.drawable.point_up);
-				equip_imag.setBackgroundResource(R.drawable.equip_up);
-			} else if (id == R.id.zl_imag) {
+				ruku_left.setBackgroundResource(R.drawable.sr_ruku_down);
+				transfer_left.setBackgroundResource(R.drawable.sr_transfer_up);
+				chuku_left.setBackgroundResource(R.drawable.sr_chuku_up);
+			} else if (id == R.id.transfer_left) {
 				newContent = new ItemFragment();
-				zl_imag.setBackgroundResource(R.drawable.zl_down);
-				point_imag.setBackgroundResource(R.drawable.point_up);
-				product_imag.setBackgroundResource(R.drawable.product_up);
-				equip_imag.setBackgroundResource(R.drawable.equip_up);
-			} else if (id == R.id.point_imag) {
+				transfer_left.setBackgroundResource(R.drawable.zl_down);
+				ruku_left.setBackgroundResource(R.drawable.sr_ruku_up);
+				chuku_left.setBackgroundResource(R.drawable.sr_chuku_up);
+			} else if (id == R.id.chuku_left) {
 				newContent = new PointFragment();
-				point_imag.setBackgroundResource(R.drawable.point_down);
-				product_imag.setBackgroundResource(R.drawable.product_up);
-				zl_imag.setBackgroundResource(R.drawable.zl_up);
-				equip_imag.setBackgroundResource(R.drawable.equip_up);
-			} else if (id == R.id.equip_imag) {
-				newContent = new EquipmentFragment();
-				equip_imag.setBackgroundResource(R.drawable.equip_down);
-				point_imag.setBackgroundResource(R.drawable.point_up);
-				product_imag.setBackgroundResource(R.drawable.product_up);
-				zl_imag.setBackgroundResource(R.drawable.zl_up);
+				chuku_left.setBackgroundResource(R.drawable.sr_chuku_down);
+				ruku_left.setBackgroundResource(R.drawable.sr_ruku_down);
+				transfer_left.setBackgroundResource(R.drawable.sr_transfer_down);
 			}
 
 			if (newContent != null)

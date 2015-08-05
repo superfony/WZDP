@@ -1,7 +1,5 @@
 package com.epsmart.wzcc.activity.supply.fragment;
 
-import java.util.ArrayList;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,7 +12,6 @@ import android.widget.ImageView;
 import com.epsmart.wzcc.R;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.fragment.CommonFragment;
-import com.epsmart.wzcc.activity.fragment.SupplyFragmemt;
 import com.epsmart.wzcc.activity.pagination.PaginationWidget;
 import com.epsmart.wzcc.activity.search.QueryDialogListener;
 import com.epsmart.wzcc.activity.supply.bean.Field;
@@ -27,6 +24,8 @@ import com.epsmart.wzcc.common.PermissHelp;
 import com.epsmart.wzcc.common.RequestXmlHelp;
 import com.epsmart.wzcc.http.request.BaseRequest.RequestType;
 import com.epsmart.wzcc.http.request.RequestAction;
+
+import java.util.ArrayList;
 
 /*
  * 生产过程监控 列表
@@ -68,7 +67,7 @@ public class ProductionFragment extends CommonFragment {
         ActionBar actionBar = activity.getActionBar();
         View view = actionBar.getCustomView();
         ImageView title_image = (ImageView) view.findViewById(R.id.title_image);
-        title_image.setBackgroundResource(R.drawable.product_cs);
+        title_image.setBackgroundResource(R.drawable.sr_ruku_title);
 
     }
 
@@ -102,7 +101,7 @@ public class ProductionFragment extends CommonFragment {
                     RequestParamConfig.serviceNameSpace);
             paginationWidget.getHttpModule().setServiceUrl(
                     RequestParamConfig.ServerUrl);
-            paginationWidget.setRequestType(RequestType.TXTTEST);// TODO
+            paginationWidget.setRequestType(RequestType.THRIFT);// TODO
             initPaginationWidget(paginationWidget);
             paginationWidget.loadPaginationData();
         } else {
@@ -119,7 +118,7 @@ public class ProductionFragment extends CommonFragment {
                     RequestParamConfig.serviceNameSpace);
             paginationWidget.getHttpModule().setServiceUrl(
                     RequestParamConfig.ServerUrl);
-            paginationWidget.setRequestType(RequestType.TXTTEST);
+            paginationWidget.setRequestType(RequestType.THRIFT);
             initPaginationWidget(paginationWidget);
             paginationWidget.requestAction = requestAction;
             paginationWidget.lv_page_body.setTag(tag);

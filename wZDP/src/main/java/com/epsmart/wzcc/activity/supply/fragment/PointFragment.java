@@ -171,7 +171,7 @@ public class PointFragment extends SupplyFragmemt {
 		ActionBar actionBar = activity.getActionBar();
 		View view = actionBar.getCustomView();
 		ImageView title_image = (ImageView) view.findViewById(R.id.title_image);
-		title_image.setBackgroundResource(R.drawable.point_cs);
+		title_image.setBackgroundResource(R.drawable.sr_chuku_title);
 		
 	}
 	OnClickListener addOnLister = new OnClickListener() {

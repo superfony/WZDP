@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.epsmart.wzcc.activity.CommonActivity;
-import com.epsmart.wzcc.activity.supply.fragment.EquipmentFragment;
 import com.epsmart.wzcc.activity.supply.fragment.ItemFragment;
 import com.epsmart.wzcc.activity.supply.fragment.PointFragment;
 import com.epsmart.wzcc.activity.supply.fragment.ProductionFragment;
 import com.fony.menu.widget.slidingmenu.fragment.SlidingMenuFragment;
 
 /**
- * @author fony 供应商现场管理
+ * @author fony 货物交接、验收入库、领料出库
  */
 public class SupplyActivity extends CommonActivity {
 	String TAG = SupplyActivity.class.getName();
@@ -55,9 +54,6 @@ public class SupplyActivity extends CommonActivity {
 				break;
 			case 2:
 				mContent = new PointFragment();
-				break;
-			case 3:
-				mContent = new EquipmentFragment();
 				break;
 			default:
 				break;
