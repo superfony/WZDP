@@ -29,7 +29,7 @@ import com.epsmart.wzcc.http.request.BaseRequest.RequestType;
 import com.epsmart.wzcc.http.request.RequestAction;
 
 /*
- * 生产过程监控 列表
+ * 物资验收列表界面
  */
 public class ProductionFragment extends CommonFragment {
     private View view;
@@ -142,7 +142,7 @@ public class ProductionFragment extends CommonFragment {
                     public void onItemClick(AdapterView<?> arg0, View arg1,
                                             int position, long arg3) {
 
-                        if (position == 0
+             /*           if (position == 0
                                 || paginationWidget.getPageBodyDatas().size() + 1 == position) {
                             return;
                         }
@@ -151,10 +151,7 @@ public class ProductionFragment extends CommonFragment {
 
                         Field id = workOrder.fields.get("id");
                         Field amount = workOrder.fields.get("amount");
-                        int mount = Integer.valueOf(amount.fieldContent);
-                        Field materialtype = workOrder.fields.get("materialtype");
-                        String type = materialtype.fieldContent;
-                        PDFragment pdfragment = new PDFragment();
+
                         ProductTwoFragment pdtwo = new ProductTwoFragment();
                         Bundle bundle = new Bundle();
                         bundle.putString("reqParam", RequestXmlHelp.getCommonXML(RequestXmlHelp
@@ -166,19 +163,14 @@ public class ProductionFragment extends CommonFragment {
                                 .append(RequestXmlHelp.getReqXML(
                                         "user_type",
                                         PermissHelp.getUserType("000")))));
-                        bundle.putString("reqP", RequestXmlHelp
-                                .getReqXML("id", id.fieldContent)
-                                .toString());
-                        if (mount > 1 && "变压器".equals(type)) {
+
                             pdtwo.setArguments(bundle);
                             Common.replaceRightFragment(activity, pdtwo,
-                                    false, R.id.content);
-                        } else {
-                            pdfragment.setArguments(bundle);
-                            activity.setSmGone();
-                            Common.replaceRightFragment(activity, pdfragment,
-                                    false, R.id.content);
-                        }
+                                    false, R.id.content);*/
+                        // 这里进行一下调整
+
+
+
                     }
                 });
         paginationWidget.setServiceName(RequestParamConfig.procedureReq);
