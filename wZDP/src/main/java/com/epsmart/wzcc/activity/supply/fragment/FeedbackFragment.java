@@ -126,7 +126,7 @@ public class FeedbackFragment extends SupplyFragmemt {
 		requestPram.bizId = 1004;
 		requestPram.password = "password";
 		requestPram.pluginId = 119;
-		requestPram.userName = appContext.user.getUid();
+		requestPram.userid = appContext.user.getUid();
 		requestPram.methodName = RequestParamConfig.qualityIssueDownload;
 		requestPram.param = getArguments().getString("reqParam");
 		requestAction.setReqPram(requestPram);
@@ -155,7 +155,7 @@ public class FeedbackFragment extends SupplyFragmemt {
 		requestPram.bizId = 1004;
 		requestPram.password = "";
 		requestPram.pluginId = 119;
-		requestPram.userName = appContext.user.getUid();
+		requestPram.userid = appContext.user.getUid();
 		requestPram.methodName = RequestParamConfig.qualityIssueUpload;
 		requestPram.param = fillHelpNew
 				.getparams(getArguments().getString("reqP")+RequestXmlHelp.getReqXML("user_type", PermissHelp.getUserType("000")));

@@ -2,13 +2,17 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
     -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
+
+
         -->
     </style>
 
@@ -48,7 +52,9 @@
     <!--
     <Button
                 android:textSize="18sp"
-                />
+                />
+
+
     -->
     <style name="Content_Button" parent="ViewBase">
         <item name="android:layout_width">wrap_content</item>
@@ -94,9 +100,8 @@
 
     <!-- 顶部标签的样式 -->
     <style name="frame_button">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">fill_parent</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/frame_button_bg</item>
         <item name="android:textColor">@color/frame_button_text_light</item>
     </style>
@@ -214,5 +219,10 @@
         <item name="android:dividerHeight">2px</item>
         <item name="android:listSelector">@android:color/transparent</item>
         <item name="android:fadeScrollbars">true</item>
+    </style>
+
+    <style name="XGCustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>

@@ -109,7 +109,7 @@ public class PermissHelp {
 			 return null;
 		 User user=new User();
 		 JSONObject jo=new JSONObject(userInfoAll);
-		int uid= Integer.parseInt(jo.getString("usernamecode"));
+		String uid= jo.getString("usernamecode");
 		 user.setUid(uid);
 		 String name=jo.getString("username");
 		 user.setName(name);

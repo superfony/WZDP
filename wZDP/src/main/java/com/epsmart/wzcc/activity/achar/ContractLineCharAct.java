@@ -67,7 +67,7 @@ public class ContractLineCharAct extends IndicatorFragmentActivity {
 			requestPram.bizId=1004;
 			requestPram.password="password";
 			requestPram.pluginId=119;
-			requestPram.userName=appContext.user.getUid();
+			//requestPram.userName=appContext.user.getUid();
 			requestPram.methodName=RequestParamConfig.projectmilestone;
 			requestAction.setReqPram(requestPram);
 			super.loadData(requestPram);

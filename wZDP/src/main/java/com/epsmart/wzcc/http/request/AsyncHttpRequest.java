@@ -147,6 +147,11 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 		}
 	}
 
+	@Override
+	protected void setConnectTimeout(int connectTimeout) {
+		super.setConnectTimeout(connectTimeout);
+	}
+
 	/**
 	 * 添加缓存数据的处理 先判断网络状态 1、固定模板，较长时间不需要更新。 2、保存待提交，提交后清除数据。 3、需要区分哪些是模板
 	 * 哪些是需要提交保存的？ 4、列表的需要实时刷新的数据 每天刷新一下缓存数据：先判断是
@@ -171,253 +176,260 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 		StringBuilder result = new StringBuilder();
 		SoapObject request = new SoapObject(
 				RequestParamConfig.serviceNameSpace, params.methodName);
-		if (params.methodName.equals("userLogin")) {// 权限
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("pwd", "");
-			dao = dm.getDao(TemplateTable.class);
-			state = "0";
-		} else if (params.methodName.equals(RequestParamConfig.procedureReq)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			request.addProperty("pageNo", Integer.toString(params.pageNo));
-			request.addProperty("pageSize", Integer.toString(params.pageSize));
-			dao = dm.getDao(PageDateTable.class);
-			state = "1";
-
-		} else if (params.methodName.equals(RequestParamConfig.keyPotReq)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			request.addProperty("pageNo", Integer.toString(params.pageNo));
-			request.addProperty("pageSize", Integer.toString(params.pageSize));
-			dao = dm.getDao(PageDateTable.class);
-			state = "1";
-		} else if (params.methodName.equals(RequestParamConfig.projectlistReq)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			request.addProperty("pageNo", Integer.toString(params.pageNo));
-			request.addProperty("pageSize", Integer.toString(params.pageSize));
-			dao = dm.getDao(PageDateTable.class);
-			state = "1";
-		} else if (params.methodName
-				.equals(RequestParamConfig.procedureDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName.equals(RequestParamConfig.procedureUpload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(SubmitDateTable.class);
-			state = "3";
-		} else if (params.methodName
-				.equals(RequestParamConfig.issuelistDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			request.addProperty("pageNo", Integer.toString(params.pageNo));
-			request.addProperty("pageSize", Integer.toString(params.pageSize));
-			dao = dm.getDao(PageDateTable.class);
-			state = "1";
-		} else if (params.methodName
-				.equals(RequestParamConfig.qualityIssueDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName
-				.equals(RequestParamConfig.qualityIssueUpload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(SubmitDateTable.class);
-			state = "3";
-		} else if (params.methodName
-				.equals(RequestParamConfig.keyPotQueryDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName
-				.equals(RequestParamConfig.keyPotQueryUpload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(SubmitDateTable.class);
-			state = "3";
-		} else if (params.methodName.equals(RequestParamConfig.projectQueryReq)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName
-				.equals(RequestParamConfig.projectNodeUpload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(SubmitDateTable.class);
-			state = "3";
-		} else if (params.methodName
-				.equals(RequestParamConfig.materialslistReq)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			request.addProperty("pageNo", Integer.toString(params.pageNo));
-			request.addProperty("pageSize", Integer.toString(params.pageSize));
-			dao = dm.getDao(PageDateTable.class);
-			state = "1";
-		} else if (params.methodName
-				.equals(RequestParamConfig.materialsReceiveReq)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName
-				.equals(RequestParamConfig.projectReceiveUpload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(SubmitDateTable.class);
-			state = "3";
-		} else if (params.methodName
-				.equals(RequestParamConfig.materialsListReq2)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			request.addProperty("pageNo", Integer.toString(params.pageNo));
-			request.addProperty("pageSize", Integer.toString(params.pageSize));
-			dao = dm.getDao(PageDateTable.class);
-			state = "1";
-		} else if (params.methodName
-				.equals(RequestParamConfig.servicelistDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			request.addProperty("pageNo", Integer.toString(params.pageNo));
-			request.addProperty("pageSize", Integer.toString(params.pageSize));
-			dao = dm.getDao(PageDateTable.class);
-			state = "1";
-		} else if (params.methodName
-				.equals(RequestParamConfig.newserviceslistupload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(SubmitDateTable.class);
-			state = "3";
-		} else if (params.methodName
-				.equals(RequestParamConfig.newServicelistDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName.equals(RequestParamConfig.serviceDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName
-				.equals(RequestParamConfig.serviceRequireUpload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(SubmitDateTable.class);
-			state = "3";
-		} else if (params.methodName.equals(RequestParamConfig.contructAnlysis)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName.equals(RequestParamConfig.contractsign)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName.equals(RequestParamConfig.materialsupply)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName
-				.equals(RequestParamConfig.projectmilestone)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName.equals(RequestParamConfig.dairylistReq)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("usertype", params.user_type);
-			request.addProperty("pageNo", Integer.toString(params.pageNo));
-			request.addProperty("pageSize", Integer.toString(params.pageSize));
-			dao = dm.getDao(PageDateTable.class);
-			state = "1";
-		} else if (params.methodName.equals(RequestParamConfig.dairyReceiveReq)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(TemplateTable.class);
-			state = "2";
-		} else if (params.methodName
-				.equals(RequestParamConfig.dairyReceiveUpload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param", params.param);
-			dao = dm.getDao(SubmitDateTable.class);
-			state = "3";
-		} else if (params.methodName
-				.equals(RequestParamConfig.linelistDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param",params.param);
-			request.addProperty("pageNo",Integer.toString(params.pageNo));
-			request.addProperty("pageSize",Integer.toString(params.pageSize));
-			dao = dm.getDao(PageDateTable.class);
-			state = "1";
-		}else if (params.methodName.equals(RequestParamConfig.ehvProjectList)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("pageNo",Integer.toString(params.pageNo));
-			request.addProperty("pageSize",Integer.toString(params.pageSize));
-		}else if (params.methodName.equals(RequestParamConfig.ehvPlanDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param",params.param);
-		}else if (params.methodName.equals(RequestParamConfig.ehvReportDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param",params.param);
-		}else if (params.methodName.equals(RequestParamConfig.ehvplanrep)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param",params.param);
-		}else if (params.methodName.equals(RequestParamConfig.ehvTempDownload)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param",params.param);
-		}
-
-		else if (params.methodName.equals(RequestParamConfig.ehvPlan)) {
-			request.addProperty("pspid",params.param);
-		}else if (params.methodName.equals(RequestParamConfig.ehvReportReq)) {
-			request.addProperty("pspid",params.param);
-		}else if (params.methodName.equals(RequestParamConfig.getSubList)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("pagenum",Integer.toString(params.pageNo));
-			request.addProperty("pageSize",Integer.toString(params.pageSize));
-		}else if (params.methodName.equals(RequestParamConfig.getReplayList)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param",params.param);
-		}else if (params.methodName.equals(RequestParamConfig.submitReplay)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param",params.param);
-			request.addProperty("subid",params.password);
-		}else if (params.methodName.equals(RequestParamConfig.buildSub)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param",params.param);
-		}else if (params.methodName.equals(RequestParamConfig.getPersionList)) {
-			request.addProperty("username", Integer.toString(params.userName));
+//		if (params.methodName.equals("userLogin")) {// 权限
+//			request.addProperty("username", params.userid);
+//			request.addProperty("pwd", "");
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "0";
+//		} else if (params.methodName.equals(RequestParamConfig.procedureReq)) {
+//			request.addProperty("username",params.userid);
+//			request.addProperty("param", params.param);
+//			request.addProperty("pageNo", Integer.toString(params.pageNo));
+//			request.addProperty("pageSize", Integer.toString(params.pageSize));
+//			dao = dm.getDao(PageDateTable.class);
+//			state = "1";
+//
+//		} else if (params.methodName.equals(RequestParamConfig.keyPotReq)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			request.addProperty("pageNo", Integer.toString(params.pageNo));
+//			request.addProperty("pageSize", Integer.toString(params.pageSize));
+//			dao = dm.getDao(PageDateTable.class);
+//			state = "1";
+//		} else if (params.methodName.equals(RequestParamConfig.projectlistReq)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			request.addProperty("pageNo", Integer.toString(params.pageNo));
+//			request.addProperty("pageSize", Integer.toString(params.pageSize));
+//			dao = dm.getDao(PageDateTable.class);
+//			state = "1";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.procedureDownload)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName.equals(RequestParamConfig.procedureUpload)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(SubmitDateTable.class);
+//			state = "3";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.issuelistDownload)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			request.addProperty("pageNo", Integer.toString(params.pageNo));
+//			request.addProperty("pageSize", Integer.toString(params.pageSize));
+//			dao = dm.getDao(PageDateTable.class);
+//			state = "1";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.qualityIssueDownload)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.qualityIssueUpload)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(SubmitDateTable.class);
+//			state = "3";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.keyPotQueryDownload)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.keyPotQueryUpload)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(SubmitDateTable.class);
+//			state = "3";
+//		} else if (params.methodName.equals(RequestParamConfig.projectQueryReq)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.projectNodeUpload)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(SubmitDateTable.class);
+//			state = "3";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.materialslistReq)) {
+//			request.addProperty("username", params.userid);
+//			request.addProperty("param", params.param);
+//			request.addProperty("pageNo", Integer.toString(params.pageNo));
+//			request.addProperty("pageSize", Integer.toString(params.pageSize));
+//			dao = dm.getDao(PageDateTable.class);
+//			state = "1";
+//		}
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.materialsReceiveReq)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.projectReceiveUpload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(SubmitDateTable.class);
+//			state = "3";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.materialsListReq2)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			request.addProperty("pageNo", Integer.toString(params.pageNo));
+//			request.addProperty("pageSize", Integer.toString(params.pageSize));
+//			dao = dm.getDao(PageDateTable.class);
+//			state = "1";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.servicelistDownload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			request.addProperty("pageNo", Integer.toString(params.pageNo));
+//			request.addProperty("pageSize", Integer.toString(params.pageSize));
+//			dao = dm.getDao(PageDateTable.class);
+//			state = "1";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.newserviceslistupload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(SubmitDateTable.class);
+//			state = "3";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.newServicelistDownload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName.equals(RequestParamConfig.serviceDownload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.serviceRequireUpload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(SubmitDateTable.class);
+//			state = "3";
+//		} else if (params.methodName.equals(RequestParamConfig.contructAnlysis)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName.equals(RequestParamConfig.contractsign)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName.equals(RequestParamConfig.materialsupply)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.projectmilestone)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName.equals(RequestParamConfig.dairylistReq)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("usertype", params.user_type);
+//			request.addProperty("pageNo", Integer.toString(params.pageNo));
+//			request.addProperty("pageSize", Integer.toString(params.pageSize));
+//			dao = dm.getDao(PageDateTable.class);
+//			state = "1";
+//		} else if (params.methodName.equals(RequestParamConfig.dairyReceiveReq)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(TemplateTable.class);
+//			state = "2";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.dairyReceiveUpload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//			dao = dm.getDao(SubmitDateTable.class);
+//			state = "3";
+//		} else if (params.methodName
+//				.equals(RequestParamConfig.linelistDownload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
 //			request.addProperty("param",params.param);
-		}else if(params.methodName.equals(RequestParamConfig.getHeadImage)){
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("headimage",params.param);
-		}else if(params.methodName.equals(RequestParamConfig.getHeadImg)){
-			request.addProperty("username", Integer.toString(params.userName));
-		}else if(params.methodName.equals(RequestParamConfig.delSubject)){
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("subid", params.password);
-		}else if(params.methodName.equals(RequestParamConfig.getNoRedNum)){
-			request.addProperty("username", Integer.toString(params.userName));
-		}else if(params.methodName.equals(RequestParamConfig.getNoticeList)){
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("pageNo",Integer.toString(params.pageNo));
+//			request.addProperty("pageNo",Integer.toString(params.pageNo));
+//			request.addProperty("pageSize",Integer.toString(params.pageSize));
+//			dao = dm.getDao(PageDateTable.class);
+//			state = "1";
+//		}else if (params.methodName.equals(RequestParamConfig.ehvProjectList)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("pageNo",Integer.toString(params.pageNo));
+//			request.addProperty("pageSize",Integer.toString(params.pageSize));
+//		}else if (params.methodName.equals(RequestParamConfig.ehvPlanDownload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param",params.param);
+//		}else if (params.methodName.equals(RequestParamConfig.ehvReportDownload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param",params.param);
+//		}else if (params.methodName.equals(RequestParamConfig.ehvplanrep)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param",params.param);
+//		}else if (params.methodName.equals(RequestParamConfig.ehvTempDownload)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param",params.param);
+//		}
+//
+//		else if (params.methodName.equals(RequestParamConfig.ehvPlan)) {
+//			request.addProperty("pspid",params.param);
+//		}else if (params.methodName.equals(RequestParamConfig.ehvReportReq)) {
+//			request.addProperty("pspid",params.param);
+//		}else if (params.methodName.equals(RequestParamConfig.getSubList)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("pagenum",Integer.toString(params.pageNo));
+//			request.addProperty("pageSize",Integer.toString(params.pageSize));
+//		}else if (params.methodName.equals(RequestParamConfig.getReplayList)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param",params.param);
+//		}else if (params.methodName.equals(RequestParamConfig.submitReplay)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param",params.param);
+//			request.addProperty("subid",params.password);
+//		}else if (params.methodName.equals(RequestParamConfig.buildSub)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param",params.param);
+//		}else if (params.methodName.equals(RequestParamConfig.getPersionList)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+////			request.addProperty("param",params.param);
+//		}else if(params.methodName.equals(RequestParamConfig.getHeadImage)){
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("headimage",params.param);
+//		}else if(params.methodName.equals(RequestParamConfig.getHeadImg)){
+//			request.addProperty("username", Integer.toString(params.userName));
+//		}else if(params.methodName.equals(RequestParamConfig.delSubject)){
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("subid", params.password);
+//		}else if(params.methodName.equals(RequestParamConfig.getNoRedNum)){
+//			request.addProperty("username", Integer.toString(params.userName));
+//		}else if(params.methodName.equals(RequestParamConfig.getNoticeList)){
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("pageNo",Integer.toString(params.pageNo));
+//			request.addProperty("pageSize", Integer.toString(params.pageSize));
+//		}else if(params.methodName.equals(RequestParamConfig.getNoticeDetail)){
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("noticeid", params.password);
+//		}else if (params.methodName.equals(RequestParamConfig.LocationUpdate)) {
+//			request.addProperty("username", Integer.toString(params.userName));
+//			request.addProperty("param", params.param);
+//		}
+      if (params.methodName.equals(RequestParamConfig.receiveList)){
+      Log.i("","............");
+			request.addProperty("username", params.userid);
+			request.addProperty("pageNo", Integer.toString(params.pageNo));
 			request.addProperty("pageSize", Integer.toString(params.pageSize));
-		}else if(params.methodName.equals(RequestParamConfig.getNoticeDetail)){
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("noticeid", params.password);
-		}else if (params.methodName.equals(RequestParamConfig.LocationUpdate)) {
-			request.addProperty("username", Integer.toString(params.userName));
-			request.addProperty("param",params.param);
-		}else{
+		}else {
 			System.out.println("接口名错误或参数不正确！！");
 		}
 		// 返回离线数据的操作 1、模板信息 2、提交信息
@@ -428,7 +440,7 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 					list = dm.getMoreWhereList(
 							new String[] { "methodName", "userName", "param" },
 							new String[] { params.methodName,
-									Integer.toString(params.userName),
+									params.userid,
 									params.param });
 
 				} else if ("1".equals(state)) {
@@ -436,7 +448,7 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 							new String[] { "methodName", "userName", "param",
 									"pageNo", "pageSize"},
 							new String[] { params.methodName,
-									Integer.toString(params.userName),
+									params.userid,
 									params.param,
 									Integer.toString(params.pageNo),
 									Integer.toString(params.pageSize) });
@@ -453,13 +465,13 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 					list = dm.getMoreWhereList(
 							new String[] { "methodName", "userName" },
 							new String[] { params.methodName,
-									Integer.toString(params.userName) });
+									params.userid });
 				}else if("3".equals(state)){// 提交表单相关 这里只有写操作
 					SubmitDateTable submitData = null;
 					submitData = new SubmitDateTable();
 					submitData.setMethodName(params.methodName);
 					submitData.setParam(params.param);
-					submitData.setUserName(Integer.toString(params.userName));
+					submitData.setUserName(params.userid);
 					submitData.setDate(new Date());
 					submitData.setState("0");// 缓存未上传
 					try {
@@ -484,16 +496,16 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 
 		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
 				SoapEnvelope.VER11);
-		Log.d("AsyncHttp", ".....请求参数....request"+request.toString());
+		Log.w("AsyncHttp", ".....请求参数....request"+request.toString());
 		envelope.bodyOut = request;
-
 		(new MarshalBase64()).register(envelope);
 		HttpTransportSE transport = new HttpTransportSE(
 				RequestParamConfig.ServerUrl, timeout);
 		transport.debug = true;
-		
+		Log.w("AsyncHttp", ".....0........="+params.methodName+"......="+RequestParamConfig.serviceNameSpace);
 		transport.call(RequestParamConfig.serviceNameSpace + params.methodName,
 				envelope);
+		Log.w("AsyncHttp", ".....1........");
 		String respStr = "";
 		if (envelope.getResponse() != null) {
 			if (envelope.getResponse() instanceof SoapObject) {
@@ -508,6 +520,8 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 				respStr = response.toString();
 			}
 		}
+
+		Log.d("AsyncHttp", ".....2........");
 		// 进行数据保存
 		if (respStr != null&&isOnline) {
 			if ("1".equals(state)) {
@@ -532,7 +546,7 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 					pagetable = new PageDateTable();
 					pagetable.setMethodName(params.methodName);
 					pagetable.setParam(params.param);
-					pagetable.setUserName(Integer.toString(params.userName));
+					pagetable.setUserName(params.userid);
 					pagetable.setValue(respStr);
 					pagetable.setPageNo(Integer.toString(params.pageNo));
 					pagetable.setPageSize(Integer.toString(params.pageSize));
@@ -568,7 +582,7 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 					templatetable.setMethodName(params.methodName);
 					templatetable.setParam(params.param);
 					templatetable
-							.setUserName(Integer.toString(params.userName));
+							.setUserName(params.userid);
 
 					templatetable.setValue(respStr);
 					templatetable.setState("0");// 离线缓存 未上传
@@ -580,7 +594,7 @@ public class AsyncHttpRequest<E> extends BaseRequest {
 				}
 			}
 		}
-		//Log.d("Asy", "back result=" + respStr);
+		Log.d("Asy", "back result=" + respStr);
 		return respStr;
 	}
 

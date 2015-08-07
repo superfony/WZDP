@@ -87,7 +87,7 @@ public class WitnessFragment extends SupplyFragmemt {
 		requestPram.bizId=1004;
 		requestPram.password="password";
 		requestPram.pluginId=119;
-		requestPram.userName=appContext.user.getUid();
+		requestPram.userid=appContext.user.getUid();
 		requestPram.methodName=RequestParamConfig.keyPotQueryDownload;
 		requestPram.param=getArguments().getString("reqParam");
 		requestAction.setReqPram(requestPram);
@@ -116,7 +116,7 @@ public class WitnessFragment extends SupplyFragmemt {
 		requestPram.bizId=1004;
 		requestPram.password="password";
 		requestPram.pluginId=119;
-		requestPram.userName=appContext.user.getUid();
+		requestPram.userid=appContext.user.getUid();
 		requestPram.methodName =RequestParamConfig.keyPotQueryUpload;
 		requestPram.param = fillHelpNew.getparams(getArguments().getString("reqP"));
 		super.submitMethod(requestPram);

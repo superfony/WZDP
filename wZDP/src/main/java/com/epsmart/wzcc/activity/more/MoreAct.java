@@ -216,7 +216,7 @@ public class MoreAct extends CommonAct {
 	public void loadReq(RequestPram requestPram) {
 		RequestAction requestAction = new RequestAction();
 		requestAction.reset();
-		requestPram.userName = appContext.user.getUid();
+		requestPram.userid = appContext.user.getUid();
 		requestAction.setReqPram(requestPram);
 		showModuleProgressDialog("提示", "数据请求中请稍后...");
 		httpModule.executeRequest(requestAction, null, new ProcessResponse(),
@@ -226,7 +226,7 @@ public class MoreAct extends CommonAct {
 	public void loadReqHead(RequestPram requestPram) {
 		RequestAction requestAction = new RequestAction();
 		requestAction.reset();
-		requestPram.userName = appContext.user.getUid();
+		requestPram.userid = appContext.user.getUid();
 		requestAction.setReqPram(requestPram);
 		showModuleProgressDialog("提示", "数据请求中请稍后...");
 		httpModule.executeRequest(requestAction, null, new ProcessResponseHead(),

@@ -91,7 +91,6 @@ public class LoginAct extends Activity {
 				userpwdMd5 = Pub_method.Md5(userpwd).toLowerCase();
 				deviceID = Pub_method.getDeviceID(LoginAct.this);
 				System.out.println("devices.....deviceID=" + deviceID);
-
 				if (username.equals("") || userpwd.equals("")) {
 					toast(activity, "用户名、密码不能为空,请输入!");
 					closeDialog();
@@ -168,7 +167,6 @@ public class LoginAct extends Activity {
 
 	@Override
 	public void onBackPressed() {
-
 		super.onBackPressed();
 	}
 
@@ -193,8 +191,8 @@ public class LoginAct extends Activity {
 		httpModule.init();
 		httpModule.setRequestListener(requestListener);
 		httpModule
-				.setServiceNameSpace(RequestParamConfig.servicenamespacelogin);
-		httpModule.setServiceUrl(RequestParamConfig.loginUrl);
+				.setServiceNameSpace(RequestParamConfig.serviceNameSpace);
+		httpModule.setServiceUrl(RequestParamConfig.ServerUrl);
 		requestAction.isPageBeanEnable = false;
 		requestAction.serviceName = RequestParamConfig.loginname;
 		if (((AppContext) activity.getApplication()).isOnline){
@@ -295,7 +293,7 @@ public class LoginAct extends Activity {
 				break;
 			case 1:
 				String uuid = (String) msg.obj;
-				appContext.user.setUid(Integer.parseInt(uuid));
+				appContext.user.setUid(uuid);
 				PerferenceModel.getPM(LoginAct.this).insertPreference(
 						"uuid_my", uuid);
 				loginsetting(appContext.user);

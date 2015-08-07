@@ -187,7 +187,7 @@ public class ProductTwoFragment extends SupplyFragmemt{
 		requestPram.param = getArguments().getString("reqParam");
 		requestPram.password = "";
 		requestPram.pluginId = 119;
-		 requestPram.userName=appContext.user.getUid();
+		 requestPram.userid=appContext.user.getUid();
 		paginationWidget.requestAction.setReqPram(requestPram);
 	}
 

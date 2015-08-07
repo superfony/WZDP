@@ -7,7 +7,7 @@ package com.epsmart.wzcc.bean;
 public class User {
 	
 	/**用户id*/
-	private int uid; 
+	private String uid;
 	/**显示名字*/
 	private String name;
 	/**密码*/
@@ -29,10 +29,10 @@ public class User {
 	}
 	
 	
-	public int getUid() {
+	public String getUid() {
 		return uid;
 	}
-	public void setUid(int uid) {
+	public void setUid(String uid) {
 		this.uid = uid;
 	}
 	public String getLocation() {

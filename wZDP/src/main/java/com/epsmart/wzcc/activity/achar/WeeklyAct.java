@@ -62,7 +62,7 @@ public class WeeklyAct extends IndicatorFragmentActivity {
 			requestPram.bizId=1004;
 			requestPram.password="password";
 			requestPram.pluginId=119;
-			requestPram.userName=appContext.user.getUid();
+			requestPram.userid=appContext.user.getUid();
 			requestPram.methodName=RequestParamConfig.ehvReportReq;
 			requestAction.setReqPram(requestPram);
 			super.loadData(requestPram);

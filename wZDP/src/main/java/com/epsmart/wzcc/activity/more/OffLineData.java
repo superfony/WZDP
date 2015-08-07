@@ -57,7 +57,7 @@ public class OffLineData extends OffLineCommonAct {
 					RequestPram requestPram = new RequestPram();
 					requestPram.methodName = resp.methodName;
 					requestPram.param = resp.param;
-					requestPram.userName = Integer.valueOf(resp.userName);
+					//requestPram.userid = Integer.valueOf(resp.userName);
 					RequestAction requestAction = new RequestAction();
 					requestAction.reset();
 					requestAction.setReqPram(requestPram);

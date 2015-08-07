@@ -149,7 +149,7 @@ public class EquipmentFragment extends SupplyFragmemt {
 		requestPram.bizId = 1004;
 		requestPram.password = "password";
 		requestPram.pluginId = 119;
-		requestPram.userName = appContext.user.getUid();
+		requestPram.userid = appContext.user.getUid();
 		requestPram.methodName = RequestParamConfig.ehvTempDownload;
 		requestAction.setReqPram(requestPram);
 		// super.loadData(requestPram);

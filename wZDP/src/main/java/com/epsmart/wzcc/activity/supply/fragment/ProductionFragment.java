@@ -1,34 +1,31 @@
 package com.epsmart.wzcc.activity.supply.fragment;
 
-import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.AppContext;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.fragment.CommonFragment;
 import com.epsmart.wzcc.activity.pagination.PaginationWidget;
 import com.epsmart.wzcc.activity.search.QueryDialogListener;
-import com.epsmart.wzcc.activity.supply.bean.Field;
+import com.epsmart.wzcc.activity.supply.approval.UnitInforActivity;
 import com.epsmart.wzcc.bean.Pagination;
 import com.epsmart.wzcc.bean.QueryCondition;
 import com.epsmart.wzcc.bean.ViewBuildBak;
 import com.epsmart.wzcc.bean.WorkOrder;
-import com.epsmart.wzcc.common.Common;
-import com.epsmart.wzcc.common.PermissHelp;
-import com.epsmart.wzcc.common.RequestXmlHelp;
 import com.epsmart.wzcc.http.request.BaseRequest.RequestType;
 import com.epsmart.wzcc.http.request.RequestAction;
 
 import java.util.ArrayList;
 
 /*
- * 物资验收列表界面
+ * 物资交接、验收列表界面
  */
 public class ProductionFragment extends CommonFragment {
     private View view;
@@ -36,10 +33,10 @@ public class ProductionFragment extends CommonFragment {
     private ViewBuildBak viewBuild;
     // 申明PopupWindow对象引用
     private String TAG = ProductionFragment.class.getName();
-
     @Override
     public void onAttach(Activity activity) {
         queryCondition = new QueryCondition();
+
         super.onAttach(activity);
     }
 
@@ -64,9 +61,6 @@ public class ProductionFragment extends CommonFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ActionBar actionBar = activity.getActionBar();
-        View view = actionBar.getCustomView();
-        ImageView title_image = (ImageView) view.findViewById(R.id.title_image);
         title_image.setBackgroundResource(R.drawable.sr_ruku_title);
 
     }
@@ -101,7 +95,7 @@ public class ProductionFragment extends CommonFragment {
                     RequestParamConfig.serviceNameSpace);
             paginationWidget.getHttpModule().setServiceUrl(
                     RequestParamConfig.ServerUrl);
-            paginationWidget.setRequestType(RequestType.THRIFT);// TODO
+            paginationWidget.setRequestType(RequestType.TXTTEST);// TODO
             initPaginationWidget(paginationWidget);
             paginationWidget.loadPaginationData();
         } else {
@@ -118,7 +112,7 @@ public class ProductionFragment extends CommonFragment {
                     RequestParamConfig.serviceNameSpace);
             paginationWidget.getHttpModule().setServiceUrl(
                     RequestParamConfig.ServerUrl);
-            paginationWidget.setRequestType(RequestType.THRIFT);
+            paginationWidget.setRequestType(RequestType.TXTTEST);
             initPaginationWidget(paginationWidget);
             paginationWidget.requestAction = requestAction;
             paginationWidget.lv_page_body.setTag(tag);
@@ -135,6 +129,7 @@ public class ProductionFragment extends CommonFragment {
             final PaginationWidget<WorkOrder> paginationWidget) {
         processQueryCondition(queryCondition);
         paginationWidget.setPageSize(RequestParamConfig.pagesize);
+        paginationWidget.setServiceName(RequestParamConfig.receiveList);
         paginationWidget
                 .setPageBodyOnItemClickListener(paginationWidget.new OnItemClickListener() {
                     @Override
@@ -164,29 +159,30 @@ public class ProductionFragment extends CommonFragment {
                                         PermissHelp.getUserType("000")))));
 
                             pdtwo.setArguments(bundle);
-                            Common.replaceRightFragment(activity, pdtwo,
+                            Common.replaceRightFragment(acti
+                            vity, pdtwo,
                                     false, R.id.content);*/
                         // 这里进行一下调整
 
+                        //   Common.replaceRightFragment(activity, new UnitInforFragment(), false, R.id.qty_m);
+
+                        Intent intent = new Intent();
+                        intent.setClass(activity, UnitInforActivity.class);
+                        activity.startActivity(intent);
 
 
                     }
                 });
-        paginationWidget.setServiceName(RequestParamConfig.procedureReq);
+
     }
 
     /**
      * 设置查询条件
-     *
      * @param condition
      */
     public void processQueryCondition(QueryCondition condition) {
-
-        requestPram.bizId = 1004;
-        requestPram.methodName = RequestParamConfig.procedureReq;
-        requestPram.password = "";
-        requestPram.pluginId = 119;
-        requestPram.userName = 22;
+        requestPram.methodName = RequestParamConfig.receiveList;
+        requestPram.userid = "130";//((AppContext)activity.getApplication()).user.getUid();
         paginationWidget.requestAction.setReqPram(requestPram);
     }
 

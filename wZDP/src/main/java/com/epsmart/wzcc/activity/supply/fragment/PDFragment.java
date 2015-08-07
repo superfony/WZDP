@@ -148,7 +148,7 @@ public class PDFragment extends SupplyFragmemt {
 		requestPram.bizId = 1004;
 		requestPram.password = "password";
 		requestPram.pluginId = 119;
-		requestPram.userName = appContext.user.getUid();
+		requestPram.userid = appContext.user.getUid();
 
 		requestPram.methodName = RequestParamConfig.procedureDownload;
 		requestPram.param = getArguments().getString("reqParam");
@@ -163,7 +163,7 @@ public class PDFragment extends SupplyFragmemt {
 		requestPram.bizId = 1004;
 		requestPram.password = "password12";
 		requestPram.pluginId = 119;
-		requestPram.userName = appContext.user.getUid();
+		requestPram.userid = appContext.user.getUid();
 		requestPram.methodName = RequestParamConfig.procedureUpload;
 		requestPram.param = fillHelpNew.getparams(getArguments().getString("reqP"));
 

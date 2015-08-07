@@ -516,12 +516,7 @@ public class PaginationWidget<T> {
 	public void adjustPageIndicator() {
 	}
 
-	/**
-	 * 
-	 * 表格数据域部分行点击事件监听器.
-	 * 
-	 * @param onItemClickListener
-	 */
+
 	public void setPageBodyOnItemClickListener(
 			OnItemClickListener pageBodyOnItemClickListener) {
 		this.pageBodyOnItemClickListener = pageBodyOnItemClickListener;

@@ -185,7 +185,7 @@ public class QtyTopList extends SupplyFragmemt {
 		requestPram.methodName = RequestParamConfig.issuelistDownload;
 		requestPram.password = "password456";
 		requestPram.pluginId = 119;
-		requestPram.userName = appContext.user.getUid();
+		requestPram.userid = appContext.user.getUid();
 		paginationWidget.requestAction.setReqPram(requestPram);
 	}
 

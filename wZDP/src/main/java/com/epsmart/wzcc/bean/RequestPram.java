@@ -14,7 +14,7 @@ public class RequestPram implements Parcelable {
 	public String param;
 	public int bizId;
 	public int pluginId;
-	public int userName;
+	public String userid;
 	//当前页
 	public int pageNo;
 	// 当前页大小
@@ -28,7 +28,7 @@ public class RequestPram implements Parcelable {
 			field.param = source.readString();
 			field.bizId=source.readInt();
 			field.pluginId=source.readInt();
-			field.userName=source.readInt();
+			field.userid=source.readString();
 			field.pageNo=source.readInt();
 			field.pageSize=source.readInt();
 			field.password=source.readString();
@@ -52,7 +52,7 @@ public class RequestPram implements Parcelable {
 		parcel.writeString(param);
 		parcel.writeInt(bizId);
 		parcel.writeInt(pluginId);
-		parcel.writeInt(userName);
+		parcel.writeString(userid);
 		parcel.writeInt(pageNo);
 		parcel.writeInt(pageSize);
 		parcel.writeString(password);
@@ -62,7 +62,7 @@ public class RequestPram implements Parcelable {
 
 	@Override
 	public String toString() {
-		return "[methodName=" + methodName + "  ,param=" + param+"bizID="+bizId+", pluginId="+pluginId+", userName="+userName+",pageNo="+pageNo+",pageSize="+pageSize+",user_type="+user_type+"]";
+		return "[methodName=" + methodName + "  ,param=" + param+"bizID="+bizId+", pluginId="+pluginId+", userName="+userid+",pageNo="+pageNo+",pageSize="+pageSize+",user_type="+user_type+"]";
 	}
 
 }

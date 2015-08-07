@@ -89,7 +89,7 @@ public class QtyTopQuestion extends SupplyFragmemt {
 		requestPram.bizId=1004;
 		requestPram.password="password";
 		requestPram.pluginId=119;
-		requestPram.userName=appContext.user.getUid();
+		requestPram.userid=appContext.user.getUid();
 		
 		requestPram.methodName=RequestParamConfig.qualityIssueDownload;
 		//bundle.putString("reqParam", RequestXmlHelp.getCommonXML(RequestXmlHelp.getReqXML("purchaseorder", purchaseorder.fieldContent).append(RequestXmlHelp.getReqXML("poitem", poitem.fieldContent)).append(RequestXmlHelp.getReqXML("issueno", Issueno.fieldContent)).append(RequestXmlHelp.getReqXML("releaseflag", Releaseflag.fieldContent)).append(RequestXmlHelp.getReqXML("user_type", "5"))));
@@ -115,7 +115,7 @@ public class QtyTopQuestion extends SupplyFragmemt {
 		requestPram.bizId=1004;
 		requestPram.password="password12";
 		requestPram.pluginId=119;
-		requestPram.userName=appContext.user.getUid();
+		requestPram.userid=appContext.user.getUid();
 		requestPram.methodName =RequestParamConfig.qualityIssueUpload;
 		requestPram.param = fillHelp.getparams(getArguments().getString("reqP"));
 		super.submitMethod(requestPram);

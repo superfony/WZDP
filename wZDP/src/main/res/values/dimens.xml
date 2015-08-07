@@ -18,5 +18,8 @@
     <dimen name="itemWidthoneline">200dp</dimen>
     <dimen name="text_size_10">10.0dip</dimen>
     <dimen name="text_size_15">15.0dip</dimen>
+    <dimen name="approval_size">25.0dip</dimen>
+    <dimen name="approval_padding">30dip</dimen>
+
 
 </resources>

@@ -1,5 +1,6 @@
 package com.epsmart.wzcc.common;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -23,6 +24,17 @@ public class Common {
 		fragmentTransaction.addToBackStack(null); 
 		fragmentTransaction.commit();
 	}
+
+//	public static void replaceRightFragment(Activity activity,Fragment fragment,boolean popBackStack,int layoutFragment) {
+//		if(popBackStack)
+//			activity.getFragmentManager().popBackStack();
+//		FragmentTransaction fragmentTransaction = activity.getFragmentManager()
+//				.beginTransaction();
+//		fragmentTransaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out, android.R.animator.fade_in, android.R.animator.fade_out);
+//		fragmentTransaction.replace(layoutFragment, fragment);
+//		//fragmentTransaction.addToBackStack(null); // 是否保留返回操作
+//		fragmentTransaction.commit();
+//	}
 	
 	
 	public static void sideBarClickableSetting(FragmentActivity activity,boolean clickable) {

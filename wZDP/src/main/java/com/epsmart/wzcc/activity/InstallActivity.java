@@ -113,8 +113,8 @@ public class InstallActivity extends Activity {
 		httpModule.init();
 		httpModule.setRequestListener(requestListener);
 		httpModule
-				.setServiceNameSpace(RequestParamConfig.servicenamespacelogin);
-		httpModule.setServiceUrl(RequestParamConfig.loginUrl);
+				.setServiceNameSpace(RequestParamConfig.serviceNameSpace);
+		httpModule.setServiceUrl(RequestParamConfig.ServerUrl);
 		requestAction.isPageBeanEnable = false;
 		requestAction.serviceName = RequestParamConfig.userUpload;
 		httpModule.executeRequest(requestAction, new DefaultSaxHandler(), null,

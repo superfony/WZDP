@@ -13,20 +13,18 @@ public class RequestParamConfig {
 	public final static String IP = "127.0.0.1";
 	public final static int PORT = 28080;// 暂时用不到
 	/**************** 正式库 **************************/
-	 public final static  String ServerUrl =
-	 "http://127.0.0.1:28080/wzdp/services/cmisService";
-	 public final static String loginUrl =
-	 "http://127.0.0.1:28099/lnptgl/webservices/IMobilePlatformsWebservices";
+//	 public final static  String ServerUrl =
+//	 "http://127.0.0.1:28080/wzdp/services/cmisService";
+//	 public final static String loginUrl =
+//	 "http://127.0.0.1:28099/lnptgl/webservices/IMobilePlatformsWebservices";
 	/************* 本地测试地址 apn方式访问 ***********************/
 	// 148cmis 服务器
 //	 public final static  String ServerUrl =
 //	 "http://127.0.0.1:8551/wzdp/services/cmisService";
-//	// 153 cmis服务器
-//	 public static String ServerUrl =
-//	 "http://127.0.0.1:8553/wzdp/services/cmisService";
-	// 153 中间件服务器
-//	 public static String loginUrl =
-//	 "http://127.0.0.1:8554/lnptgl/webservices/IMobilePlatformsWebservices";
+	// 153 cmis服务器
+	 public static String ServerUrl =
+	 "http://127.0.0.1:8553/lnptgl/webservices/IMobilePlatformsWebservices";
+
 	 /************* 本地测试地址 电脑模拟器访问 ***********************/
 	// 148cmis 服务器
 //	 public static String ServerUrl =
@@ -37,12 +35,10 @@ public class RequestParamConfig {
 //	public static String loginUrl = "http://10.192.29.153:8899/lnptgl/webservices/IMobilePlatformsWebservices";
 	/************************ end ******************************/
 
-	// 登录命名空间
-	public static final String servicenamespacelogin = "http://webservices.lnptgl.aowei.com";
 	// 登录接口名称
 	public static final String loginname = "validateTerminalUser";
 	// 命名空间
-	public static final String serviceNameSpace = "http://service.webservice.lnsoft.com";
+	public static final String serviceNameSpace = "http://webservices.lnptgl.aowei.com";
 	// 接口名称
 	public static final String selectNowWork = "selectNowWOrk";
 	// 权限接口
@@ -149,5 +145,22 @@ public class RequestParamConfig {
 	public static final String getNoticeDetail = "getNoticeDetail";
 	// 位置定位	
 	public static final String LocationUpdate = "locationUpdate";
+
+
+	/******************************************移动收发货接口************************************************/
+     // 交接、验收列表数据
+	public static final String  receiveList= "receiveList";
+	// 根据发货通知标号查询详情信息
+	public static final String  getHouseDetail= "getHouseDetail";
+	//交接、验收、数据提交接口
+	public static final String  pullCommit= "pullCommit";
+	//出库预留列表接口
+	public static final String  warehouseList= "warehouseList";
+	//根据订单号查询出库详情信息
+    public  static final String  getWarehouseDetail="getWarehouseDetail";
+	// 出库预留信息提交接口
+	public  static final String pullwarehourseSubmit="pullwarehourseSubmit";
+	//查询物料库存明细信息接口
+	 public  static final  String houseQueryWithTable="houseQueryWithTable";
 
 }

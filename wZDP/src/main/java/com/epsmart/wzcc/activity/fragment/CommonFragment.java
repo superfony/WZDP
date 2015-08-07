@@ -3,6 +3,7 @@ package com.epsmart.wzcc.activity.fragment;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -54,6 +55,7 @@ import com.epsmart.wzcc.http.xml.parser.BaseXmlParser;
 
 @SuppressLint("NewApi")
 public class CommonFragment extends Fragment {
+    protected      ImageView title_image;
     protected CommonActivity activity;
     protected BaseHttpModule httpModule;
     /**
@@ -548,4 +550,14 @@ public class CommonFragment extends Fragment {
 
     }
 
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+
+        ActionBar actionBar = activity.getActionBar();
+        View view = actionBar.getCustomView();
+         title_image = (ImageView) view.findViewById(R.id.title_image);
+
+        super.onActivityCreated(savedInstanceState);
+    }
 }

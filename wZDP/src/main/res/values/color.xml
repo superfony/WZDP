@@ -83,5 +83,9 @@
     <color name="page_bg2">#ffde5f</color>
     <color name="page_bg_green">#ffebfde5</color>
     <color name="dialog_gray_text">#8c8c8c</color>
-
+    <color name="approval_head">#fffffdea</color>
+    <color name="approval_sub">#ffffe7aa</color>
+    <color name="approval_name_color">#72857f</color>
+    <color name="approval_content_color">#408477</color>
+    <color name="grayw">#ffc8c8c8</color>
 </resources>

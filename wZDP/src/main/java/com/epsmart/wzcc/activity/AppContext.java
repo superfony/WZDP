@@ -46,7 +46,7 @@ public class AppContext extends Application {
 	public static final int PAGE_SIZE = 20;//默认分页大小
 	private static final int CACHE_TIME = 60*60000;//缓存失效时间
 	private boolean login = false;	//登录状态
-	private int loginUid = 0;	//登录用户的id
+	private String loginUid = "0";	//登录用户的id
 	private Hashtable<String, Object> memCacheRegion = new Hashtable<String, Object>();
 	
 	private String saveImagePath;//保存图片路径
@@ -191,7 +191,7 @@ public class AppContext extends Application {
 	 * 获取登录用户id
 	 * @return
 	 */
-	public int getLoginUid() {
+	public String getLoginUid() {
 		return this.loginUid;
 	}
 	
@@ -202,8 +202,6 @@ public class AppContext extends Application {
 	
 	/**
 	 * 保存登录信息
-	 * @param username
-	 * @param pwd
 	 */
 	public void saveLoginInfo(final User user) {
 		this.loginUid = user.getUid();
@@ -226,7 +224,7 @@ public class AppContext extends Application {
 	 * 清除登录信息
 	 */
 	public void cleanLoginInfo() {
-		this.loginUid = 0;
+		this.loginUid = "0";
 		this.login = false;
 		removeProperty("user.uid","user.name","user.face","user.account","user.pwd",
 				"user.location","user.followers","user.fans","user.score","user.isRememberMe");
@@ -238,7 +236,7 @@ public class AppContext extends Application {
 	 */
 	public User getLoginInfo() {		
 		User lu = new User();		
-		lu.setUid(StringUtils.toInt(getProperty("user.uid"), 0));
+		//lu.setUid((getProperty("user.uid"), "0");
 		lu.setName(getProperty("user.name"));
 		lu.setFace(getProperty("user.face"));
 		lu.setAccount(getProperty("user.account"));
@@ -484,8 +482,6 @@ public class AppContext extends Application {
 	
 	/**
 	 * 清除缓存目录
-	 * @param dir 目录
-	 * @param numDays 当前系统时间
 	 * @return
 	 */
 	private int clearCacheFolder(File dir, long curTime) {          

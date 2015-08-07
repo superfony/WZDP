@@ -72,7 +72,7 @@ public class SubstanceaNalysisAct extends BaseShowCharAct{
 		requestPram.bizId=1004;
 		requestPram.password="password";
 		requestPram.pluginId=119;
-		requestPram.userName=appContext.user.getUid();
+		//requestPram.userName=appContext.user.getUid();
 		
 		requestPram.methodName=RequestParamConfig.contractsign;
 		

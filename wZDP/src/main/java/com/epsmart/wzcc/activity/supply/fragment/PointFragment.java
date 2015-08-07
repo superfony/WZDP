@@ -129,7 +129,7 @@ public class PointFragment extends SupplyFragmemt {
 		requestPram.methodName=RequestParamConfig.keyPotReq;
 		requestPram.password="password";
 		requestPram.pluginId=119;
-		requestPram.userName=appContext.user.getUid();
+		requestPram.userid=appContext.user.getUid();
       	paginationWidget.requestAction.setReqPram(requestPram);
 	}
 	{
