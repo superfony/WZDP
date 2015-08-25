@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true"
 
-          android:drawable="@drawable/sr_rukuchange" /> <!-- pressed -->
+          android:drawable="@drawable/sr_ruku_down" /> <!-- pressed -->
     <item android:state_focused="true"
-          android:drawable="@drawable/sr_rukuchange" /> <!-- focused -->
-    <item android:drawable="@drawable/sr_ruku" /> <!-- default -->
+          android:drawable="@drawable/sr_ruku_down" /> <!-- focused -->
+    <item android:drawable="@drawable/sr_ruku_up" /> <!-- default -->
 </selector>

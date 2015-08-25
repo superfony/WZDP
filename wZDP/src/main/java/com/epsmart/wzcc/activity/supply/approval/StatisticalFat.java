@@ -1,119 +1,199 @@
 package com.epsmart.wzcc.activity.supply.approval;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ClipData;
 import android.os.Bundle;
+import android.os.Message;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.RequestParamConfig;
+import com.epsmart.wzcc.activity.supply.approval.parcelable.BatchBean;
+import com.epsmart.wzcc.activity.supply.approval.parcelable.BatchResponse;
+import com.epsmart.wzcc.activity.supply.approval.parcelable.ItemBean;
+import com.epsmart.wzcc.bean.RequestPram;
+import com.epsmart.wzcc.http.BaseHttpModule;
+import com.epsmart.wzcc.http.ModuleResponseProcessor;
+import com.epsmart.wzcc.http.request.BaseRequest;
+import com.epsmart.wzcc.http.request.RequestAction;
+import com.epsmart.wzcc.http.response.model.StatusEntity;
 
+import java.util.ArrayList;
+import java.util.List;
 
 /*
- * 验收明细
+ *   验收入库-验收明细
  */
 public class StatisticalFat extends BaseFragment {
-	private View view;
-	private ListView listView;
-//	private TargetAdapter targetAdapter;
-//	private Activity activity;
-//	private List<Target> list = new ArrayList<Target>();
+    private View view;
+    private ListView listView;
+    private ApprovalAdapter approvalAdapter;
+    private Activity activity;
+    private List<ItemBean> list = new ArrayList<ItemBean>();
+    private CheckBox checkBox;
+    private Button button;
+    private ListView batch_list;
+    private BatchAdapter batchAdapter;
+    private ArrayList<BatchBean> batchlist = new ArrayList<BatchBean>();
 //	private String type;
 //	private UnitTarget resp;
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		if (view != null) {
-			ViewGroup parent = (ViewGroup) view.getParent();
-			if (parent != null)
-				parent.removeView(view);
-		}
-		view = inflater.inflate(R.layout.stat_list, null);
+        if (view != null) {
+            ViewGroup parent = (ViewGroup) view.getParent();
+            if (parent != null)
+                parent.removeView(view);
+        }
+        view = inflater.inflate(R.layout.stat_list, null);
+        initUI();
+        return view;
+    }
 
-		return view;
-	}
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.activity = activity;
+    }
 
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		this.activity = activity;
-	}
-
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-//		initUI();
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 //		reqHttp();
-	}
+    }
 
-	/*private void initUI() {
-		listView = (ListView) view.findViewById(R.id.stat_jz);
-//		targetAdapter = new TargetAdapter(activity, list);
-//		listView.setAdapter(targetAdapter);
-		listView.setOnItemClickListener(itemOcl);
-	}
+    private void initUI() {
+        listView = (ListView) view.findViewById(R.id.stat_jz);
+        list = ((UnitInforActivity) activity).approvalResponse.entity.itemBeansList;
+        approvalAdapter = new ApprovalAdapter(activity, list);
+        listView.setAdapter(approvalAdapter);
+        checkBox = (CheckBox) view.findViewById(R.id.all_checkbox);
+        button = (Button) view.findViewById(R.id.pl_btn);
+        button.setOnClickListener(btn_olc);
+//      listView.setOnItemClickListener(itemOcl);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    for (int i = 0; i < list.size(); i++) {
 
-	OnItemClickListener itemOcl = new OnItemClickListener() {
-		@SuppressLint("NewApi")
-		@Override
-		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-				long arg3) {
-			Intent intent = new Intent();
-			intent.putExtra("unitid",((UnitInforActivity) getActivity()).unitid);
-			type = resp.list.get(arg2).targetename;
-			intent.putExtra("type", type);
-			intent.putExtra("title",resp.list.get(arg2).targetchname);
-			 if("overhaul".equals(type)){
-				 intent.setClass(getActivity(), OverhaulAct.class);
-				 intent.setAction(((UnitInforActivity) getActivity()).unitname);
-					startActivity(intent);
-			 }else {
-				 intent.setClass(getActivity(), CounttgAct.class);
-					startActivity(intent);
-			}
-		}
-	};
+                        list.get(i).isCheckbox = true;
+                    }
+                } else {
+                    for (int i = 0; i < list.size(); i++) {
+                        list.get(i).isCheckbox = false;
+                    }
+                }
+                osHandler.sendEmptyMessage(0);
 
-	@SuppressLint("NewApi")
-	private void reqHttp() {
-		RequestParams params = new RequestParams();
-		params.put("unitId", ((UnitInforActivity) getActivity()).unitid);// 机组标号
-		startProgressDialog("数据加载中......");
-		http.post(UrlConfig.unitzblist, params, new TargetHandler(), processor);
-	}
+            }
+        });
 
-	ResponseProcessor processor = new ResponseProcessor() {
-		@Override
-		public void onFailure(Throwable e, String reason) {
-			stopProgressDialog();
-			if (null == reason || "".equals(reason)) {
-				reason = "机组指标列表获取失败";
-			}
-			ToastHelper.toast(activity, reason);
-		}
+    }
 
-		@Override
-		public void processResponse(String response, Object data) {
-			stopProgressDialog();
-			 resp = (UnitTarget) data;
-			System.out.println("指标工况信息 response=" + response);
-			if ("1".equals(resp.requestcode)) {
-				list = resp.list;
-				handler.sendEmptyMessage(0);
-			}
-		}
-	};
+    View.OnClickListener btn_olc = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            dialog();
 
-	private Handler handler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			super.handleMessage(msg);
-			targetAdapter.updateListView(list);
+        }
+    };
 
-		}
-	};*/
+
+    Dialog dialog;
+
+    private void dialog() {
+        LayoutInflater inflater = LayoutInflater.from(activity);
+        LinearLayout layout = (LinearLayout) inflater.inflate(
+                R.layout.batch_configing_dialog, null);
+        dialog = new AlertDialog.Builder(activity).create();
+        dialog.setCancelable(true);
+        dialog.show();
+        dialog.getWindow().setContentView(layout);
+
+        batch_list = (ListView) layout.findViewById(R.id.batch_list);
+        batchAdapter = new BatchAdapter(activity, batchlist);
+        batch_list.setAdapter(batchAdapter);
+        batch_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                BatchBean batchBean = (BatchBean) batchAdapter.getItem(position);
+                for (int i = 0; i < list.size(); i++) {
+                    ItemBean itemBean = list.get(i);
+                    if (itemBean.isCheckbox) {
+                        list.get(i).STGE_LOC = batchBean.STGE_LOC;
+                    }
+                }
+                ((UnitInforActivity) activity).approvalResponse.entity.headBean.STGE_LOC = batchBean.STGE_LOC;
+                osHandler.sendEmptyMessage(0);
+                dialog.cancel();
+
+            }
+        });
+        reqHttp();
+    }
+
+    android.os.Handler osHandler = new android.os.Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            stopProgressDialog();
+            if (msg.what == 0) {
+                approvalAdapter.notifyDataSetChanged();
+            } else if (msg.what == 1) {
+              //  Toast.makeText(activity, ((BatchResponse) msg.obj).message, Toast.LENGTH_LONG).show();
+                batchAdapter.updateListView(((BatchResponse) msg.obj).itemBeansList);
+            } else if (msg.what == 2) {
+            }
+        }
+    };
+
+
+    private void reqHttp() {
+        showModuleProgressDialog("");
+        RequestAction requestAction = new RequestAction();
+        requestAction.reset();
+        RequestPram requestPram = new RequestPram();
+        requestPram.userid = "130";
+        requestPram.methodName = RequestParamConfig.warehouseInfo;
+        requestAction.setReqPram(requestPram);
+
+        httpModule.executeRequest(requestAction, new BatchHandler(), new ProcessResponseBatch(),
+                BaseRequest.RequestType.THRIFT);
+
+
+    }
+
+
+    class ProcessResponseBatch implements ModuleResponseProcessor {
+        @Override
+        public void processResponse(BaseHttpModule httpModule, Object parseObj) {
+
+            if (parseObj instanceof StatusEntity) {
+                StatusEntity staty = (StatusEntity) parseObj;
+                String result = staty.result;
+                String message = staty.message;
+                if ("1".equals(result) && !TextUtils.isEmpty(message)) {
+                    osHandler.obtainMessage(2, message).sendToTarget();
+                }
+            } else if (parseObj instanceof BatchResponse) {
+                osHandler.obtainMessage(1, (BatchResponse) parseObj).sendToTarget();
+            }
+        }
+    }
+
 }

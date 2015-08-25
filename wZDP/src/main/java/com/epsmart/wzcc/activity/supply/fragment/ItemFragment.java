@@ -164,7 +164,7 @@ public class ItemFragment extends SupplyFragmemt {
 		requestPram.methodName = RequestParamConfig.procedureReq;
 		requestPram.password = "password";
 		requestPram.pluginId = 119;
-		requestPram.userid = appContext.user.getUid();
+		requestPram.userid = "12";
 		paginationWidget.requestAction.setReqPram(requestPram);
 
 	}

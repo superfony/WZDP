@@ -58,20 +58,11 @@ public class CommonFragment extends Fragment {
     protected      ImageView title_image;
     protected CommonActivity activity;
     protected BaseHttpModule httpModule;
-    /**
-     * 分页控件
-     */
     protected PaginationWidget<WorkOrder> paginationWidget = null;
-    /**
-     * 表格布局
-     */
     protected RelativeLayout all_id;
     protected LinearLayout text_lay;
     protected LinearLayout table_lay;
     protected LinearLayout btn_lay;
-    /**
-     * 提交、取消按钮
-     */
     protected Button submit_btn;
     protected Button cancel_btn;
     protected FillTableHelp fillHelp;
@@ -105,6 +96,13 @@ public class CommonFragment extends Fragment {
         SettleCharAct,//合同结算情况统计报表
         ContractLineCharAct,//项目进度情况统计报表
     }
+
+    public enum WZCCTYPE{
+        APPROVAL,CONNECTION
+
+    }
+
+
 
     private ArrayList<String> txtShowList = new ArrayList<String>();
 

@@ -2,11 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/transparent"
+    android:background="@drawable/approval_head_bg"
     android:orientation="horizontal"
-    android:paddingLeft="80dp"
+    android:layout_marginLeft="80dp"
+    android:layout_marginRight="80dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="40dp"
+    android:paddingLeft="60dp"
     android:paddingRight="80dp"
-    android:paddingTop="30dp">
+    android:paddingTop="10dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/approval_head"
+        android:background="@color/transparent"
         android:orientation="vertical"
         android:paddingLeft="@dimen/approval_padding"
         android:paddingRight="@dimen/approval_padding"
@@ -35,8 +39,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="发货通知单  "
-
+                android:text="发货通知单:"
                 android:textColor="@color/approval_name_color"
                 android:textSize="@dimen/approval_size" />
 
@@ -44,7 +47,6 @@
                 android:id="@+id/consingment_note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="00000002002000002001"
                 android:textColor="@color/approval_content_color"
                 android:textSize="@dimen/approval_size" />
         </LinearLayout>
@@ -63,7 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="合同编码    "
+                android:text="合同编号:"
                 android:textColor="@color/approval_name_color"
                 android:textSize="@dimen/approval_size" />
 
@@ -90,7 +92,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="项目名称    "
+                android:text="项目名称:"
                 android:textColor="@color/approval_name_color"
                 android:textSize="@dimen/approval_size" />
 
@@ -116,7 +118,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="采购单位 "
+                android:text="采购订单:"
                 android:textColor="@color/approval_name_color"
                 android:textSize="@dimen/approval_size" />
 
@@ -142,59 +144,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="供应商  "
-                android:textColor="@color/approval_name_color"
-                android:textSize="@dimen/approval_size" />
-
-            <TextView
-                android:id="@+id/supply_unit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/approval_content_color"
-                android:textSize="@dimen/approval_size" />
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="600dip"
-            android:layout_height="1dp"
-            android:background="@color/grayw" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dip"
-            android:layout_marginTop="15dip">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="供应商联系人"
-                android:textColor="@color/approval_name_color"
-                android:textSize="@dimen/approval_size" />
-
-            <TextView
-                android:id="@+id/supply_persion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/approval_content_color"
-                android:textSize="@dimen/approval_size" />
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="600dip"
-            android:layout_height="1dp"
-            android:background="@color/grayw" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dip"
-            android:layout_marginTop="15dip">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="交货地点 "
+                android:text="交货地点:"
                 android:textColor="@color/approval_name_color"
                 android:textSize="@dimen/approval_size" />
 
@@ -220,7 +170,61 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="承运商联系人"
+                android:text="供应商:"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/supply_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:background="@color/grayw" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="供应商联系人:"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/supply_persion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:background="@color/grayw" />
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="承运商联系人:"
                 android:textColor="@color/approval_name_color"
                 android:textSize="@dimen/approval_size" />
 
@@ -240,13 +244,41 @@
             />
     </LinearLayout>
 
+
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/approval_sub"
+        android:background="@color/transparent"
         android:orientation="vertical"
         android:paddingLeft="@dimen/approval_padding">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="供应商     "
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size"
+
+                />
+
+            <EditText
+                android:id="@+id/company_gys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="8" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -269,32 +301,10 @@
                 android:id="@+id/company_wz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="6" />
+                android:ems="8" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            android:paddingTop="15dp"
-            >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="供应商  "
-                android:textColor="@color/approval_name_color"
-                android:textSize="@dimen/approval_size"
-
-                />
-
-            <EditText
-                android:id="@+id/company_gys"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="6" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -317,7 +327,7 @@
                 android:id="@+id/company_sgdw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="6" />
+                android:ems="8" />
         </LinearLayout>
 
         <LinearLayout
@@ -341,7 +351,7 @@
                 android:id="@+id/company_xmdw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="6" />
+                android:ems="8" />
         </LinearLayout>
 
         <LinearLayout
@@ -365,16 +375,17 @@
                 android:id="@+id/company_jl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="6" />
+                android:ems="8" />
         </LinearLayout>
 
         <Button
+            android:id="@+id/submit_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="20dp"
-            android:text="确认验收入库" />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/connection_submit"
+           />
 
     </LinearLayout>
 

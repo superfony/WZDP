@@ -128,6 +128,24 @@
         <item name="android:textColor">@color/lightblue</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15dip</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="connection_detail_item">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/lightblue</item>
+        <item name="android:layout_width">400dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="approval_detail_item">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/lightblue</item>
+        <item name="android:layout_width">400dip</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
     </style>
@@ -224,5 +242,16 @@
     <style name="XGCustomProgressDialog" parent="@style/CustomDialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="MyCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingLeft">80.0dip</item>
+        <item name="android:button">@drawable/btn_check</item>
+    </style>
+
+    <style name="MyCheckBoxNew" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/check_btn_bg</item>
     </style>
 </resources>

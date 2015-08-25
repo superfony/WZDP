@@ -9,10 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.supply.approval.ApprovalFragment;
+import com.epsmart.wzcc.activity.supply.approval.parcelable.ApprovalResponse;
+import com.epsmart.wzcc.activity.supply.connection.ConnectionFat;
 import com.epsmart.wzcc.activity.supply.fragment.EquipmentFragment;
 import com.epsmart.wzcc.activity.supply.fragment.ItemFragment;
 import com.epsmart.wzcc.activity.supply.fragment.PointFragment;
 import com.epsmart.wzcc.activity.supply.fragment.ProductionFragment;
+import com.epsmart.wzcc.activity.supply.leavebase.LeavebaseFragment;
 import com.fony.menu.widget.slidingmenu.fragment.SlidingMenuFragment;
 
 /**
@@ -24,9 +28,9 @@ import com.fony.menu.widget.slidingmenu.fragment.SlidingMenuFragment;
 public class SupplyMenuFragment extends SlidingMenuFragment {
 	private View contextView = null;
 	private LayoutInflater inflater = null;
-	public ImageView transfer_left;
-	public ImageView ruku_left;
-	public ImageView chuku_left;
+	public ImageView approval_left;
+	public ImageView connection_left;
+	public ImageView wareout_left;
 	private Fragment newContent = null;
 
 	public void setNewContent(Fragment newContent) {
@@ -40,21 +44,21 @@ public class SupplyMenuFragment extends SlidingMenuFragment {
 		contextView = inflater.inflate(R.layout.slide_menu_support, container,
 				false);
 
-		transfer_left = (ImageView) contextView.findViewById(R.id.transfer_left);
-		ruku_left = (ImageView) contextView.findViewById(R.id.ruku_left);
-		chuku_left = (ImageView) contextView.findViewById(R.id.chuku_left);
 
-		if (newContent instanceof ProductionFragment) {
-			ruku_left.setBackgroundResource(R.drawable.sr_ruku_down);
-		} else if (newContent instanceof ItemFragment) {
-			transfer_left.setBackgroundResource(R.drawable.sr_transfer_down);
-		} else if (newContent instanceof EquipmentFragment) {
-			chuku_left.setBackgroundResource(R.drawable.sr_chuku_down);
+		connection_left = (ImageView) contextView.findViewById(R.id.connection_left);
+		approval_left = (ImageView) contextView.findViewById(R.id.approval_left);
+		wareout_left = (ImageView) contextView.findViewById(R.id.wareout_left);
+		if (newContent instanceof ApprovalFragment) {
+			approval_left.setBackgroundResource(R.drawable.sr_ruku_down);
+
+		} else if (newContent instanceof ConnectionFat) {
+			connection_left.setBackgroundResource(R.drawable.sr_transfer_down);
+		} else if (newContent instanceof LeavebaseFragment) {
+			wareout_left.setBackgroundResource(R.drawable.sr_chuku_down);
 		}
-
-		ruku_left.setOnClickListener(click_image);
-		transfer_left.setOnClickListener(click_image);
-		chuku_left.setOnClickListener(click_image);
+		connection_left.setOnClickListener(click_image);
+		approval_left.setOnClickListener(click_image);
+		wareout_left.setOnClickListener(click_image);
 		return contextView;
 	}
 
@@ -63,26 +67,25 @@ public class SupplyMenuFragment extends SlidingMenuFragment {
 		public void onClick(View v) {
 
 			int id = v.getId();
-			if (id == R.id.ruku_left) {
-				newContent = new ProductionFragment();
-				ruku_left.setBackgroundResource(R.drawable.sr_ruku_down);
-				transfer_left.setBackgroundResource(R.drawable.sr_transfer_up);
-				chuku_left.setBackgroundResource(R.drawable.sr_chuku_up);
-			} else if (id == R.id.transfer_left) {
-				newContent = new ItemFragment();
-				transfer_left.setBackgroundResource(R.drawable.zl_down);
-				ruku_left.setBackgroundResource(R.drawable.sr_ruku_up);
-				chuku_left.setBackgroundResource(R.drawable.sr_chuku_up);
-			} else if (id == R.id.chuku_left) {
-				newContent = new PointFragment();
-				chuku_left.setBackgroundResource(R.drawable.sr_chuku_down);
-				ruku_left.setBackgroundResource(R.drawable.sr_ruku_down);
-				transfer_left.setBackgroundResource(R.drawable.sr_transfer_down);
+			if (id == R.id.approval_left) {
+				newContent = new ApprovalFragment();// 验收
+				approval_left.setBackgroundResource(R.drawable.sr_ruku_down);
+				connection_left.setBackgroundResource(R.drawable.sr_transfer_up);
+				wareout_left.setBackgroundResource(R.drawable.sr_chuku_up);
+			} else if (id == R.id.connection_left) {//  交接
+				newContent = new ConnectionFat();
+				connection_left.setBackgroundResource(R.drawable.sr_transfer_down);
+				approval_left.setBackgroundResource(R.drawable.sr_ruku_up);
+				wareout_left.setBackgroundResource(R.drawable.sr_chuku_up);
+			} else if (id == R.id.wareout_left) {
+				newContent = new LeavebaseFragment();
+				approval_left.setBackgroundResource(R.drawable.sr_ruku_up);
+				connection_left.setBackgroundResource(R.drawable.sr_transfer_up);
+				wareout_left.setBackgroundResource(R.drawable.sr_chuku_down);
 			}
 
 			if (newContent != null)
 				switchFragment(newContent);
-
 		}
 	};
 

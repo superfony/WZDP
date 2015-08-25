@@ -87,9 +87,6 @@ public class QtyTopList extends SupplyFragmemt {
 			paginationWidget.setRequestType(RequestType.THRIFT);// TODO
 			initPaginationWidget(paginationWidget);
 			paginationWidget.loadPaginationData();
-		
-
-
 	}
 
 	/** 查询条件 */

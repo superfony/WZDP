@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/detail_item_bg"
+    android:orientation="horizontal">
+
+
+    <ImageView
+        android:id="@+id/state_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_vertical"
+        android:visibility="invisible" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dip"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkbox_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp" />
+
+        <TableLayout
+            android:id="@+id/dataTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:shrinkColumns="1">
+
+            <TableRow android:gravity="top">
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:layout_marginTop="20dip"
+                    android:text="物料编码:" />
+
+                <TextView
+                    android:id="@+id/wlcode"
+                    style="@style/approval_detail_item"
+
+                    android:layout_marginTop="20dip" />
+            </TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="预留号:" />
+
+                <TextView
+                    android:id="@+id/reservasion_num"
+                    style="@style/approval_detail_item" />
+            </TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="行项目:" />
+
+                <TextView
+                    android:id="@+id/hangxm"
+                    style="@style/approval_detail_item" />
+            </TableRow>
+            <TextView android:layout_height="20dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="未清数量:" />
+
+                <TextView
+                    android:id="@+id/wq_count"
+                    style="@style/approval_detail_item" />
+            </TableRow>
+            <TextView android:layout_height="20dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="工厂:" />
+
+                <TextView
+                    android:id="@+id/leave_factory"
+                    style="@style/approval_detail_item" />
+            </TableRow>
+            <TextView android:layout_height="20dip" />
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:shrinkColumns="1">
+
+            <TableRow android:gravity="top">
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:layout_marginTop="20dip"
+                    android:text="物料描述:" />
+
+                <TextView
+                    android:id="@+id/wldesc"
+                    style="@style/nowwork_bak"
+                    android:layout_marginTop="20dip"
+                    />
+            </TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="实发数量:" />
+
+                <EditText
+                    android:id="@+id/actual_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="库存地点:" />
+
+                <EditText
+                    android:id="@+id/stockadress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dip" />
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="批次:" />
+
+                <EditText
+                    android:id="@+id/pc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+
+
+            <TextView android:layout_height="20dip" />
+
+        </TableLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -68,6 +69,7 @@ public class BaseNetAct extends FragmentActivity {
     protected BaseHttpModule.RequestListener requestListener = new BaseHttpModule.RequestListener() {
         @Override
         public void onSuccess(Response response) {
+            Log.w("head","response="+response.toString());
             if (progressDialog != null && progressDialog.isShowing())
                 progressDialog.dismiss();
             httpModule.processResponse(httpModule, response,

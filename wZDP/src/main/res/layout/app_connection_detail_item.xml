@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/detail_item_bg"
+    android:orientation="horizontal"
+    android:paddingLeft="30dip"
+    android:paddingRight="30dip">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="40dip"
+        android:orientation="horizontal">
+
+        <TableLayout
+            android:id="@+id/dataTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:shrinkColumns="1">
+
+            <TableRow android:gravity="top">
+
+                <TextView
+
+                    style="@style/nowwork_baks"
+                    android:layout_marginTop="20dip"
+                    android:text="物料编码:" />
+
+                <TextView
+                    android:id="@+id/wlcode"
+                    style="@style/connection_detail_item"
+                    android:layout_marginTop="20dip"
+
+                    />
+            </TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="合同数量:" />
+
+                <TextView
+                    android:id="@+id/htcount"
+                    style="@style/connection_detail_item" />
+            </TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="交接数量:" />
+
+                <TextView
+                    android:id="@+id/connection_count"
+                    style="@style/connection_detail_item" />
+            </TableRow>
+
+            <TextView android:layout_height="20dip" />
+        </TableLayout>
+
+
+        <TableLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:shrinkColumns="1">
+
+            <TableRow android:gravity="top">
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:layout_marginTop="20dip"
+                    android:text="物料描述:" />
+
+                <TextView
+                    android:id="@+id/wldesc"
+                    style="@style/nowwork_bak"
+
+                    android:layout_marginTop="20dip" />
+            </TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="发货数量:" />
+
+                <TextView
+                    android:id="@+id/fhcount"
+                    style="@style/nowwork_bak" />
+            </TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dip" />
+
+            <TableRow>
+
+                <TextView
+                    style="@style/nowwork_baks"
+                    android:text="库存地点:" />
+
+                <TextView
+                    android:id="@+id/stockadress"
+                    style="@style/nowwork_bak" />
+            </TableRow>
+
+            <TextView android:layout_height="20dip" />
+        </TableLayout>
+
+    </LinearLayout>
+</RelativeLayout>

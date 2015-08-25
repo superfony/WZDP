@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.epsmart.wzcc.activity.CommonActivity;
+import com.epsmart.wzcc.activity.supply.approval.ApprovalFragment;
+import com.epsmart.wzcc.activity.supply.connection.ConnectionFat;
 import com.epsmart.wzcc.activity.supply.fragment.ItemFragment;
 import com.epsmart.wzcc.activity.supply.fragment.PointFragment;
 import com.epsmart.wzcc.activity.supply.fragment.ProductionFragment;
+import com.epsmart.wzcc.activity.supply.leavebase.LeavebaseFragment;
 import com.fony.menu.widget.slidingmenu.fragment.SlidingMenuFragment;
 
 /**
@@ -47,13 +50,13 @@ public class SupplyActivity extends CommonActivity {
 		if (mContent == null) {
 			switch (modelFlag) {
 			case 0:
-				mContent = new ProductionFragment();
+				mContent = new ConnectionFat();// 交接
 				break;
 			case 1:
-				mContent = new ItemFragment();
+				mContent = new ApprovalFragment();//验收
 				break;
 			case 2:
-				mContent = new PointFragment();
+				mContent = new LeavebaseFragment();
 				break;
 			default:
 				break;

@@ -1,43 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  
-     android:id="@+id/contentRoot"
-     android:layout_width="fill_parent"
+
+    android:id="@+id/contentRoot"
+    android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-     android:layout_marginLeft="10dip"
-        android:layout_marginRight="8dip"
-    android:orientation="vertical" 
-    >
-    
-    
-     <com.epsmart.wzcc.widget.PullToRefreshListView
+    android:layout_marginLeft="10dip"
+    android:layout_marginRight="8dip"
+    android:orientation="vertical">
+
+
+    <com.epsmart.wzcc.widget.PullToRefreshListView
         xmlns:dafruits="http://schemas.android.com/apk/res/com.epsmart.wzcc"
         android:id="@+id/lv_pagination_widget_data_body"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:divider="@android:color/transparent" 
-        android:footerDividersEnabled="false"
-       
         android:cacheColorHint="@android:color/transparent"
         android:choiceMode="singleChoice"
-        dafruits:scrollBarPanel="@layout/scrollbarpanel"
-        dafruits:scrollBarPanelInAnimation="@anim/in"
-        dafruits:scrollBarPanelOutAnimation="@anim/out"
-         />
 
-   <!--  <include
-   
-    
+        android:divider="@android:color/transparent"
+        android:footerDividersEnabled="false"
         dafruits:scrollBarPanel="@layout/scrollbarpanel"
         dafruits:scrollBarPanelInAnimation="@anim/in"
-        dafruits:scrollBarPanelOutAnimation="@anim/out"
-        
-        
-        android:id="@+id/footer"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:visibility="visible"
-        layout="@layout/pagination_widget" /> -->
+        dafruits:scrollBarPanelOutAnimation="@anim/out" />
+
 
 </RelativeLayout>

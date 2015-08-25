@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="80dp"
+    android:layout_marginLeft="80dp"
+    android:layout_marginRight="80dp"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/approval_head_bg"
+    android:orientation="horizontal"
+    android:paddingLeft="60dp"
+    android:paddingRight="80dp"
+    android:paddingTop="30dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/transparent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/approval_padding"
+        android:paddingRight="@dimen/approval_padding">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发货通知单:"
+
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/consingment_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:background="@color/grayw" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合同编号:"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/controct_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:background="@color/grayw" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="项目名称:"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/pro_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:background="@color/grayw" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="采购订单:"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/prucase_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:background="@color/grayw" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="交货地点:"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/deli_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:background="@color/grayw" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="供应商:"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/supply_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:background="@color/grayw" />
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/transparent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/approval_padding">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="供应商联系人:"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/supply_persion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:background="@color/grayw" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="15dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="承运商联系人:"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size" />
+
+            <TextView
+                android:id="@+id/receiver_persion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/approval_content_color"
+                android:textSize="@dimen/approval_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="600dip"
+            android:layout_height="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/grayw" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="发货方签字"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size"
+
+                />
+
+            <EditText
+                android:id="@+id/fhfqz_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="收货方签字"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size"
+
+                />
+
+            <EditText
+                android:id="@+id/shfqz_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="实际交货日期"
+                android:textColor="@color/approval_name_color"
+                android:textSize="@dimen/approval_size"
+
+                />
+
+            <EditText
+                android:id="@+id/actualdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/submit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/connection_submit"
+              />
+
+    </LinearLayout>
+
+
+</LinearLayout>

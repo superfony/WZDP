@@ -163,4 +163,8 @@ public class RequestParamConfig {
 	//查询物料库存明细信息接口
 	 public  static final  String houseQueryWithTable="houseQueryWithTable";
 
+	// 查询工厂列表
+	public  static final  String warehouseInfo="warehouseInfo";
+
+	public  static final  String testWSDLOBJ="testObject";
 }

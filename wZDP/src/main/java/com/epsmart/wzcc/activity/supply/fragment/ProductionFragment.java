@@ -3,6 +3,7 @@ package com.epsmart.wzcc.activity.supply.fragment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.epsmart.wzcc.activity.fragment.CommonFragment;
 import com.epsmart.wzcc.activity.pagination.PaginationWidget;
 import com.epsmart.wzcc.activity.search.QueryDialogListener;
 import com.epsmart.wzcc.activity.supply.approval.UnitInforActivity;
+import com.epsmart.wzcc.activity.supply.bean.Field;
 import com.epsmart.wzcc.bean.Pagination;
 import com.epsmart.wzcc.bean.QueryCondition;
 import com.epsmart.wzcc.bean.ViewBuildBak;
@@ -36,7 +38,6 @@ public class ProductionFragment extends CommonFragment {
     @Override
     public void onAttach(Activity activity) {
         queryCondition = new QueryCondition();
-
         super.onAttach(activity);
     }
 
@@ -95,7 +96,7 @@ public class ProductionFragment extends CommonFragment {
                     RequestParamConfig.serviceNameSpace);
             paginationWidget.getHttpModule().setServiceUrl(
                     RequestParamConfig.ServerUrl);
-            paginationWidget.setRequestType(RequestType.TXTTEST);// TODO
+            paginationWidget.setRequestType(RequestType.THRIFT);// TODO
             initPaginationWidget(paginationWidget);
             paginationWidget.loadPaginationData();
         } else {
@@ -112,7 +113,7 @@ public class ProductionFragment extends CommonFragment {
                     RequestParamConfig.serviceNameSpace);
             paginationWidget.getHttpModule().setServiceUrl(
                     RequestParamConfig.ServerUrl);
-            paginationWidget.setRequestType(RequestType.TXTTEST);
+            paginationWidget.setRequestType(RequestType.THRIFT);
             initPaginationWidget(paginationWidget);
             paginationWidget.requestAction = requestAction;
             paginationWidget.lv_page_body.setTag(tag);
@@ -136,41 +137,18 @@ public class ProductionFragment extends CommonFragment {
                     public void onItemClick(AdapterView<?> arg0, View arg1,
                                             int position, long arg3) {
 
-             /*           if (position == 0
+                      if (position == 0
                                 || paginationWidget.getPageBodyDatas().size() + 1 == position) {
                             return;
                         }
                         WorkOrder workOrder = paginationWidget
                                 .getPageBodyDatas().get(position - 1);
-
-                        Field id = workOrder.fields.get("id");
-                        Field amount = workOrder.fields.get("amount");
-
-                        ProductTwoFragment pdtwo = new ProductTwoFragment();
-                        Bundle bundle = new Bundle();
-                        bundle.putString("reqParam", RequestXmlHelp.getCommonXML(RequestXmlHelp
-                                .getReqXML("id",
-                                        id.fieldContent)
-
-                                .append(RequestXmlHelp.getReqXML(
-                                        "amount", amount.fieldContent))
-                                .append(RequestXmlHelp.getReqXML(
-                                        "user_type",
-                                        PermissHelp.getUserType("000")))));
-
-                            pdtwo.setArguments(bundle);
-                            Common.replaceRightFragment(acti
-                            vity, pdtwo,
-                                    false, R.id.content);*/
-                        // 这里进行一下调整
-
-                        //   Common.replaceRightFragment(activity, new UnitInforFragment(), false, R.id.qty_m);
-
+                              //发货通知编号
+                        Field DELIVERINFORMCOD = workOrder.fields.get("DELIVERINFORMCOD");
                         Intent intent = new Intent();
+                        intent.putExtra("DELIVERINFORMCOD",DELIVERINFORMCOD.fieldContent);
                         intent.setClass(activity, UnitInforActivity.class);
                         activity.startActivity(intent);
-
-
                     }
                 });
 
@@ -197,6 +175,4 @@ public class ProductionFragment extends CommonFragment {
             }
         };
     }
-
-
 }

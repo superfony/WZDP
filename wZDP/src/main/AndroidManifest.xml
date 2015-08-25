@@ -29,22 +29,22 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
 
     <application
-        android:name="com.epsmart.wzcc.activity.AppContext"
+        android:name=".activity.AppContext"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <!--LoginAct-->
+        android:theme="@style/AppTheme">
+
+        <!-- LoginAct -->
         <activity
-            android:name="com.epsmart.wzcc.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,94 +52,80 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.supply.SupplyActivity"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.supply.SupplyActivity"
+            android:screenOrientation="landscape"></activity>
 
-       <!--<activity-->
-            <!--android:name="com.epsmart.wzcc.activity.MainActivity"-->
-            <!--android:screenOrientation="landscape"-->
-            <!--android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">-->
-        <!--</activity>-->
-
-
+        <!-- <activity -->
+        <!-- android:name="com.epsmart.wzcc.activity.MainActivity" -->
+        <!-- android:screenOrientation="landscape" -->
+        <!-- android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"> -->
+        <!-- </activity> -->
 
         <activity
-            android:name="com.epsmart.wzcc.activity.achar.DoStatisticsAct"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.achar.DoStatisticsAct"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.achar.ContractLineCharAct"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.achar.ContractLineCharAct"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.achar.ProductionFromAct"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.achar.ProductionFromAct"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.achar.SettleCharAct"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.achar.SettleCharAct"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.achar.SubstanceaNalysisAct"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.achar.SubstanceaNalysisAct"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.achar.SubstanceaNalysisActNew"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.achar.SubstanceaNalysisActNew"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.supply.SupplyMenuActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-
+            android:name=".activity.supply.SupplyMenuActivity"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.AboutUsAct"
+            android:name=".activity.AboutUsAct"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
-        </activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.InstallActivity"
+            android:name=".activity.InstallActivity"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
-        </activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.more.MoreAct"
+            android:name=".activity.more.MoreAct"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
-        </activity>
-
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.achar.ScheduleAct"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.achar.ScheduleAct"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.achar.WeeklyAct"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.achar.WeeklyAct"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.achar.PlanCommonAct"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.achar.PlanCommonAct"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.more.OffLineCommonAct"
-            android:screenOrientation="landscape" >
-        </activity>
+            android:name=".activity.more.OffLineCommonAct"
+            android:screenOrientation="landscape"></activity>
         <activity
-            android:name="com.epsmart.wzcc.activity.supply.approval.UnitInforActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-
+            android:name=".activity.supply.approval.UnitInforActivity"
+            android:screenOrientation="landscape"></activity>
 
         <!-- 离线数据 -->
         <activity
-            android:name="com.epsmart.wzcc.activity.more.OffLineData"
+            android:name=".activity.more.OffLineData"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"></activity>
+
+
+        <activity
+            android:name=".activity.supply.connection.ConnectionAct"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name=".activity.supply.leavebase.LeavebaseAct"
+            android:screenOrientation="landscape">>
         </activity>
-
-
-
     </application>
+
 
 </manifest>
