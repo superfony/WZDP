@@ -1,15 +1,5 @@
 package com.epsmart.wzcc.activity.more;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import Decoder.BASE64Decoder;
-import Decoder.BASE64Encoder;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -54,6 +44,17 @@ import com.epsmart.wzcc.http.request.BaseRequest.RequestType;
 import com.epsmart.wzcc.http.request.RequestAction;
 import com.epsmart.wzcc.http.response.model.StatusEntity;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import Decoder.BASE64Decoder;
+import Decoder.BASE64Encoder;
+
 /**
  * 更多设置页面 上传头像信息、关于、离线数据
  * 
@@ -75,9 +76,9 @@ public class MoreAct extends CommonAct {
 		activity = this;
 		initUI();
 		
-		RequestPram requestPram = new RequestPram();
-		requestPram.methodName = RequestParamConfig.getHeadImg;// 获取用户头像信息
-		loadReqHead(requestPram);
+//		RequestPram requestPram = new RequestPram();
+//		requestPram.methodName = RequestParamConfig.getHeadImg;// 获取用户头像信息
+//		loadReqHead(requestPram);
 	}
 
 	private void initUI() {

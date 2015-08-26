@@ -109,18 +109,8 @@ public class MainActivity<E> extends ClientActivity {
         data.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-
-                try {
-                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
-                    Dao dao = dbhelper.getDao(AppHeadTable.class);
-
-                    readTxtFile("admin.txt", dao);
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-
+                //				Intent intent = new Intent(activity, .class);
+                //				activity.startActivity(intent);
             }
         });
 // 设置

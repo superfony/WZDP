@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzcc"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,11 +10,7 @@
         android:id="@+id/daily_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal"
-        circle:circleBackground="@drawable/circle"
-        circle:firstChildPosition="South"
-        circle:isRotating="true"
-        circle:rotateToCenter="true" >
+        android:layout_gravity="center_horizontal" >
 
         <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/pronotice_image"

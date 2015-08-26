@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:circle="http://schemas.android.com/apk/res/com.epsmart.wzcc"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,11 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center_horizontal"
-        circle:firstChildPosition="South" 
-        circle:circleBackground="@drawable/circle"
-        circle:rotateToCenter="true" 
-        circle:isRotating="true" 
-       
+
         >
                
 <!--         circle:circleBackground="@drawable/green"  > -->
@@ -25,15 +20,13 @@
             android:id="@+id/plan_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_allplan_btn"
-            circle:name="@string/plan_control" />
+            android:src="@drawable/icon_allplan_btn" />
 
         <com.epsmart.wzcc.view.CircleImageView
             android:id="@+id/progress_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_allprogress_btn"
-            circle:name="@string/progress_control" />
+            android:src="@drawable/icon_allprogress_btn" />
 
     </com.epsmart.wzcc.view.CircleLayoutTwo>
 
