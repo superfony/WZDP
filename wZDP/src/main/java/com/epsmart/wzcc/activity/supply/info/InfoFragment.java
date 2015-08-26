@@ -24,8 +24,9 @@ import android.widget.Toast;
 import com.epsmart.wzcc.R;
 import com.epsmart.wzcc.activity.achar.service.CharResponse;
 import com.epsmart.wzcc.activity.achar.service.CharXmlHandler;
-import com.epsmart.wzcc.activity.fragment.CommonFragment;
 import com.epsmart.wzcc.activity.search.QueryDialogListener;
+import com.epsmart.wzcc.activity.search.QueryInfoDialog;
+import com.epsmart.wzcc.activity.supply.approval.BaseFragment;
 import com.epsmart.wzcc.activity.supply.bean.BasicEntity;
 import com.epsmart.wzcc.activity.supply.bean.BasicResponse;
 import com.epsmart.wzcc.activity.supply.bean.BasicResponseNew;
@@ -44,7 +45,7 @@ import java.util.List;
 /*
  * 库存信息Fragment
  */
-public class InfoFragment extends CommonFragment {
+public class InfoFragment extends BaseFragment {
     // private Activity activity;
     private View view;
     // 初始化分页标签
@@ -60,6 +61,7 @@ public class InfoFragment extends CommonFragment {
     private TextView tv01;
     private BasicEntity entiry;
     protected List<String[]> list1 = null;
+    protected RequestPram requestPram;
 
     @Override
     public void onAttach(Activity activity) {
@@ -85,6 +87,9 @@ public class InfoFragment extends CommonFragment {
         View view = actionBar.getCustomView();
         ImageView title_image = (ImageView) view.findViewById(R.id.title_image);
         title_image.setBackgroundResource(R.drawable.sr_info_title);
+        search_lay.setVisibility(View.VISIBLE);
+        search_lay.setOnClickListener(searchLis);
+        search_btn.setOnClickListener(searchLis);
 
         initview();
         init();
@@ -127,6 +132,7 @@ public class InfoFragment extends CommonFragment {
         }
     }
 
+    protected QueryDialogListener listener;
     {
         listener = new QueryDialogListener() {
             @Override
@@ -142,20 +148,28 @@ public class InfoFragment extends CommonFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        activity.setSmGone();
-        appContext.wzdpType = WZDPTYPE.QUALITY;
-        search_lay.setVisibility(View.VISIBLE);
-        search_lay.setOnClickListener(searchLis);
-        search_btn.setOnClickListener(searchLis);
+//        appContext.wzdpType = WZDPTYPE.QUALITY;
+//        search_lay.setVisibility(View.VISIBLE);
+//        search_lay.setOnClickListener(searchLis);
+//        search_btn.setOnClickListener(searchLis);
         loadData(requestPram);
     }
 
+    protected QueryInfoDialog queryDialog;
+    protected View.OnClickListener searchLis = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            queryDialog = new QueryInfoDialog(activity, listener);// TODO
+            queryDialog.show(v);
+        }
+    };
 
     /**
      * 请求模板路径
      */
     public void loadData(RequestPram requestPram) {
-        showModuleProgressDialog("提示", "获取跟踪表...");
+//        showModuleProgressDialog("提示", "获取跟踪表...");
         RequestAction requestAction = new RequestAction();
         requestAction.reset();
 //        requestPram.methodName = RequestParamConfig.ehvMaterialprocedure;
@@ -186,7 +200,7 @@ public class InfoFragment extends CommonFragment {
             if (msg.what == 0) {
                 onSuccessTable((CharResponse) msg.obj);
             }
-            closeDialog();
+//            closeDialog();
         }
     }
 

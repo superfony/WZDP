@@ -125,6 +125,11 @@
             android:name=".activity.supply.leavebase.LeavebaseAct"
             android:screenOrientation="landscape">>
         </activity>
+
+        <activity
+            android:name=".activity.supply.info.InfoActivity"
+            android:screenOrientation="landscape">>
+        </activity>
     </application>
 
 

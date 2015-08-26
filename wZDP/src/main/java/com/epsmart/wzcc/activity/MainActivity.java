@@ -1,12 +1,10 @@
 package com.epsmart.wzcc.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.renderscript.BaseObj;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -15,15 +13,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.more.MoreAct;
 import com.epsmart.wzcc.activity.supply.SupplyActivity;
-import com.epsmart.wzcc.activity.supply.SupplyMenuActivity;
+import com.epsmart.wzcc.activity.supply.info.InfoActivity;
 import com.epsmart.wzcc.activity.test.Return;
 import com.epsmart.wzcc.http.BaseHttpModule;
-import com.epsmart.wzcc.updata.UpdateManager;
-import com.epsmart.wzcc.view.CircleImageView;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
@@ -38,7 +34,7 @@ public class MainActivity extends ClientActivity {
     private String TAG = MainActivity.class.getName();
     public static String provenance;
     private BaseHttpModule httpModule;
-    private Activity activity;
+//    private Activity activity;
     private PackageManager pm = null;
     private  ImageButton transfer,ruku,chuku,info,data,setting;
 
@@ -91,8 +87,9 @@ public class MainActivity extends ClientActivity {
         info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                //				Intent intent = new Intent(activity, .class);
-                //				activity.startActivity(intent);
+                				Intent intent = new Intent(activity, InfoActivity.class);
+                				activity.startActivity(intent);
+//                Common.replaceRightFragment(activity, new InfoFragment(), false,R.id.info_container);
             }
         });
 
@@ -107,8 +104,8 @@ public class MainActivity extends ClientActivity {
         setting.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                //				Intent intent = new Intent(activity, .class);
-                //				activity.startActivity(intent);
+                				Intent intent = new Intent(activity, MoreAct.class);
+                				activity.startActivity(intent);
             }
         });
 

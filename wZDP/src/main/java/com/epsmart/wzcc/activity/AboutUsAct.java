@@ -1,10 +1,10 @@
 package com.epsmart.wzcc.activity;
 
-import com.epsmart.wzcc.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.epsmart.wzcc.R;
 
 public class AboutUsAct extends Activity {
 	@Override
@@ -16,9 +16,9 @@ public class AboutUsAct extends Activity {
 
 	private void initWidget() {
 		TextView version_num = (TextView) findViewById(R.id.version_num);
-		version_num.setText("1.4.2");
+		version_num.setText("1.0");
 		TextView release_date = (TextView) findViewById(R.id.release_date);
-		release_date.setText("2015-07-01");
+		release_date.setText("2015-08-01");
 		TextView contact_num = (TextView) findViewById(R.id.contact_num);
 		contact_num.setText("0531-67983175");
 	}
