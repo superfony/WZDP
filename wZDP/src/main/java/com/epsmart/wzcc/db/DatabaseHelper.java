@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.epsmart.wzcc.db.table.AppHeadTable;
 import com.epsmart.wzcc.db.table.PageDateTable;
 import com.epsmart.wzcc.db.table.SimpleData;
 import com.epsmart.wzcc.db.table.SubmitDateTable;
@@ -16,7 +17,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
-	private static final String DATABASE_NAME = "wzdp.db";
+	private static final String DATABASE_NAME = "wzcc.db";
 	private static final int DATABASE_VERSION = 1;
 	// 泛型表示DAO的操作类
 
@@ -30,9 +31,9 @@ public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
 	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
 		try {
 			Log.i(DatabaseHelper.class.getName(), "onCreate");
-			TableUtils.createTable(connectionSource, TemplateTable.class);
-			TableUtils.createTable(connectionSource, PageDateTable.class);
-			TableUtils.createTable(connectionSource, SubmitDateTable.class);
+			TableUtils.createTable(connectionSource, AppHeadTable.class);
+//			TableUtils.createTable(connectionSource, PageDateTable.class);
+//			TableUtils.createTable(connectionSource, SubmitDateTable.class);
 		} catch (SQLException e) {
 			Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
 			throw new RuntimeException(e);
@@ -47,6 +48,8 @@ public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
 			TableUtils.dropTable(connectionSource, SimpleData.class, true);
 			TableUtils.dropTable(connectionSource, UserData.class, true);
 			onCreate(db, connectionSource);
+
+
 		} catch (SQLException e) {
 			Log.e(DatabaseHelper.class.getName(), "Can't drop databases", e);
 			throw new RuntimeException(e);

@@ -6,10 +6,10 @@ import com.j256.ormlite.field.DatabaseField;
  * Created by fony on 15-8-10.
  * 交接验收通知单表头信息
  */
-public class AppCagoTable {
+public class AppHeadTable {
 
-    @DatabaseField(generatedId = true)
-    public int id;
+//    @DatabaseField
+//    public int id;
     @DatabaseField(index = true)
     public String DE_ID;
     @DatabaseField
@@ -68,13 +68,13 @@ public class AppCagoTable {
     public String UPDATE_TIME;
 
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getDE_ID() {
         return DE_ID;

@@ -4,250 +4,100 @@
 <recordInfo>
 <fieldInfo>
 <fieldChName>项目名称</fieldChName>
-<fieldEnName>projectname</fieldEnName>
+<fieldEnName>PROJECTNAME</fieldEnName>
 <fieldContent>淄博500千伏变电站配套</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>ID</fieldChName>
-<fieldEnName>id</fieldEnName>
+<fieldChName>发货通知编号</fieldChName>
+<fieldEnName>DELIVERINFORMCOD</fieldEnName>
 <fieldContent>335</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>采购订单</fieldChName>
-<fieldEnName>purchaseorder</fieldEnName>
+<fieldChName>供应商</fieldChName>
+<fieldEnName>SUPPLIERNAME</fieldEnName>
 <fieldContent>4200386812</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
+</recordInfo>
+<recordInfo>
 <fieldInfo>
-<fieldChName>设备序号</fieldChName>
-<fieldEnName>eqorder</fieldEnName>
-<fieldContent></fieldContent>
+<fieldChName>项目名称</fieldChName>
+<fieldEnName>PROJECTNAME</fieldEnName>
+<fieldContent>淄博500千伏变电站配套</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>设备/材料电压等级</fieldChName>
-<fieldEnName>voltagegrade</fieldEnName>
-<fieldContent>AC500kV</fieldContent>
+<fieldChName>发货通知编号</fieldChName>
+<fieldEnName>DELIVERINFORMCOD</fieldEnName>
+<fieldContent>335</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>供应商名称</fieldChName>
-<fieldEnName>suppliername</fieldEnName>
-<fieldContent>山东泰开高压开关有限公司</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>数量</fieldChName>
-<fieldEnName>amount</fieldEnName>
-<fieldContent>1</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>物资类型</fieldChName>
-<fieldEnName>materialtype</fieldEnName>
-<fieldContent>隔离开关</fieldContent>
+<fieldChName>供应商</fieldChName>
+<fieldEnName>SUPPLIERNAME</fieldEnName>
+<fieldContent>4200386812</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 </recordInfo>
 <recordInfo>
 <fieldInfo>
 <fieldChName>项目名称</fieldChName>
-<fieldEnName>projectname</fieldEnName>
+<fieldEnName>PROJECTNAME</fieldEnName>
 <fieldContent>淄博500千伏变电站配套</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>ID</fieldChName>
-<fieldEnName>id</fieldEnName>
-<fieldContent>336</fieldContent>
+<fieldChName>发货通知编号</fieldChName>
+<fieldEnName>DELIVERINFORMCOD</fieldEnName>
+<fieldContent>335</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>采购订单</fieldChName>
-<fieldEnName>purchaseorder</fieldEnName>
-<fieldContent>4200386813</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>设备序号</fieldChName>
-<fieldEnName>eqorder</fieldEnName>
-<fieldContent></fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>设备/材料电压等级</fieldChName>
-<fieldEnName>voltagegrade</fieldEnName>
-<fieldContent>AC500kV</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>供应商名称</fieldChName>
-<fieldEnName>suppliername</fieldEnName>
-<fieldContent>山东泰开高压开关有限公司</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>数量</fieldChName>
-<fieldEnName>amount</fieldEnName>
-<fieldContent>4</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>物资类型</fieldChName>
-<fieldEnName>materialtype</fieldEnName>
-<fieldContent>断路器</fieldContent>
+<fieldChName>供应商</fieldChName>
+<fieldEnName>SUPPLIERNAME</fieldEnName>
+<fieldContent>4200386812</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 </recordInfo>
 <recordInfo>
 <fieldInfo>
 <fieldChName>项目名称</fieldChName>
-<fieldEnName>projectname</fieldEnName>
+<fieldEnName>PROJECTNAME</fieldEnName>
 <fieldContent>淄博500千伏变电站配套</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>ID</fieldChName>
-<fieldEnName>id</fieldEnName>
-<fieldContent>337</fieldContent>
+<fieldChName>发货通知编号</fieldChName>
+<fieldEnName>DELIVERINFORMCOD</fieldEnName>
+<fieldContent>335</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>采购订单</fieldChName>
-<fieldEnName>purchaseorder</fieldEnName>
-<fieldContent>4200386814</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>设备序号</fieldChName>
-<fieldEnName>eqorder</fieldEnName>
-<fieldContent></fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>设备/材料电压等级</fieldChName>
-<fieldEnName>voltagegrade</fieldEnName>
-<fieldContent>AC500kV</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>供应商名称</fieldChName>
-<fieldEnName>suppliername</fieldEnName>
-<fieldContent>山东泰开高压开关有限公司</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>数量</fieldChName>
-<fieldEnName>amount</fieldEnName>
-<fieldContent>1</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>物资类型</fieldChName>
-<fieldEnName>materialtype</fieldEnName>
-<fieldContent>电抗器</fieldContent>
+<fieldChName>供应商</fieldChName>
+<fieldEnName>SUPPLIERNAME</fieldEnName>
+<fieldContent>4200386812</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 </recordInfo>
 <recordInfo>
 <fieldInfo>
 <fieldChName>项目名称</fieldChName>
-<fieldEnName>projectname</fieldEnName>
+<fieldEnName>PROJECTNAME</fieldEnName>
 <fieldContent>淄博500千伏变电站配套</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>ID</fieldChName>
-<fieldEnName>id</fieldEnName>
-<fieldContent>338</fieldContent>
+<fieldChName>发货通知编号</fieldChName>
+<fieldEnName>DELIVERINFORMCOD</fieldEnName>
+<fieldContent>335</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 <fieldInfo>
-<fieldChName>采购订单</fieldChName>
-<fieldEnName>purchaseorder</fieldEnName>
-<fieldContent>4200386815</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>设备序号</fieldChName>
-<fieldEnName>eqorder</fieldEnName>
-<fieldContent>1</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>设备/材料电压等级</fieldChName>
-<fieldEnName>voltagegrade</fieldEnName>
-<fieldContent>AC500kV</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>供应商名称</fieldChName>
-<fieldEnName>suppliername</fieldEnName>
-<fieldContent>山东泰开高压开关有限公司</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>数量</fieldChName>
-<fieldEnName>amount</fieldEnName>
-<fieldContent>1</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>物资类型</fieldChName>
-<fieldEnName>materialtype</fieldEnName>
-<fieldContent>变压器</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-</recordInfo>
-<recordInfo>
-<fieldInfo>
-<fieldChName>项目名称</fieldChName>
-<fieldEnName>projectname</fieldEnName>
-<fieldContent>淄博500千伏变电站配套</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>ID</fieldChName>
-<fieldEnName>id</fieldEnName>
-<fieldContent>340</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>采购订单</fieldChName>
-<fieldEnName>purchaseorder</fieldEnName>
-<fieldContent>4200386815</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>设备序号</fieldChName>
-<fieldEnName>eqorder</fieldEnName>
-<fieldContent>3</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>设备/材料电压等级</fieldChName>
-<fieldEnName>voltagegrade</fieldEnName>
-<fieldContent>AC500kV</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>供应商名称</fieldChName>
-<fieldEnName>suppliername</fieldEnName>
-<fieldContent>山东泰开高压开关有限公司</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>数量</fieldChName>
-<fieldEnName>amount</fieldEnName>
-<fieldContent>1</fieldContent>
-<fieldView>1</fieldView>
-</fieldInfo>
-<fieldInfo>
-<fieldChName>物资类型</fieldChName>
-<fieldEnName>materialtype</fieldEnName>
-<fieldContent>变压器</fieldContent>
+<fieldChName>供应商</fieldChName>
+<fieldEnName>SUPPLIERNAME</fieldEnName>
+<fieldContent>4200386812</fieldContent>
 <fieldView>1</fieldView>
 </fieldInfo>
 </recordInfo>
@@ -260,3 +110,96 @@
 </fieldInfo>
 </recordInfo>
 </opdetail>
+
+
+
+
+
+
+    <opdetail>
+    <items>
+    <item>
+    <COM_CODE>0600</COM_CODE>
+    <ID>ccfea3192db541b28eedc64f1eadc47e</ID>
+    <PLANT>00AA</PLANT>
+    <PLANTNAME>国网济南供电公司</PLANTNAME>
+    <STGE_LOC>AA01</STGE_LOC>
+    <STGE_LOCNAME>济南供电公司自购-现场收发库</STGE_LOCNAME>
+    <UPDATE_TIME>2015-08-18T11:35:32+08:00</UPDATE_TIME>
+    </item>
+    <item>
+    <COM_CODE>0600</COM_CODE>
+    <ID>ccfea3192db541b28eedc64f1eadc47e</ID>
+    <PLANT>00AA</PLANT>
+    <PLANTNAME>国网济南供电公司</PLANTNAME>
+    <STGE_LOC>AA01</STGE_LOC>
+    <STGE_LOCNAME>济南供电公司自购-现场收发库</STGE_LOCNAME>
+    <UPDATE_TIME>2015-08-18T11:35:32+08:00</UPDATE_TIME>
+    </item>
+    <item>
+    <COM_CODE>0600</COM_CODE>
+    <ID>4d1624074cbd4830a44e343af6efa217</ID>
+    <PLANT>00AA</PLANT>
+    <PLANTNAME>国网济南供电公司</PLANTNAME>
+    <STGE_LOC>AA02</STGE_LOC>
+    <STGE_LOCNAME>济南供电公司自购-物资库</STGE_LOCNAME>
+    <UPDATE_TIME>2015-08-18T11:35:32+08:00</UPDATE_TIME>
+    </item>
+    </items>
+    <message>成功</message>
+    <result>0</result>
+    </opdetail>
+
+
+
+
+
+
+
+
+   public void reqestWSDL(){
+          Log.w("wsdl", "envelope.getResponse()=============");
+          try {
+              SoapObject request = new SoapObject(RequestParamConfig.serviceNameSpace, RequestParamConfig.testWSDLOBJ);
+              // webservice 传入对象对象方式调用
+              Log.w("wsdl","RequestParamConfig.serviceNameSpace="+RequestParamConfig.serviceNameSpace);
+              Log.w("wsdl","RequestParamConfig.testWSDLOBJ="+RequestParamConfig.testWSDLOBJ);
+              PropertyInfo pi = new PropertyInfo();
+              Return u = new Return();
+              u.setTYPE("126789");
+              pi.setName("re"); //传入的对象名..
+              pi.setValue(u);
+              pi.setType(u.getClass());
+              request.addProperty(pi);
+              SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                      SoapEnvelope.VER10);
+              envelope.bodyOut = request;
+             // envelope.addMapping(RequestParamConfig.serviceNameSpace,"Return",u.getClass());
+              envelope.setOutputSoapObject(request);
+              HttpTransportSE androidHttpTransport = new HttpTransportSE(RequestParamConfig.ServerUrl);
+
+              androidHttpTransport.debug = true;
+              Log.w("wsdl", "RequestParamConfig.ServerUrl=" + RequestParamConfig.ServerUrl);
+              androidHttpTransport.call(null, envelope);
+              Log.w("wsdl", "...........");
+              SoapObject result = (SoapObject)envelope.getResponse();
+              Log.w("wsdl", "result=========" +(result instanceof  SoapObject));
+              Log.w("wsdl", "result=========" +result.getName()+"typevalue="+result.getProperty("TYPE"));
+          } catch (Exception e) {
+              Log.w("wsdl",".....e......"+e);
+              e.printStackTrace();
+          }
+
+      }
+
+
+      table AppHeadTable has 29 columns but 28 values were supplied: , while compiling: insert into AppHeadTable values('DE_ID','DELIVERINFORMCOD','PURCHASECODE','PLANT','STGE_LOC','WHSENUMBER','SUPPLIERCODE','SUPPLIERNAME','ACTUALDELIVERYPL','PROJECTCODE','PROJECTNAME','PROJECTUNIT','SUPPLINKMAN','SUPPLINKMANTELEP', 'CARRLINKMAN','CARRLINKMANTELEP','DELINKMAN','DELINKMANTELEPHO','PACKCOUNT','STANDARD','CONTRACTID','PLANSTATES','SENDNAME','SENDTIME','WD_STATES','WD_MEMO','ZDJZT','UPDATE_TIME')
+      08-25 18:01:53.995    8444-8444/? W/System.err﹕ at android.database.sqlite.SQLiteCompiledSql.native_compile(Native Method)
+
+Problems executing insert into AppHeadTable values(1,'DE_ID','DELIVERINFORMCOD','PURCHASECODE','PLANT','STGE_LOC','WHSENUMBER','SUPPLIERCODE','SUPPLIERNAME','ACTUALDELIVERYPL','PROJECTCODE','PROJECTNAME','PROJECTUNIT','SUPPLINKMAN','SUPPLINKMANTELEP', 'CARRLINKMAN','CARRLINKMANTELEP','DELINKMAN','DELINKMANTELEPHO','PACKCOUNT','STANDARD','CONTRACTID','PLANSTATES','SENDNAME','SENDTIME','WD_STATES','WD_MEMO','ZDJZT','UPDATE_TIME')
+Android statement: insert into AppHeadTable values(1,'DE_ID','DELIVERINFORMCOD','PURCHASECODE','PLANT','STGE_LOC','WHSENUMBER','SUPPLIERCODE','SUPPLIERNAME','ACTUALDELIVERYPL','PROJECTCODE','PROJECTNAME','PROJECTUNIT','SUPPLINKMAN','SUPPLINKMANTELEP', 'CARRLINKMAN','CARRLINKMANTELEP','DELINKMAN','DELINKMANTELEPHO','PACKCOUNT','STANDARD','CONTRACTID','PLANSTATES','SENDNAME','SENDTIME','WD_STATES','WD_MEMO','ZDJZT','UPDATE_TIME')
+08-25 18:19:00.800  11194-11194/? W/System.err﹕ at com.j256.ormlite.misc.SqlExceptio
+
+
+
+

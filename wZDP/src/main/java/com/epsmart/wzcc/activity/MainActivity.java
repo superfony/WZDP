@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.renderscript.BaseObj;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -21,9 +22,13 @@ import com.epsmart.wzcc.R;
 import com.epsmart.wzcc.activity.supply.SupplyActivity;
 import com.epsmart.wzcc.activity.supply.SupplyMenuActivity;
 import com.epsmart.wzcc.activity.test.Return;
+import com.epsmart.wzcc.db.DatabaseHelper;
+import com.epsmart.wzcc.db.dao.DaoManager;
+import com.epsmart.wzcc.db.table.AppHeadTable;
 import com.epsmart.wzcc.http.BaseHttpModule;
 import com.epsmart.wzcc.updata.UpdateManager;
 import com.epsmart.wzcc.view.CircleImageView;
+import com.j256.ormlite.dao.Dao;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
@@ -31,23 +36,31 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  * 首页显示
  */
-public class MainActivity extends ClientActivity {
+public class MainActivity<E> extends ClientActivity {
     private String TAG = MainActivity.class.getName();
     public static String provenance;
     private BaseHttpModule httpModule;
     private Activity activity;
     private PackageManager pm = null;
-    private  ImageButton transfer,ruku,chuku,info,data,setting;
+    private ImageButton transfer, ruku, chuku, info, data, setting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activity = this;
         setContentView(R.layout.activity_main);
-       // UpdateManager.getUpdateManager().checkAppUpdate(this, false);// 检查是否更新
+        // UpdateManager.getUpdateManager().checkAppUpdate(this, false);// 检查是否更新
         transfer = (ImageButton) findViewById(R.id.transfer);//货物交接
         ruku = (ImageButton) findViewById(R.id.ruku);//验收入库
         chuku = (ImageButton) findViewById(R.id.chuku);//领料出库
@@ -75,7 +88,7 @@ public class MainActivity extends ClientActivity {
                 activity.startActivity(intent);
             }
         });
-       //出库
+        //出库
         chuku.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -85,77 +98,64 @@ public class MainActivity extends ClientActivity {
                 activity.startActivity(intent);
             }
         });
-
-
-
+        //
         info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                //				Intent intent = new Intent(activity, .class);
-                //				activity.startActivity(intent);
+
             }
         });
-
+        //  数据同步
         data.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                //				Intent intent = new Intent(activity, .class);
-                //				activity.startActivity(intent);
+
+                try {
+                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+                    Dao dao = dbhelper.getDao(AppHeadTable.class);
+
+                    readTxtFile("admin.txt", dao);
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
             }
         });
-
+// 设置
         setting.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                //				Intent intent = new Intent(activity, .class);
-                //				activity.startActivity(intent);
+
             }
         });
-
-//      new Thread(new Runnable() {
-//          @Override
-//          public void run() {
-//              reqestWSDL();
-//          }
-//      }).start();
 
     }
 
 
-    public void reqestWSDL(){
-        Log.w("wsdl", "envelope.getResponse()=============");
+    public void readTxtFile(String fileName, Dao dao) {
         try {
-            SoapObject request = new SoapObject(RequestParamConfig.serviceNameSpace, RequestParamConfig.testWSDLOBJ);
-            // webservice 传入对象对象方式调用
-            Log.w("wsdl","RequestParamConfig.serviceNameSpace="+RequestParamConfig.serviceNameSpace);
-            Log.w("wsdl","RequestParamConfig.testWSDLOBJ="+RequestParamConfig.testWSDLOBJ);
-            PropertyInfo pi = new PropertyInfo();
-            Return u = new Return();
-            u.setTYPE("126789");
-            pi.setName("re"); //传入的对象名..
-            pi.setValue(u);
-            pi.setType(u.getClass());
-            request.addProperty(pi);
-            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
-                    SoapEnvelope.VER10);
-            envelope.bodyOut = request;
-           // envelope.addMapping(RequestParamConfig.serviceNameSpace,"Return",u.getClass());
-            envelope.setOutputSoapObject(request);
-            HttpTransportSE androidHttpTransport = new HttpTransportSE(RequestParamConfig.ServerUrl);
+            InputStream in = this.getClass().getClassLoader()
+                    .getResourceAsStream(fileName);
 
-            androidHttpTransport.debug = true;
-            Log.w("wsdl", "RequestParamConfig.ServerUrl=" + RequestParamConfig.ServerUrl);
-            androidHttpTransport.call(null, envelope);
-            Log.w("wsdl", "...........");
-            SoapObject result = (SoapObject)envelope.getResponse();
-            Log.w("wsdl", "result=========" +(result instanceof  SoapObject));
-            Log.w("wsdl", "result=========" +result.getName()+"typevalue="+result.getProperty("TYPE"));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(in,
+                    "UTF-8"));
+            String tempLine =  rd.readLine();
+            while (!TextUtils.isEmpty(tempLine)) {
+                Log.w("MainActivity","tempLine="+tempLine);
+                dao.executeRawNoArgs(tempLine);
+                tempLine = rd.readLine();
+            }
+            List<AppHeadTable> appHeadTableslist = dao.queryForAll();
+            Log.w("MainActivity", "appHeadList.size=" + appHeadTableslist.size());
         } catch (Exception e) {
-            Log.w("wsdl",".....e......"+e);
+            System.out.println("读取文件内容出错");
             e.printStackTrace();
         }
 
     }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -210,37 +210,6 @@ public class MainActivity extends ClientActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
-
-//
-//    public static  Object GetWebServiceData(String iNameSpace,
-//                                            String iWebserviceURL, String iSoapAction, String iMethodName,
-//                                            PropertyInfo[] iPropertyInfo) {
-//        Object result = null;
-//        try {
-//            SoapObject rpc = new SoapObject(iNameSpace, iMethodName);
-//            for (int i = 0; i < iPropertyInfo.length; i++) {
-//                rpc.addProperty(iPropertyInfo[i]);
-//
-//
-//            }
-//            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
-//                    SoapEnvelope.VER11);
-//            envelope.bodyOut = rpc;
-//
-//            envelope.dotNet = true;
-//            envelope.setOutputSoapObject(rpc);
-//            HttpTransportSE ht = new HttpTransportSE(iWebserviceURL, 5000);
-//            ht.debug = true;
-//            ht.call(iSoapAction, envelope);
-//            result = envelope.getResponse();
-//        } catch (Exception e) {
-////            Toast.makeText(CrashApplication.getContext(), "连接服务器失败,请检查网络设置！", Toast.LENGTH_SHORT)
-////                    .show();
-//        }
-//
-//        return result;
-//    }
-
 
 
 }

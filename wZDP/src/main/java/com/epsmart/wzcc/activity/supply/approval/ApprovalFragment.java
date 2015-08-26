@@ -27,6 +27,8 @@ import java.util.ArrayList;
  * 验收列表界面
  */
 public class ApprovalFragment extends CommonFragment {
+
+    private boolean  isOnnet=false;
     private View view;
     // 初始化分页标签
     private ViewBuildBak viewBuild;
