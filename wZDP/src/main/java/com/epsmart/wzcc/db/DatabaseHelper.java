@@ -1,23 +1,21 @@
 package com.epsmart.wzcc.db;
 
-import java.sql.SQLException;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.epsmart.wzcc.db.table.AppDetailTable;
 import com.epsmart.wzcc.db.table.AppHeadTable;
-import com.epsmart.wzcc.db.table.PageDateTable;
 import com.epsmart.wzcc.db.table.SimpleData;
-import com.epsmart.wzcc.db.table.SubmitDateTable;
-import com.epsmart.wzcc.db.table.TemplateTable;
 import com.epsmart.wzcc.db.table.UserData;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import java.sql.SQLException;
+
 public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
-	private static final String DATABASE_NAME = "wzcc.db";
+	private static final String DATABASE_NAME = "/mnt/sdcard/ss/wzcc.db";
 	private static final int DATABASE_VERSION = 1;
 	// 泛型表示DAO的操作类
 
@@ -32,6 +30,8 @@ public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
 		try {
 			Log.i(DatabaseHelper.class.getName(), "onCreate");
 			TableUtils.createTable(connectionSource, AppHeadTable.class);
+			TableUtils.createTable(connectionSource, AppDetailTable.class);
+			TableUtils.createTable(connectionSource, SimpleData.class);
 //			TableUtils.createTable(connectionSource, PageDateTable.class);
 //			TableUtils.createTable(connectionSource, SubmitDateTable.class);
 		} catch (SQLException e) {
