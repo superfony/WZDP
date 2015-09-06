@@ -7,7 +7,8 @@ import com.j256.ormlite.field.DatabaseField;
  * 发货明细信息
  */
 public class LeaveDetailTable {
-
+    @DatabaseField(generatedId = true)
+    public int id;
     @DatabaseField(index = true)
     public String RED_ID;
     @DatabaseField

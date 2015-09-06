@@ -7,8 +7,8 @@ import com.j256.ormlite.field.DatabaseField;
  * 发货通知单表头信息
  */
 public class LeaveHeadTable {
-//    @DatabaseField
-//    public int id;
+    @DatabaseField
+    public int id;
     @DatabaseField(index = true)
     public String RE_ID;
     @DatabaseField

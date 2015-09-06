@@ -22,9 +22,9 @@ public class SimpleData {
 	Date date;
 	@DatabaseField
 	public boolean even;
-	
+
 	SimpleData() {
-		
+
 	}
 
 	public SimpleData(long millis) {

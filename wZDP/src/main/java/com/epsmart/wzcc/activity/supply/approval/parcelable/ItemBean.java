@@ -21,6 +21,7 @@ public class ItemBean implements Serializable {
 	public String EXPECTEDARRIVALD;
 	public String ACTUALDELIVERDAT;
 	public String STGE_LOC;// 库存地点
+
 	public boolean isCheckbox=false;
 
 	public String getSTGE_LOC() {

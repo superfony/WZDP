@@ -31,7 +31,6 @@ public class ActivityUtils {
 
 	/**
 	 * 屏幕亮度
-	 * 
 	 * @param mActivity
 	 * @param pScreenBrightness
 	 */

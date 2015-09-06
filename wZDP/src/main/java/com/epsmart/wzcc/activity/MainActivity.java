@@ -5,8 +5,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.renderscript.BaseObj;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -16,32 +16,18 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.more.MoreAct;
 import com.epsmart.wzcc.activity.supply.SupplyActivity;
-import com.epsmart.wzcc.activity.supply.SupplyMenuActivity;
-import com.epsmart.wzcc.activity.test.Return;
 import com.epsmart.wzcc.db.DatabaseHelper;
-import com.epsmart.wzcc.db.dao.DaoManager;
 import com.epsmart.wzcc.db.table.AppHeadTable;
+import com.epsmart.wzcc.db.table.SimpleData;
 import com.epsmart.wzcc.http.BaseHttpModule;
-import com.epsmart.wzcc.updata.UpdateManager;
-import com.epsmart.wzcc.view.CircleImageView;
 import com.j256.ormlite.dao.Dao;
-
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
-
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -109,22 +95,32 @@ public class MainActivity<E> extends ClientActivity {
         data.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                //				Intent intent = new Intent(activity, .class);
-                //				activity.startActivity(intent);
+                try {
+                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+                    //用于测试创建数据库
+                    Dao dao = dbhelper.getDao(SimpleData.class);
+                    SimpleData simpleData=new SimpleData(10000);
+                    dao.create(simpleData);
+                  // String  tempLine="insert into AppHeadTable values('1','064100032585F0000010','4100032585','00AA','FABA','ABA','1234551','南京南瓷电力设备有限公司14161820222426283032343','山东济南','011020','PDA深化项目济南供电公司','南京电力','宫英尚','0531-88670880', '宫英尚','0531-88670880','李翔','0531-88670889','4','无','0987abd890','2','王伟','2015-1-3','2','啥客户端','1','2015-1-24')";
+                    readTxtFile("admin.txt");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
-// 设置
+       // 设置
         setting.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-
+                Intent intent = new Intent(activity,
+                        MoreAct.class);
+                activity.startActivity(intent);
             }
         });
-
     }
 
 
-    public void readTxtFile(String fileName, Dao dao) {
+    public void readTxtFile(String fileName) {
         try {
             InputStream in = this.getClass().getClassLoader()
                     .getResourceAsStream(fileName);
@@ -132,11 +128,17 @@ public class MainActivity<E> extends ClientActivity {
             BufferedReader rd = new BufferedReader(new InputStreamReader(in,
                     "UTF-8"));
             String tempLine =  rd.readLine();
+            Log.w("MainActivity", "wzcc_path=" + activity.getApplicationContext().getDatabasePath("wzcc.db"));
+            SQLiteDatabase  sqLiteDatabase=SQLiteDatabase.openOrCreateDatabase(String.valueOf(activity.getApplicationContext().getDatabasePath("wzcc.db")), null);
+
+
             while (!TextUtils.isEmpty(tempLine)) {
-                Log.w("MainActivity","tempLine="+tempLine);
-                dao.executeRawNoArgs(tempLine);
+                Log.w("MainActivity", "tempLine=" + tempLine);
+                sqLiteDatabase.execSQL(tempLine);
                 tempLine = rd.readLine();
             }
+            DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+            Dao dao = dbhelper.getDao(AppHeadTable.class);
             List<AppHeadTable> appHeadTableslist = dao.queryForAll();
             Log.w("MainActivity", "appHeadList.size=" + appHeadTableslist.size());
         } catch (Exception e) {
@@ -155,7 +157,6 @@ public class MainActivity<E> extends ClientActivity {
             return false;
         }
         return false;
-
     }
 
     // 退出弹出框

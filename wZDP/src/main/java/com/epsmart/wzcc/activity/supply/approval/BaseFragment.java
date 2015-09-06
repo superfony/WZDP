@@ -139,6 +139,4 @@ public class BaseFragment extends Fragment {
 		present_btn=(Button)view.findViewById(R.id.present_btn);
 
 	}
-
-
 }
