@@ -29,6 +29,8 @@ import com.epsmart.wzcc.activity.more.MoreAct;
 import com.epsmart.wzcc.activity.supply.SupplyActivity;
 import com.epsmart.wzcc.db.DatabaseHelper;
 import com.epsmart.wzcc.db.table.SimpleData;
+import com.epsmart.wzcc.db.table.AppHeadTable;
+import com.epsmart.wzcc.db.table.SimpleData;
 import com.epsmart.wzcc.http.BaseHttpModule;
 import com.j256.ormlite.dao.Dao;
 
@@ -96,7 +98,7 @@ public class MainActivity<E> extends ClientActivity {
                         Dao dao = Helper.getDao(SimpleData.class);
                         SimpleData simpleData=new SimpleData(100);
                         dao.create(simpleData);
-                        readTxtFile("admin.txt", dao);
+                        readTxtFile("admin.txt");
                     }catch (SQLException s){
                         s.printStackTrace();
                     }
@@ -288,26 +290,27 @@ public class MainActivity<E> extends ClientActivity {
         }
     };
 
-    public void readTxtFile(String fileName, Dao dao) {
+    public void readTxtFile(String fileName) {
         File file = new File(savePath + fileName);
         try {
             InputStream in = new FileInputStream(file);
             BufferedReader rd = new BufferedReader(new InputStreamReader(in,"UTF-8"));
             String tempLine =  rd.readLine();
-            SQLiteDatabase sqLiteDatabase=SQLiteDatabase.openDatabase("/mnt/sdcard/ss/wzcc.db",null,0);
+            Log.w("MainActivity", "wzcc_path=" + activity.getApplicationContext().getDatabasePath("wzcc.db"));
+            SQLiteDatabase  sqLiteDatabase=SQLiteDatabase.openOrCreateDatabase(String.valueOf(activity.getApplicationContext().getDatabasePath("wzcc.db")), null);
 
 
             while (!TextUtils.isEmpty(tempLine)) {
                 Log.w("MainActivity", "tempLine=" + tempLine);
                // dao.executeRawNoArgs(tempLine);
                 sqLiteDatabase.execSQL(tempLine);
-
-
                 tempLine = rd.readLine();
             }
 
-            List<SimpleData> appDetailTableslist = dao.queryForAll();
-            Log.w("MainActivity", "appDetailTableslist.size=" + appDetailTableslist.size());
+            DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+            Dao dao = dbhelper.getDao(AppHeadTable.class);
+            List<AppHeadTable> appHeadTableslist = dao.queryForAll();
+            Log.w("MainActivity", "appHeadList.size=" + appHeadTableslist.size());
         } catch (Exception e) {
             System.out.println("读取文件内容出错");
             e.printStackTrace();

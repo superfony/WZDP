@@ -73,7 +73,6 @@ public class StatisticalFat extends BaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//		reqHttp();
     }
 
     private void initUI() {
@@ -84,18 +83,16 @@ public class StatisticalFat extends BaseFragment {
         checkBox = (CheckBox) view.findViewById(R.id.all_checkbox);
         button = (Button) view.findViewById(R.id.pl_btn);
         button.setOnClickListener(btn_olc);
-//      listView.setOnItemClickListener(itemOcl);
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    for (int i = 0; i < list.size(); i++) {
-
-                        list.get(i).isCheckbox = true;
+                    for (int i = 0; i <list.size(); i++) {
+                        ((ItemBean)approvalAdapter.getItem(i)).isCheckbox = true;
                     }
                 } else {
                     for (int i = 0; i < list.size(); i++) {
-                        list.get(i).isCheckbox = false;
+                        ((ItemBean)approvalAdapter.getItem(i)).isCheckbox= false;
                     }
                 }
                 osHandler.sendEmptyMessage(0);
@@ -132,7 +129,7 @@ public class StatisticalFat extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 BatchBean batchBean = (BatchBean) batchAdapter.getItem(position);
-                for (int i = 0; i < list.size(); i++) {
+                for (int i = 0; i <list.size(); i++) {
                     ItemBean itemBean = list.get(i);
                     if (itemBean.isCheckbox) {
                         list.get(i).STGE_LOC = batchBean.STGE_LOC;
@@ -153,7 +150,7 @@ public class StatisticalFat extends BaseFragment {
             super.handleMessage(msg);
             stopProgressDialog();
             if (msg.what == 0) {
-                approvalAdapter.notifyDataSetChanged();
+                approvalAdapter.updateListView(list);
             } else if (msg.what == 1) {
               //  Toast.makeText(activity, ((BatchResponse) msg.obj).message, Toast.LENGTH_LONG).show();
                 batchAdapter.updateListView(((BatchResponse) msg.obj).itemBeansList);

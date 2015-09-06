@@ -8,8 +8,8 @@ import com.j256.ormlite.field.DatabaseField;
  */
 public class AppHeadTable {
 
-//    @DatabaseField
-//    public int id;
+    @DatabaseField(generatedId = true)
+    public int id;
     @DatabaseField(index = true)
     public String DE_ID;
     @DatabaseField
@@ -68,13 +68,13 @@ public class AppHeadTable {
     public String UPDATE_TIME;
 
 
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getDE_ID() {
         return DE_ID;

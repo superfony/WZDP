@@ -11,8 +11,10 @@
 package com.epsmart.wzcc.activity.pagination;
 
 import java.lang.ref.WeakReference;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import android.app.ProgressDialog;
@@ -21,6 +23,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,10 +35,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.AppContext;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.adapter.CommonAdapter;
+import com.epsmart.wzcc.activity.supply.bean.Field;
 import com.epsmart.wzcc.bean.ViewCreator;
+import com.epsmart.wzcc.bean.WorkOrder;
+import com.epsmart.wzcc.bean.WorkOrderResponse;
 import com.epsmart.wzcc.common.StringUtils;
+import com.epsmart.wzcc.db.DatabaseHelper;
+import com.epsmart.wzcc.db.table.AppHeadTable;
 import com.epsmart.wzcc.http.BaseHttpModule;
 import com.epsmart.wzcc.http.BaseHttpModule.RequestListener;
 import com.epsmart.wzcc.http.ModuleResponseProcessor;
@@ -50,6 +59,8 @@ import com.epsmart.wzcc.http.xml.handler.BaseParserHandler;
 import com.epsmart.wzcc.http.xml.parser.BaseXmlParser;
 import com.epsmart.wzcc.widget.PullToRefreshListView;
 import com.epsmart.wzcc.widget.PullToRefreshListView.OnPositionChangedListener;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.QueryBuilder;
 
 /**
  * 分页控件
@@ -158,9 +169,7 @@ public class PaginationWidget<T> {
 
         @Override
         public void processResponse(BaseHttpModule httpModule, Object parseObj) {
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.cancel();
-            }
+
             if (parseObj instanceof PagerResponse) {
                 mHandler.obtainMessage(0, parseObj).sendToTarget();
             } else if (parseObj instanceof StatusEntity) {
@@ -209,13 +218,17 @@ public class PaginationWidget<T> {
 
     @SuppressWarnings({"unchecked", "deprecation"})
     public void success(Object object) {
-
+        Log.w("PaginationWight", "success=" );
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.cancel();
+        }
         PagerResponse response = (PagerResponse) object;
         if (null == requestAction.pageBean) {
             return;
         }
 
         int allCount = response.pageBean.getAllCount();
+        Log.w("allCount", "allCount="+allCount );
         if (allCount == 0) {
         }
         requestAction.pageBean.setAllCount(allCount);
@@ -225,6 +238,7 @@ public class PaginationWidget<T> {
         if (response.pageBean.getPageDatas() != null) {
             count = ((List<T>) response.pageBean.getPageDatas()).size();
         }
+        Log.w("count", "count="+count );
         if (action == UIHelper.LISTVIEW_ACTION_REFRESH) {
             tableBodyAdapter.removeAll();
         }
@@ -466,27 +480,85 @@ public class PaginationWidget<T> {
      * 这里进行数据分离：在线 、离线 模式
      */
     public void loadPaginationData() {
-        requestAction.serviceName = serviceName;
-        requestAction.queryBundle.putString("txt", "listtest.txt");// 测试语句
-        httpModule.executeRequest(requestAction, parseHandler,
-                new ProcessResponse(), requestType);
+       boolean isOnline=((AppContext)context.getApplicationContext()).isNetworkConnected();
+         if(isOnline) {
+             requestAction.serviceName = serviceName;
+             //requestAction.queryBundle.putString("txt", "listtest.txt");// 测试语句
+             httpModule.executeRequest(requestAction, parseHandler,
+                     new ProcessResponse(), requestType);
+         }else{
+             querySqliteData();
+         }
     }
 
     /**
      * 离线模式 查询本地数据库  这里进行分页查询 查询总记录数// TODO
      */
-    public void querySqliteData(){
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.cancel();
-        }
-       // requestAction.pageBean.get
-        // 这里实现查询 并将查询的结果转话成 PagerResponse 对象封装的格式
-
-//        if (parseObj instanceof PagerResponse) {
-//            mHandler.obtainMessage(0, parseObj).sendToTarget();
-//        } else if (parseObj instanceof StatusEntity) {
-//            mHandler.obtainMessage(1, parseObj).sendToTarget();
+    public void querySqliteData() {
+//        if (progressDialog != null && progressDialog.isShowing()) {
+//            progressDialog.cancel();
 //        }
+                try {
+                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(context);
+                    Dao dao = dbhelper.getDao(AppHeadTable.class);
+                    QueryBuilder builder = dao.queryBuilder();
+                    builder.offset((requestAction.pageBean
+                            .getCurrentPage()) * 5);//表示查询的起始位置
+                    builder.limit(5);//表示总共获取的对象数量
+                    List<AppHeadTable> list = builder.query();
+                    int allcount = dao.queryForAll().size();
+                    Log.w("PaginationWight", "query.list=" + list.size());
+                    Log.w("PaginationWight", "allcount=" + allcount);
+
+
+                    WorkOrderResponse workOrderResponse = new WorkOrderResponse();
+                    workOrderResponse.pageBean = new PageBean();
+
+                    workOrderResponse.pageBean.setAllCount(allcount);
+                    WorkOrder workOrder = new WorkOrder();
+                    List<WorkOrder> workOrderList = new ArrayList<WorkOrder>();
+                    workOrder.fields = new HashMap<String, Field>();
+                    workOrder.fieldKeys = new ArrayList<String>();
+
+                    for (int i = 0; i < list.size(); i++) {
+                        AppHeadTable appHeadTable = list.get(i);
+                        Field field = new Field();
+                        field.fieldEnName = "PROJECTNAME";
+                        field.fieldChName="项目名称";
+                        field.fieldContent = appHeadTable.getPROJECTNAME();
+                        workOrder.fields.put("PROJECTNAME", field);
+
+                        field = new Field();
+                        field.fieldEnName = "DELIVERINFORMCOD";
+                        field.fieldChName="发货通知编号";
+                        field.fieldContent = appHeadTable.getDELIVERINFORMCOD();
+                        Log.w("PaginationWight", "  field.DELIVERINFORMCOD=" +   field.fieldContent);
+                        workOrder.fields.put("DELIVERINFORMCOD", field);
+
+                        field = new Field();
+                        field.fieldEnName = "SUPPLIERNAME";
+                        field.fieldChName="供应商";
+                        field.fieldContent = appHeadTable.getSUPPLIERNAME();
+                        Log.w("PaginationWight", "  field.SUPPLIERNAME=" +   field.fieldContent);
+                        workOrder.fields.put("SUPPLIERNAME", field);
+
+
+                        field = new Field();
+                        field.fieldEnName = "ZDJZT";
+                        field.fieldChName="状态";
+                        field.fieldContent = appHeadTable.getZDJZT();
+                        Log.w("PaginationWight", "  field.ZDJZT=" +   field.fieldContent);
+                        workOrder.fields.put("ZDJZT", field);
+
+                        workOrderList.add(workOrder);
+                    }
+                    Log.w("PaginationWight", "workOrderList.size=" + workOrderList.size());
+                    workOrderResponse.pageBean.setPageDatas(workOrderList);
+                    mHandler.obtainMessage(0, workOrderResponse).sendToTarget();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
     }
 
 

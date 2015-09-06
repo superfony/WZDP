@@ -97,6 +97,8 @@ public class ApprovalFragment extends CommonFragment {
             paginationWidget.setRequestType(RequestType.THRIFT);// TODO
             initPaginationWidget(paginationWidget);
             paginationWidget.loadPaginationData();
+           // paginationWidget.querySqliteData();
+
         } else {
             ArrayList<WorkOrder> arraylist = (ArrayList<WorkOrder>) paginationWidget.tableBodyAdapter.getDataCache();
             RequestAction requestAction = paginationWidget.requestAction;

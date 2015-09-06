@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -53,7 +54,7 @@ public class ApprovalAdapter extends BaseAdapter {
         ViewHolder viewHolder = null;
         final ItemBean real = list.get(position);
 
-        if (view == null) {
+//        if (view == null) {
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(mContext).inflate(R.layout.app_approval_detail_item,
                     null);
@@ -67,10 +68,10 @@ public class ApprovalAdapter extends BaseAdapter {
             viewHolder.fhcount = (TextView) view.findViewById(R.id.fhcount);
             viewHolder.stockadress = (EditText) view.findViewById(R.id.stockadress);
             viewHolder.checkBox=(CheckBox)view.findViewById(R.id.checkbox_item);
-            view.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) view.getTag();
-        }
+//            view.setTag(viewHolder);
+//        } else {
+//            viewHolder = (ViewHolder) view.getTag();
+//        }
         viewHolder.wlcode.setText(real.DELIVERINFORMCOD);
         viewHolder.htcount.setText(real.DELIVERYAMOUNT);
         viewHolder.connection_count.setText(real.HANDOVERAMOUNT);
@@ -80,9 +81,26 @@ public class ApprovalAdapter extends BaseAdapter {
 
         if(real.isCheckbox){
             viewHolder.checkBox.setChecked(true);
-        }else{
+       }else{
             viewHolder.checkBox.setChecked(false);
         }
+        viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked){
+                    real.isCheckbox=true;
+                    ((UnitInforActivity) mContext).approvalResponse.entity.itemBeansList.get(position).isCheckbox=true;
+
+                }else{
+                    real.isCheckbox=false;
+                    ((UnitInforActivity) mContext).approvalResponse.entity.itemBeansList.get(position).isCheckbox=false;
+
+                }
+
+            }
+        });
+
 
         return view;
     }
