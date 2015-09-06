@@ -6,20 +6,21 @@ import android.util.Log;
 
 import com.epsmart.wzcc.db.table.AppDetailTable;
 import com.epsmart.wzcc.db.table.AppHeadTable;
+import com.epsmart.wzcc.db.table.SimpleData;
+import com.epsmart.wzcc.db.table.UserData;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
-	private static final String DATABASE_NAME = "wzcc.db";
+	private static final String DATABASE_NAME = "/mnt/sdcard/ss/wzcc.db";
 	private static final int DATABASE_VERSION = 1;
 	// 泛型表示DAO的操作类
-	private Map<String, Dao<E, Integer>> daos = new HashMap<String, Dao<E, Integer>>();
+
+//	private Map<String, Dao<E, Integer>> daos = new HashMap<String, Dao<E, Integer>>();
+
 	public DatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
@@ -27,12 +28,14 @@ public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
 		try {
-			Log.w(DatabaseHelper.class.getName(), "onCreate");
+			Log.i(DatabaseHelper.class.getName(), "onCreate");
 			TableUtils.createTable(connectionSource, AppHeadTable.class);
-			TableUtils.clearTable(connectionSource, AppDetailTable.class);
-
+			TableUtils.createTable(connectionSource, AppDetailTable.class);
+			TableUtils.createTable(connectionSource, SimpleData.class);
+//			TableUtils.createTable(connectionSource, PageDateTable.class);
+//			TableUtils.createTable(connectionSource, SubmitDateTable.class);
 		} catch (SQLException e) {
-			Log.w(DatabaseHelper.class.getName(), "Can't create database", e);
+			Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
 			throw new RuntimeException(e);
 		}
 	}
@@ -41,14 +44,14 @@ public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,
 			int oldVersion, int newVersion) {
 		try {
-			Log.w(DatabaseHelper.class.getName(), "onUpgrade");
-			//TableUtils.dropTable(connectionSource, AppHeadTable.class, true);
-			//TableUtils.dropTable(connectionSource, AppDetailTable.class, true);
+			Log.i(DatabaseHelper.class.getName(), "onUpgrade");
+			TableUtils.dropTable(connectionSource, SimpleData.class, true);
+			TableUtils.dropTable(connectionSource, UserData.class, true);
 			onCreate(db, connectionSource);
 
 
-		} catch (Exception e) {
-			Log.w(DatabaseHelper.class.getName(), "Can't drop databases", e);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Can't drop databases", e);
 			throw new RuntimeException(e);
 		}
 	}
@@ -69,20 +72,20 @@ public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
 		return instance;
 	}
 
-	@SuppressWarnings("unchecked")
-	public synchronized Dao<E, Integer> getDao(Class clazz) throws SQLException {
-		Dao<E, Integer> dao = null;
-		String className = clazz.getSimpleName();
-
-		if (daos.containsKey(className)) {
-			dao = daos.get(className);
-		}
-		if (dao == null) {
-			dao = super.getDao(clazz);
-			daos.put(className, dao);
-		}
-		return dao;
-	}
+//	@SuppressWarnings("unchecked")
+//	public synchronized Dao<E, Integer> getDao(Class clazz) throws SQLException {
+//		Dao<E, Integer> dao = null;
+//		String className = clazz.getSimpleName();
+//
+//		if (daos.containsKey(className)) {
+//			dao = daos.get(className);
+//		}
+//		if (dao == null) {
+//			dao = super.getDao(clazz);
+//			daos.put(className, dao);
+//		}
+//		return dao;
+//	}
 
 	@Override
 	public void close() {
