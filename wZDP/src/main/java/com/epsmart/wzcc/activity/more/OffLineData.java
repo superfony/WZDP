@@ -51,13 +51,14 @@ public class OffLineData extends OffLineCommonAct {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View v, int position,
 					long arg3) {
-				boolean isOnline = ((AppContext) activity.getApplication()).isOnline;// 当前网络状况
+				boolean isOnline = ((AppContext) activity.getApplication()).isNetworkConnected();
 				if (isOnline) {
 					resp = (SubmitDateTable) adapter.getItem(position);
 					RequestPram requestPram = new RequestPram();
 					requestPram.methodName = resp.methodName;
 					requestPram.param = resp.param;
-					//requestPram.userid = Integer.valueOf(resp.userName);
+					requestPram.userid = resp.userName;
+					requestPram.user_type=resp.state;
 					RequestAction requestAction = new RequestAction();
 					requestAction.reset();
 					requestAction.setReqPram(requestPram);
@@ -68,7 +69,12 @@ public class OffLineData extends OffLineCommonAct {
 					// listView.removeView(v);
 					// list.remove(position);
 					// adapter.notifyDataSetChanged();
+				}else{
+					mHandler.obtainMessage(0, "当前网络不可用！").sendToTarget();
+
 				}
+
+
 			}
 		});
 	}

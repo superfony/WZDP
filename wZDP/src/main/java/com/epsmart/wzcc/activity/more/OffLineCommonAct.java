@@ -32,7 +32,7 @@ public class OffLineCommonAct extends Activity {
 		super.onCreate(savedInstanceState);
 		activity = this;
 		initNet();
-//		initActionBar();
+		//initActionBar();
 	}
 
 	public void initActionBar() {

@@ -3,25 +3,35 @@ package com.epsmart.wzcc.activity.supply.approval.parcelable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.j256.ormlite.field.DatabaseField;
+
 
 /**
  * @author fony
  */
 public class BatchBean implements Parcelable {
+    @DatabaseField(index = true)
     public String ID;
+    @DatabaseField
     public String PLANT;
+    @DatabaseField
     public String PLANTNAME;
+    @DatabaseField
     public String PLANTADDR;
+    @DatabaseField
     public String STGE_LOC;
+    @DatabaseField
     public String STGE_LOCNAME;
+    @DatabaseField
     public String STGE_LOCADDR;
+    @DatabaseField
     public String WHSENUMBER;
+    @DatabaseField
     public String WHSENAME;
+    @DatabaseField
     public String COM_CODE;
+    @DatabaseField
     public String UPDATE_TIME;
-
-
-
 
 
     public BatchBean() {
@@ -43,9 +53,6 @@ public class BatchBean implements Parcelable {
             field.WHSENAME = source.readString();
             field.COM_CODE = source.readString();
             field.UPDATE_TIME = source.readString();
-
-
-
             return field;
         }
 

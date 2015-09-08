@@ -23,7 +23,7 @@ public class SubmitDateTable extends TableImpi {
 	@DatabaseField
 	public Date date;
 	@DatabaseField
-	public String state;
+	public String state;// 5 为提交 6 为验收
 
 	public String getState() {
 		return state;

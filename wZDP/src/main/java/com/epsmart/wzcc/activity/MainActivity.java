@@ -101,7 +101,6 @@ public class MainActivity<E> extends ClientActivity {
                     Dao dao = dbhelper.getDao(SimpleData.class);
                     SimpleData simpleData=new SimpleData(10000);
                     dao.create(simpleData);
-                  // String  tempLine="insert into AppHeadTable values('1','064100032585F0000010','4100032585','00AA','FABA','ABA','1234551','南京南瓷电力设备有限公司14161820222426283032343','山东济南','011020','PDA深化项目济南供电公司','南京电力','宫英尚','0531-88670880', '宫英尚','0531-88670880','李翔','0531-88670889','4','无','0987abd890','2','王伟','2015-1-3','2','啥客户端','1','2015-1-24')";
                     readTxtFile("admin.txt");
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -121,6 +120,7 @@ public class MainActivity<E> extends ClientActivity {
 
 
     public void readTxtFile(String fileName) {
+        SQLiteDatabase  sqLiteDatabase=null;
         try {
             InputStream in = this.getClass().getClassLoader()
                     .getResourceAsStream(fileName);
@@ -129,20 +129,25 @@ public class MainActivity<E> extends ClientActivity {
                     "UTF-8"));
             String tempLine =  rd.readLine();
             Log.w("MainActivity", "wzcc_path=" + activity.getApplicationContext().getDatabasePath("wzcc.db"));
-            SQLiteDatabase  sqLiteDatabase=SQLiteDatabase.openOrCreateDatabase(String.valueOf(activity.getApplicationContext().getDatabasePath("wzcc.db")), null);
-
-
+            sqLiteDatabase=SQLiteDatabase.openOrCreateDatabase(String.valueOf(activity.getApplicationContext().getDatabasePath("wzcc.db")), null);
+        //    sqLiteDatabase.beginTransaction();
+//            sqLiteDatabase.execSQL("delete from AppHeadTable");
+//            sqLiteDatabase.execSQL("delete from AppDetailTable");
             while (!TextUtils.isEmpty(tempLine)) {
                 Log.w("MainActivity", "tempLine=" + tempLine);
                 sqLiteDatabase.execSQL(tempLine);
                 tempLine = rd.readLine();
             }
+//            sqLiteDatabase.setTransactionSuccessful();
+//            sqLiteDatabase.close();
+
             DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
             Dao dao = dbhelper.getDao(AppHeadTable.class);
             List<AppHeadTable> appHeadTableslist = dao.queryForAll();
             Log.w("MainActivity", "appHeadList.size=" + appHeadTableslist.size());
         } catch (Exception e) {
             System.out.println("读取文件内容出错");
+            sqLiteDatabase.endTransaction();
             e.printStackTrace();
         }
 

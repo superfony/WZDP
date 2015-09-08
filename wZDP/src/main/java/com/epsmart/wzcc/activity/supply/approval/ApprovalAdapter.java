@@ -1,9 +1,8 @@
 package com.epsmart.wzcc.activity.supply.approval;
 
-import java.util.List;
-
 import android.content.Context;
-import android.text.TextUtils;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.epsmart.wzcc.R;
-
 import com.epsmart.wzcc.activity.supply.approval.parcelable.ItemBean;
+
+import java.util.List;
 
 /**
  *
@@ -101,7 +101,23 @@ public class ApprovalAdapter extends BaseAdapter {
             }
         });
 
+        viewHolder.connection_count.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                real.HANDOVERAMOUNT=s.toString();
+                ((UnitInforActivity) mContext).approvalResponse.entity.itemBeansList.get(position).HANDOVERAMOUNT=s.toString();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         return view;
     }
 

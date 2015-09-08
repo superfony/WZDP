@@ -7,6 +7,7 @@ import android.content.ClipData;
 import android.os.Bundle;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +20,23 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.AppContext;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.BatchBean;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.BatchResponse;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.ItemBean;
 import com.epsmart.wzcc.bean.RequestPram;
+import com.epsmart.wzcc.db.DatabaseHelper;
+import com.epsmart.wzcc.db.table.AppHeadTable;
+import com.epsmart.wzcc.db.table.StockTable;
 import com.epsmart.wzcc.http.BaseHttpModule;
 import com.epsmart.wzcc.http.ModuleResponseProcessor;
 import com.epsmart.wzcc.http.request.BaseRequest;
 import com.epsmart.wzcc.http.request.RequestAction;
 import com.epsmart.wzcc.http.response.model.StatusEntity;
+import com.j256.ormlite.dao.Dao;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,12 +94,12 @@ public class StatisticalFat extends BaseFragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    for (int i = 0; i <list.size(); i++) {
-                        ((ItemBean)approvalAdapter.getItem(i)).isCheckbox = true;
+                    for (int i = 0; i < list.size(); i++) {
+                        ((ItemBean) approvalAdapter.getItem(i)).isCheckbox = true;
                     }
                 } else {
                     for (int i = 0; i < list.size(); i++) {
-                        ((ItemBean)approvalAdapter.getItem(i)).isCheckbox= false;
+                        ((ItemBean) approvalAdapter.getItem(i)).isCheckbox = false;
                     }
                 }
                 osHandler.sendEmptyMessage(0);
@@ -129,7 +136,7 @@ public class StatisticalFat extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 BatchBean batchBean = (BatchBean) batchAdapter.getItem(position);
-                for (int i = 0; i <list.size(); i++) {
+                for (int i = 0; i < list.size(); i++) {
                     ItemBean itemBean = list.get(i);
                     if (itemBean.isCheckbox) {
                         list.get(i).STGE_LOC = batchBean.STGE_LOC;
@@ -152,7 +159,6 @@ public class StatisticalFat extends BaseFragment {
             if (msg.what == 0) {
                 approvalAdapter.updateListView(list);
             } else if (msg.what == 1) {
-              //  Toast.makeText(activity, ((BatchResponse) msg.obj).message, Toast.LENGTH_LONG).show();
                 batchAdapter.updateListView(((BatchResponse) msg.obj).itemBeansList);
             } else if (msg.what == 2) {
             }
@@ -169,9 +175,27 @@ public class StatisticalFat extends BaseFragment {
         requestPram.methodName = RequestParamConfig.warehouseInfo;
         requestAction.setReqPram(requestPram);
 
-        httpModule.executeRequest(requestAction, new BatchHandler(), new ProcessResponseBatch(),
-                BaseRequest.RequestType.THRIFT);
+        Boolean isOnLine = ((AppContext) activity.getApplicationContext()).isNetworkConnected();
+        if (isOnLine) {
+            httpModule.executeRequest(requestAction, new BatchHandler(), new ProcessResponseBatch(),
+                    BaseRequest.RequestType.THRIFT);
+        } else {
+            try {
+                DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+                Dao dao = dbhelper.getDao(BatchBean.class);
+                List<BatchBean> batchBeanList = dao.queryForAll();
+                Log.w("query batch bean","batchBeanList.size="+batchBeanList.size());
 
+                BatchResponse batchResponse = new BatchResponse();
+                batchResponse.itemBeansList = (ArrayList)batchBeanList;
+                batchResponse.message = "";
+                batchResponse.result = "0";
+                osHandler.obtainMessage(1, batchResponse).sendToTarget();
+            } catch (Exception e) {
+
+            }
+
+        }
 
     }
 
@@ -188,6 +212,19 @@ public class StatisticalFat extends BaseFragment {
                     osHandler.obtainMessage(2, message).sendToTarget();
                 }
             } else if (parseObj instanceof BatchResponse) {
+                try {
+                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+                    Dao dao = dbhelper.getDao(BatchBean.class);
+
+                 ArrayList<BatchBean> arrayList=((BatchResponse) parseObj).itemBeansList;
+                    Log.w("","BatchBean="+arrayList.size());
+                    for (int i=0;i<arrayList.size();i++){
+
+                        dao.create(arrayList.get(i));
+
+                    }
+                }catch (Exception e){
+                }
                 osHandler.obtainMessage(1, (BatchResponse) parseObj).sendToTarget();
             }
         }

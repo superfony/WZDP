@@ -12,6 +12,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
@@ -32,7 +33,7 @@ import com.epsmart.wzcc.view.SwitchButton;
 
 public class LoginAct extends Activity {
 	protected ProgressDialog pDialog;
-	private SwitchButton switch_btn;
+	private CheckBox switch_btn;
 	private String username;
 	private String userpwd;
 	private String userpwdMd5;
@@ -51,8 +52,8 @@ public class LoginAct extends Activity {
 		activity = this;
 		appContext = (AppContext) getApplication();
 		// 网络连接判断
-		appContext.isOnline = appContext.isNetworkConnected();// 网络可用true
-		if (!appContext.isOnline)
+		boolean isOnline = appContext.isNetworkConnected();// 网络可用true
+		if (isOnline)
 			Toast.makeText(activity, "当前网络不可用，进入离线模式！", Toast.LENGTH_LONG)
 					.show();
 		
@@ -60,7 +61,7 @@ public class LoginAct extends Activity {
 
 		user_text = (EditText) findViewById(R.id.user_text);
 		text_pwd = (EditText) findViewById(R.id.text_pwd);
-		switch_btn = (SwitchButton) findViewById(R.id.switch_btn);
+		switch_btn = (CheckBox) findViewById(R.id.switch_btn);
 		ImageView loginBt = (ImageView) findViewById(R.id.button_login);
 
 		String state = PerferenceModel.getPM(LoginAct.this).getValue("state",
@@ -91,7 +92,7 @@ public class LoginAct extends Activity {
 				userpwdMd5 = Pub_method.Md5(userpwd).toLowerCase();
 				deviceID = Pub_method.getDeviceID(LoginAct.this);
 				System.out.println("devices.....deviceID=" + deviceID);
-				if (username.equals("") || userpwd.equals("")) {
+				if (TextUtils.isEmpty(username)|| TextUtils.isEmpty(userpwd)) {
 					toast(activity, "用户名、密码不能为空,请输入!");
 					closeDialog();
 					return;
@@ -195,7 +196,8 @@ public class LoginAct extends Activity {
 		httpModule.setServiceUrl(RequestParamConfig.ServerUrl);
 		requestAction.isPageBeanEnable = false;
 		requestAction.serviceName = RequestParamConfig.loginname;
-		if (((AppContext) activity.getApplication()).isOnline){
+		boolean isOnline = appContext.isNetworkConnected();// 网络可用true
+		if (isOnline){
 			httpModule.executeRequest(requestAction, new DefaultSaxHandler(),
 					null, RequestType.WEBSERVICE);
 		}else {

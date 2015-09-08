@@ -2,14 +2,16 @@ package com.epsmart.wzcc.db.table;
 
 import com.j256.ormlite.field.DatabaseField;
 
-/*
- 库存地
+/**
+ * Created by fony on 15-8-10.
+ * 交接验收通知单表头信息
  */
-public class StockPlaceTable {
+public class StockTable {
+
     @DatabaseField(generatedId = true)
     public int id;
     @DatabaseField(index = true)
-    public String ID;
+    public String STOCK_ID;
     @DatabaseField
     public String PLAN;
     @DatabaseField
