@@ -28,6 +28,7 @@ public class BaseSdingActivity extends SlidingFragmentActivity implements
 //		sm.setBehindWidth(0);
         sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
         sdingCloseBar.setVisibility(View.GONE);
+
     }
 
     public void setSmShow() {
