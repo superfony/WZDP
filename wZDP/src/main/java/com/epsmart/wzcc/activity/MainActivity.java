@@ -27,8 +27,8 @@ import android.widget.Toast;
 import com.epsmart.wzcc.R;
 import com.epsmart.wzcc.activity.more.MoreAct;
 import com.epsmart.wzcc.activity.supply.SupplyActivity;
+import com.epsmart.wzcc.activity.supply.info.InfoActivity;
 import com.epsmart.wzcc.db.DatabaseHelper;
-import com.epsmart.wzcc.db.table.SimpleData;
 import com.epsmart.wzcc.db.table.AppHeadTable;
 import com.epsmart.wzcc.db.table.SimpleData;
 import com.epsmart.wzcc.http.BaseHttpModule;
@@ -132,6 +132,16 @@ public class MainActivity<E> extends ClientActivity {
                         SupplyActivity.class);
                 intent.putExtra("tag", "0");
                 activity.startActivity(intent);
+                try {
+                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+                    //用于测试创建数据库
+                    Dao dao = dbhelper.getDao(SimpleData.class);
+                    SimpleData simpleData = new SimpleData(10000);
+                    dao.create(simpleData);
+                    readTxtFile("admin.txt");
+                }catch (SQLException s){
+                    s.printStackTrace();
+                }
             }
         });
         // 验收入库
@@ -142,6 +152,16 @@ public class MainActivity<E> extends ClientActivity {
                         SupplyActivity.class);
                 intent.putExtra("tag", "1");
                 activity.startActivity(intent);
+//                try {
+//                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+//                    //用于测试创建数据库
+//                    Dao dao = dbhelper.getDao(SimpleData.class);
+//                    SimpleData simpleData = new SimpleData(10000);
+//                    dao.create(simpleData);
+//                    readTxtFile("admin.txt");
+//                }catch (SQLException s){
+//                    s.printStackTrace();
+//                }
             }
         });
         //出库
@@ -158,7 +178,9 @@ public class MainActivity<E> extends ClientActivity {
         info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-
+                Intent intent = new Intent(activity,
+                        InfoActivity.class);
+                activity.startActivity(intent);
             }
         });
         //  数据同步
@@ -291,9 +313,11 @@ public class MainActivity<E> extends ClientActivity {
     };
 
     public void readTxtFile(String fileName) {
-        File file = new File(savePath + fileName);
+//        File file = new File(savePath + fileName);
         try {
-            InputStream in = new FileInputStream(file);
+            InputStream in = this.getClass().getClassLoader()
+                    .getResourceAsStream(fileName);
+//                    new FileInputStream(fileName);
             BufferedReader rd = new BufferedReader(new InputStreamReader(in,"UTF-8"));
             String tempLine =  rd.readLine();
             Log.w("MainActivity", "wzcc_path=" + activity.getApplicationContext().getDatabasePath("wzcc.db"));

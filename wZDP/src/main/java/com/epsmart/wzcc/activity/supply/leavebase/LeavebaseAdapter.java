@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -25,7 +26,6 @@ import java.util.List;
 public class LeavebaseAdapter extends BaseAdapter {
     private List<LeaveItemBean> list = null;
     private Context mContext;
-
 
     public LeavebaseAdapter(Context mContext, List<LeaveItemBean> list) {
         this.mContext = mContext;
@@ -50,7 +50,7 @@ public class LeavebaseAdapter extends BaseAdapter {
     }
 
     public View getView(final int position, View view, ViewGroup arg2) {
-         ViewHolder  viewHolder;
+       final   ViewHolder viewHolder;
         final LeaveItemBean real = list.get(position);
 
         if (view == null) {
@@ -103,6 +103,7 @@ public class LeavebaseAdapter extends BaseAdapter {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 real.ENTRY_QNT = s.toString();
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
@@ -113,8 +114,20 @@ public class LeavebaseAdapter extends BaseAdapter {
 
             }
         });
+        viewHolder.checkbox_item.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                  if(b){
+                      viewHolder.checkbox_item.setChecked(true);
+                      real.isCheckbox=true;
 
-//
+                  }else{
+                      viewHolder.checkbox_item.setChecked(false);
+                      real.isCheckbox=false;
+                  }
+            }
+        });
+    //
         if(real.isCheckbox){
             viewHolder.checkbox_item.setChecked(true);
         }else{
@@ -124,17 +137,18 @@ public class LeavebaseAdapter extends BaseAdapter {
         return view;
     }
 
-    final static class ViewHolder {
-        TextView wlcode;
-        TextView reservasion_num;
-        TextView hangxm;
-        TextView wq_count;
-        TextView leave_factory;
+    class ViewHolder {
+         TextView wlcode;
+         TextView reservasion_num;
+         TextView hangxm;
+         TextView wq_count;
+         TextView leave_factory;
 
-        TextView wldesc;
-        EditText actual_count;
-        EditText stockadress;
-        EditText pc;
-        CheckBox checkbox_item;
+         TextView wldesc;
+         EditText actual_count;
+         EditText stockadress;
+         EditText pc;
+         CheckBox checkbox_item;
     }
+
 }

@@ -1,20 +1,14 @@
 package com.epsmart.wzcc.activity.supply.approval;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.ContactsContract;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +16,6 @@ import android.widget.Toast;
 import com.epsmart.wzcc.R;
 import com.epsmart.wzcc.activity.AppContext;
 import com.epsmart.wzcc.activity.RequestParamConfig;
-import com.epsmart.wzcc.activity.supply.approval.parcelable.BatchBean;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.EntityContent;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.HeadBean;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.ItemBean;

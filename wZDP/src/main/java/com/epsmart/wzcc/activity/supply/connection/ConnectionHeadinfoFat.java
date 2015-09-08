@@ -14,18 +14,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.AppContext;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.supply.approval.BaseFragment;
-import com.epsmart.wzcc.activity.supply.approval.UnitInforActivity;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.HeadBean;
 import com.epsmart.wzcc.bean.RequestPram;
 import com.epsmart.wzcc.common.RequestXmlHelp;
+import com.epsmart.wzcc.db.DatabaseHelper;
+import com.epsmart.wzcc.db.table.SubmitDateTable;
 import com.epsmart.wzcc.http.BaseHttpModule;
 import com.epsmart.wzcc.http.ModuleResponseProcessor;
 import com.epsmart.wzcc.http.request.BaseRequest;
 import com.epsmart.wzcc.http.request.RequestAction;
 import com.epsmart.wzcc.http.response.model.StatusEntity;
 import com.epsmart.wzcc.http.xml.handler.DefaultSaxHandler;
+import com.j256.ormlite.dao.Dao;
+
+import java.sql.SQLException;
+import java.util.Date;
 
 
 /*
@@ -159,8 +165,39 @@ public class ConnectionHeadinfoFat extends BaseFragment {
         requestPram.user_type = "5";
         requestPram.methodName = RequestParamConfig.pullCommit;
         requestAction.setReqPram(requestPram);
-        httpModule.executeRequest(requestAction, new DefaultSaxHandler(),
-                new ProcessResponse(), BaseRequest.RequestType.THRIFT);
+
+        Boolean isOnLine=((AppContext)activity.getApplicationContext()).isNetworkConnected();
+        if(isOnLine) {
+            httpModule.executeRequest(requestAction, new DefaultSaxHandler(),
+                    new ProcessResponse(), BaseRequest.RequestType.THRIFT);
+        }else{
+            submintOffline(RequestParamConfig.pullCommit,"100",req,"6");
+        }
+    }
+
+    private void submintOffline(String methodName,String userName,String param,String state){
+
+        DatabaseHelper databaseHelper=DatabaseHelper.getHelper(activity);
+        Dao dao= null;
+        try {
+            dao = databaseHelper.getDao(SubmitDateTable.class);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        SubmitDateTable submitData = null;
+        submitData = new SubmitDateTable();
+        submitData.setMethodName(methodName);
+        submitData.setParam(param);
+        submitData.setUserName(userName);
+        submitData.setDate(new Date());
+        submitData.setState(state);// 缓存未上传
+        try {
+            dao.create(submitData);
+            mHandler.obtainMessage(0, "离线数据保存成功！").sendToTarget();
+        } catch (SQLException e) {
+            mHandler.obtainMessage(0, "离线数据保存失败！").sendToTarget();
+            e.printStackTrace();
+        }
     }
 
     /* 处理表单提交返回消息 */

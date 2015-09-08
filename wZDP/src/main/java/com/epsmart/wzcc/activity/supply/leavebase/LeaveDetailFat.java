@@ -2,9 +2,11 @@ package com.epsmart.wzcc.activity.supply.leavebase;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Message;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +15,11 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
@@ -35,6 +40,7 @@ import com.epsmart.wzcc.http.request.RequestAction;
 import com.epsmart.wzcc.http.response.model.StatusEntity;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /*
@@ -51,7 +57,9 @@ public class LeaveDetailFat extends BaseFragment {
     private ListView batch_list;
     private BatchAdapter batchAdapter;
     private ArrayList<BatchBean> batchlist = new ArrayList<BatchBean>();
-
+    private int checkNum; // 记录选中的条目数量
+    private TextView select_count;
+    private EditText posting_date;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,35 +92,88 @@ public class LeaveDetailFat extends BaseFragment {
         checkBox = (CheckBox) view.findViewById(R.id.all_checkbox);
         button = (Button) view.findViewById(R.id.pl_btn);
         button.setOnClickListener(btn_olc);
-//      listView.setOnItemClickListener(itemOcl);
+        //      listView.setOnItemClickListener(itemOcl);
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     for (int i = 0; i < list.size(); i++) {
-
                         list.get(i).isCheckbox = true;
+                        checkNum++;
                     }
                 } else {
                     for (int i = 0; i < list.size(); i++) {
                         list.get(i).isCheckbox = false;
+                        checkNum--;
                     }
                 }
                 osHandler.sendEmptyMessage(0);
 
             }
         });
-    }
 
+    }
 
     // 出库数据提交
     View.OnClickListener submit_olc = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            submit_req();
+            dateDialog();
         }
     };
 
+    Dialog dateDialog;
+
+    private void dateDialog() {
+        {
+
+            LayoutInflater inflater = LayoutInflater.from(activity);
+            LinearLayout layout = (LinearLayout) inflater.inflate(
+                    R.layout.sr_confirm_dialog, null);
+
+            dialog = new AlertDialog.Builder(activity).create();
+            dialog.setCancelable(true);
+            dialog.show();
+            dialog.getWindow().setContentView(layout);
+
+            for (int i = 0; i < list.size(); i++) {
+                if(list.get(i).isCheckbox()==true) {
+                    checkNum++;
+                }
+
+            }
+            posting_date = (EditText) layout.findViewById(R.id.posting_date);//过账日期
+            TextView all_count = (TextView) layout.findViewById(R.id.all_count);//总项数
+            all_count.setText(Integer.toString(list.size()));
+            select_count = (TextView) layout.findViewById(R.id.select_count);//已选项
+            select_count.setText(Integer.toString(checkNum));
+            Button confirm_btn = (Button) layout.findViewById(R.id.confirm_btn);//确认按钮
+
+            posting_date.setFocusable(true);
+            //            posting_date.setBackgroundColor(Color.WHITE);
+            posting_date.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectDate(v);
+                }
+            });
+            confirm_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String date = posting_date.getText().toString();
+                    if (checkNum > 0 && null!=date) {
+                        submit_req(date);
+                        dialog.dismiss();
+                    }else {
+                        Toast.makeText(activity, "请填写时间并至少选择一项", Toast.LENGTH_LONG).show();
+                    }
+
+
+                    //TODO
+                }
+            });
+        }
+    }
 
     View.OnClickListener btn_olc = new View.OnClickListener() {
         @Override
@@ -163,7 +224,7 @@ public class LeaveDetailFat extends BaseFragment {
             if (msg.what == 0) {
                 leavebaseAdapter.notifyDataSetChanged();
             } else if (msg.what == 1) {
-               // Toast.makeText(activity, ((BatchResponse) msg.obj).message, Toast.LENGTH_LONG).show();
+                // Toast.makeText(activity, ((BatchResponse) msg.obj).message, Toast.LENGTH_LONG).show();
                 batchAdapter.updateListView(((BatchResponse) msg.obj).itemBeansList);
             } else if (msg.what == 2) {
 
@@ -188,16 +249,14 @@ public class LeaveDetailFat extends BaseFragment {
 
     }
 
-    private void submit_req() {
+    private void submit_req(String date) {
 
-        String req = RequestXmlHelp.getHeadDetailXML(RequestXmlHelp.getReqXML("PSTNG_DATE", "2015-08-24")
+        String req = RequestXmlHelp.getHeadDetailXML(RequestXmlHelp.getReqXML("PSTNG_DATE", date)
                         .append(RequestXmlHelp.getReqXML("MWSN", System.currentTimeMillis() + ""))
                         .append(RequestXmlHelp.getReqXML("STGE_LOG", ((LeavebaseAct) activity).leavebaseResponse.entity.leaveHeadBean.STGE_LOC))
                         .append(RequestXmlHelp.getReqXML("RESERV_NO", ((LeavebaseAct) activity).leavebaseResponse.entity.leaveHeadBean.RESERV_NO))
-
-                ,
-                stringBufferGet(((LeavebaseAct) activity).leavebaseResponse.entity));
-
+                , stringBufferGet(((LeavebaseAct) activity).leavebaseResponse.entity));
+        System.out.print(",,,,,,,,,,,,,,,,date>>>>>>>>>"+date);
         showModuleProgressDialog("");
         RequestAction requestAction = new RequestAction();
         requestAction.reset();
@@ -206,7 +265,6 @@ public class LeaveDetailFat extends BaseFragment {
         requestPram.methodName = RequestParamConfig.pullwarehourseSubmit;
         requestPram.param = req;
         requestAction.setReqPram(requestPram);
-
         httpModule.executeRequest(requestAction, null, new ProcessResponseBatch(),
                 BaseRequest.RequestType.THRIFT);
 
@@ -251,4 +309,22 @@ public class LeaveDetailFat extends BaseFragment {
         present_lay.setVisibility(View.VISIBLE);
         present_btn.setOnClickListener(submit_olc);
     }
+
+    public void selectDate(View v) {
+        final EditText et = (EditText) v;
+        et.setInputType(InputType.TYPE_NULL);
+        DatePickerDialog.OnDateSetListener dateListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month,
+                                  int dayOfMonth) {
+                et.setText(year + "-" + (month + 1) + "-" + dayOfMonth);
+            }
+        };
+        Calendar calendar = Calendar.getInstance();
+        Dialog dialog = new DatePickerDialog(activity, dateListener,
+                calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));
+        dialog.show();
+    }
+
 }
