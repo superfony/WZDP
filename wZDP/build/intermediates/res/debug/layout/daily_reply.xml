@@ -105,7 +105,7 @@
                 android:layout_marginTop="30dip"
                 android:background="@drawable/daily_straight_line" />
 
-            <com.epsmart.wzdp.view.PullToRefreshListView
+            <com.epsmart.wzcc.view.PullToRefreshListView
                 android:id="@+id/list_act"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -151,4 +151,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/layout/daily_reply.xml -->
+</RelativeLayout><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/layout/daily_reply.xml -->

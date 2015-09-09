@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.epsmart.wzdp.test">
+    package="com.epsmart.wzcc.test">
 
     <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="19" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.epsmart.wzdp"
+                     android:targetPackage="com.epsmart.wzcc"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for com.epsmart.wzdp"/>
+                     android:label="Tests for com.epsmart.wzcc"/>
 </manifest>

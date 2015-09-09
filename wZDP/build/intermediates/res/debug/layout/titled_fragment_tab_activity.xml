@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <com.epsmart.wzdp.activity.ui.TitleIndicator
+    <com.epsmart.wzcc.activity.ui.TitleIndicator
         android:id="@+id/pagerindicator"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
@@ -19,7 +19,7 @@
 
     <!-- Don't set background for ViewPager. It doesn't work because of page margin -->
 
-    <com.epsmart.wzdp.activity.ui.ViewPagerCompat
+    <com.epsmart.wzcc.activity.ui.ViewPagerCompat
         android:id="@+id/pager"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
@@ -62,4 +62,4 @@
             ></LinearLayout>
     </LinearLayout>
 
-</LinearLayout><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/layout/titled_fragment_tab_activity.xml -->
+</LinearLayout><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/layout/titled_fragment_tab_activity.xml -->

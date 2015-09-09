@@ -26,4 +26,4 @@
            android:pivotX="50%p" android:pivotY="50%p"
            android:duration="@android:integer/config_mediumAnimTime" />
 </set>
-<!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/anim/zoom_enter.xml -->
+<!-- From: file:/E:/as/WZDP/wZDP/src/main/res/anim/zoom_enter.xml -->

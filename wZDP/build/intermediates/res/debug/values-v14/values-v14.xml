@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/exploded-aar/WZDP/sdingmenufony/unspecified/res/values-v14/values-v14.xml -->
+    <!-- From: file:/E:/as/WZDP/wZDP/build/intermediates/exploded-aar/WZDP/sdingmenufony/unspecified/res/values-v14/values-v14.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- API 14 theme customizations can go here. -->

@@ -28,65 +28,65 @@ public final class R {
 		public static final int viewBehind = 0x7f01000f;
 	}
 	public static final class color {
-		public static final int black = 0x7f0a0002;
-		public static final int blue = 0x7f0a0003;
-		public static final int green = 0x7f0a0024;
-		public static final int red = 0x7f0a003e;
-		public static final int white = 0x7f0a004e;
+		public static final int black = 0x7f0a0006;
+		public static final int blue = 0x7f0a0007;
+		public static final int green = 0x7f0a0029;
+		public static final int red = 0x7f0a0043;
+		public static final int white = 0x7f0a0054;
 	}
 	public static final class dimen {
-		public static final int list_padding = 0x7f07000b;
-		public static final int shadow_width = 0x7f07000d;
-		public static final int slidingmenu_offset = 0x7f07000e;
+		public static final int list_padding = 0x7f07000d;
+		public static final int shadow_width = 0x7f07000f;
+		public static final int slidingmenu_offset = 0x7f070010;
 	}
 	public static final class drawable {
-		public static final int background = 0x7f02000d;
-		public static final int ic_launcher = 0x7f0200c2;
-		public static final int point_btn_bg = 0x7f0201ac;
-		public static final int point_down = 0x7f0201ae;
-		public static final int point_up = 0x7f0201b1;
-		public static final int product_btn_bg = 0x7f0201d4;
-		public static final int product_down = 0x7f0201d6;
-		public static final int product_up = 0x7f0201d7;
-		public static final int sding_l = 0x7f020200;
-		public static final int sding_s = 0x7f020201;
-		public static final int search_item_bg = 0x7f020204;
-		public static final int setting_item = 0x7f020225;
-		public static final int zl_btn_bg = 0x7f020267;
-		public static final int zl_down = 0x7f020268;
-		public static final int zl_up = 0x7f020269;
+		public static final int background = 0x7f020010;
+		public static final int ic_launcher = 0x7f0200d5;
+		public static final int point_btn_bg = 0x7f0201bf;
+		public static final int point_down = 0x7f0201c1;
+		public static final int point_up = 0x7f0201c4;
+		public static final int product_btn_bg = 0x7f0201e7;
+		public static final int product_down = 0x7f0201e9;
+		public static final int product_up = 0x7f0201ea;
+		public static final int sding_l = 0x7f02021b;
+		public static final int sding_s = 0x7f02021c;
+		public static final int search_item_bg = 0x7f02021f;
+		public static final int setting_item = 0x7f020240;
+		public static final int zl_btn_bg = 0x7f0202ae;
+		public static final int zl_down = 0x7f0202af;
+		public static final int zl_up = 0x7f0202b0;
 	}
 	public static final class id {
-		public static final int content = 0x7f0b0088;
+		public static final int content = 0x7f0b00a2;
 		public static final int fullscreen = 0x7f0b0007;
-		public static final int icon = 0x7f0b007e;
-		public static final int item = 0x7f0b0189;
+		public static final int icon = 0x7f0b0099;
+		public static final int item = 0x7f0b01b3;
 		public static final int left = 0x7f0b0004;
-		public static final int listMenu_layout = 0x7f0b015a;
-		public static final int main_lay = 0x7f0b0143;
+		public static final int listMenu_layout = 0x7f0b017b;
+		public static final int main_lay = 0x7f0b0164;
 		public static final int margin = 0x7f0b0006;
-		public static final int menu = 0x7f0b0159;
-		public static final int menuList = 0x7f0b015b;
-		public static final int point_imag = 0x7f0b0171;
-		public static final int product_imag = 0x7f0b016f;
+		public static final int menu = 0x7f0b017a;
+		public static final int menuList = 0x7f0b017c;
+		public static final int point_imag = 0x7f0b0192;
+		public static final int product_imag = 0x7f0b0190;
 		public static final int right = 0x7f0b0005;
-		public static final int sding_close_side_lay = 0x7f0b0144;
-		public static final int sdingmenu_lay = 0x7f0b015d;
+		public static final int sding_close_side_lay = 0x7f0b0165;
+		public static final int sdingmenu_lay = 0x7f0b017e;
 		public static final int selected_view = 0x7f0b0021;
-		public static final int showmenu_lay = 0x7f0b015c;
-		public static final int slidingmenumain = 0x7f0b0177;
-		public static final int zl_imag = 0x7f0b0170;
+		public static final int showmenu_lay = 0x7f0b017d;
+		public static final int slidingmenumain = 0x7f0b019a;
+		public static final int zl_imag = 0x7f0b0191;
 	}
 	public static final class integer {
 		public static final int num_cols = 0x7f0c0000;
 	}
 	public static final class layout {
-		public static final int sding_content_fragment = 0x7f03004e;
-		public static final int slide_frame_menu = 0x7f030057;
-		public static final int slide_list_menu = 0x7f030058;
-		public static final int slide_menu_gys = 0x7f03005c;
-		public static final int slidingmenumain = 0x7f030060;
-		public static final int tab_fragment_setting_item = 0x7f03006a;
+		public static final int sding_content_fragment = 0x7f03005c;
+		public static final int slide_frame_menu = 0x7f030065;
+		public static final int slide_list_menu = 0x7f030066;
+		public static final int slide_menu_gys = 0x7f03006a;
+		public static final int slidingmenumain = 0x7f03006e;
+		public static final int tab_fragment_setting_item = 0x7f03007f;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f0d0005;
@@ -94,7 +94,7 @@ public final class R {
 	public static final class style {
 		public static final int AppBaseTheme = 0x7f080000;
 		public static final int AppTheme = 0x7f080002;
-		public static final int menuList = 0x7f080016;
+		public static final int menuList = 0x7f08001b;
 	}
 	public static final class styleable {
 		public static final int[] SlidingMenu = { 0x7f01000d, 0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016, 0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a };

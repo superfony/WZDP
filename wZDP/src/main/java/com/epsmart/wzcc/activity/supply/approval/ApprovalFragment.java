@@ -96,6 +96,7 @@ public class ApprovalFragment extends CommonFragment {
                     RequestParamConfig.ServerUrl);
             paginationWidget.setRequestType(RequestType.THRIFT);// TODO
             initPaginationWidget(paginationWidget);
+            paginationWidget.setDifferent("1");
             paginationWidget.loadPaginationData();
            // paginationWidget.querySqliteData();
 

@@ -5,4 +5,4 @@
     <item android:state_pressed="true" android:drawable="@drawable/scanmm_title_back_pressed" />
     <item android:state_selected="true" android:drawable="@drawable/scanmm_title_back_pressed" />
     <item android:drawable="@drawable/scanmm_title_back_normal" />
-</selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/scanmm_title_back_btn.xml -->
+</selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/scanmm_title_back_btn.xml -->

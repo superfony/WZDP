@@ -56,4 +56,4 @@
         android:layout_toRightOf="@id/time"
         android:maxWidth="190dip" />
 
-</RelativeLayout><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/layout/nowwork_content_item.xml -->
+</RelativeLayout><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/layout/nowwork_content_item.xml -->

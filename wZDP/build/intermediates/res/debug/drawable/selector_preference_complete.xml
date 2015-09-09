@@ -3,4 +3,4 @@
     <item android:state_pressed="true" android:drawable="@drawable/preference_complete_pressed"/>
     <item android:state_selected="true" android:drawable="@drawable/preference_complete_selected"/>
     <item android:drawable="@drawable/preference_complete_normal"/>
-</selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/selector_preference_complete.xml -->
+</selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/selector_preference_complete.xml -->

@@ -6,4 +6,4 @@
      <item android:state_focused="true"
            android:drawable="@drawable/product_down" /> <!-- focused -->
      <item android:drawable="@drawable/product_up" /> <!-- default -->
- </selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/product_btn_bg.xml -->
+ </selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/product_btn_bg.xml -->

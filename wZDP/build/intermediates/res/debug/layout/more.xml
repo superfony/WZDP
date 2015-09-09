@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/about_topbg"
+        android:background="@drawable/sr_about_top"
         android:gravity="center"
         android:orientation="vertical" >
         <TextView 
@@ -52,4 +52,4 @@
             android:gravity="center" />
     </LinearLayout>
 
-</LinearLayout><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/layout/more.xml -->
+</LinearLayout><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/layout/more.xml -->

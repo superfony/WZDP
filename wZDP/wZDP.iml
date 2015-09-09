@@ -82,23 +82,24 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="android-support-v4" level="project" />
-    <orderEntry type="library" exported="" name="thrift-0.9.1" level="project" />
     <orderEntry type="library" exported="" name="universal-image-loader-1.9.3-SNAPSHOT" level="project" />
-    <orderEntry type="library" exported="" name="jsch-0.1.51" level="project" />
-    <orderEntry type="library" exported="" name="jxl" level="project" />
-    <orderEntry type="library" exported="" name="slf4j-nop-1.5.2" level="project" />
-    <orderEntry type="library" exported="" name="ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies" level="project" />
-    <orderEntry type="library" exported="" name="ormlite-core-4.45" level="project" />
-    <orderEntry type="library" exported="" name="slf4j-api-1.5.8" level="project" />
+    <orderEntry type="library" exported="" name="android-support-v4" level="project" />
     <orderEntry type="library" exported="" name="achartengine-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="slf4j-nop-1.5.2" level="project" />
     <orderEntry type="library" exported="" name="zxing" level="project" />
-    <orderEntry type="library" exported="" name="sun.misc.BASE64Decoder" level="project" />
-    <orderEntry type="library" exported="" name="commons-httpclient-3.1" level="project" />
     <orderEntry type="library" exported="" name="ormlite-android-4.45" level="project" />
+    <orderEntry type="library" exported="" name="ormlite-core-4.45" level="project" />
+    <orderEntry type="library" exported="" name="thrift-0.9.1" level="project" />
+    <orderEntry type="library" exported="" name="jsch-0.1.51" level="project" />
+    <orderEntry type="library" exported="" name="sun.misc.BASE64Decoder" level="project" />
+    <orderEntry type="library" exported="" name="slf4j-api-1.5.8" level="project" />
+    <orderEntry type="library" exported="" name="commons-httpclient-3.1" level="project" />
+    <orderEntry type="library" exported="" name="ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies" level="project" />
+    <orderEntry type="library" exported="" name="jxl" level="project" />
     <orderEntry type="module" module-name="sdingmenufony" exported="" />
   </component>
 </module>

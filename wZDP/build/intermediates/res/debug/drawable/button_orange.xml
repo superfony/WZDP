@@ -4,4 +4,4 @@
     <item android:drawable="@drawable/button_orange_pressed" android:state_pressed="true"/>
     <item android:drawable="@drawable/button_orange_normal"/>
 
-</selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/button_orange.xml -->
+</selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/button_orange.xml -->

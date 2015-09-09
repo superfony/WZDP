@@ -5,4 +5,4 @@
      <item android:state_focused="true"
            android:drawable="@drawable/install_btgxz" /> <!-- focused -->
      <item android:drawable="@drawable/install_btg" /> <!-- default -->
- </selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/install_btn.xml -->
+ </selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/install_btn.xml -->

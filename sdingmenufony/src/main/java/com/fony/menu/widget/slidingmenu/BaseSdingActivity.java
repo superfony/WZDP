@@ -113,8 +113,8 @@ public class BaseSdingActivity extends SlidingFragmentActivity implements
 		setSlidingActionBarEnabled(false);
 		sm = getSlidingMenu();
 		sm.setMode(SlidingMenu.LEFT);
-		sm.setBehindWidth(185);
-		sm.setFadeDegree(0.35f);
+		sm.setBehindWidth(230);
+		sm.setFadeDegree(0.68f);
 		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 		sm.setOnClosedListener(new OnClosedListener() {
 			@Override

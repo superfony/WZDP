@@ -5,4 +5,4 @@
     <item android:drawable="@drawable/btn_check_off_holo_light" android:state_checked="false"/>
     <item android:drawable="@drawable/btn_check_off_holo_light"/>
 
-</selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/fileexplorer_check_selector.xml -->
+</selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/fileexplorer_check_selector.xml -->

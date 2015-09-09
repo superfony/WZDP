@@ -164,8 +164,6 @@ public class BasicInfoFat extends BaseFragment {
         ((UnitInforActivity) activity).company_xmdw_value = company_xmdw.getText().toString();
         ((UnitInforActivity) activity).company_jl_value = company_jl.getText().toString();
         ((UnitInforActivity) activity).company_sgdw_value = company_sgdw.getText().toString();
-
-
         super.onPause();
     }
 
@@ -179,17 +177,18 @@ public class BasicInfoFat extends BaseFragment {
         ((UnitInforActivity) activity).company_gys_value = company_gys.getText().toString();
         ((UnitInforActivity) activity).company_xmdw_value = company_xmdw.getText().toString();
         ((UnitInforActivity) activity).company_jl_value = company_jl.getText().toString();
-        String req = RequestXmlHelp.getHeadDetailXML(RequestXmlHelp.getReqXML("DELIVERINFORMCOD", headBean.DELIVERINFORMCOD)
-                        .append(RequestXmlHelp.getReqXML("MWSN", System.currentTimeMillis() + ""))
-                        .append(RequestXmlHelp.getReqXML("MATCOMPANYSIGN", "李六"))
-                        .append(RequestXmlHelp.getReqXML("SUPPLIERDELIVERS", "李七"))
-                        .append(RequestXmlHelp.getReqXML("SGUNITSIGN", "李八"))
-                        .append(RequestXmlHelp.getReqXML("PROJECTRECEIVEDS", "张珊")),
-
-                RequestXmlHelp.getDetailXML(RequestXmlHelp.getReqXML("ACCEAMOUNT", "")
-                        .append(RequestXmlHelp.getReqXML("MATERIALID", "0345678")))
-
-        ).toString();
+        String req = null;
+//                RequestXmlHelp.getHeadDetailXML(RequestXmlHelp.getReqXML("DELIVERINFORMCOD", headBean.DELIVERINFORMCOD)
+//                        .append(RequestXmlHelp.getReqXML("MWSN", System.currentTimeMillis() + ""))
+//                        .append(RequestXmlHelp.getReqXML("MATCOMPANYSIGN", "李六"))
+//                        .append(RequestXmlHelp.getReqXML("SUPPLIERDELIVERS", "李七"))
+//                        .append(RequestXmlHelp.getReqXML("SGUNITSIGN", "李八"))
+//                        .append(RequestXmlHelp.getReqXML("PROJECTRECEIVEDS", "张珊")),
+//
+//                RequestXmlHelp.getDetailXML(RequestXmlHelp.getReqXML("ACCEAMOUNT", "")
+//                        .append(RequestXmlHelp.getReqXML("MATERIALID", "0345678")))
+//
+//        ).toString();
 
         // 正式库调用
 
@@ -214,8 +213,6 @@ public class BasicInfoFat extends BaseFragment {
         requestPram.userid = "100";
         requestPram.user_type = "6";// 操作类型
         requestPram.methodName = RequestParamConfig.pullCommit;
-
-
         requestAction.setReqPram(requestPram);
 
         Boolean isOnLine=((AppContext)activity.getApplicationContext()).isNetworkConnected();

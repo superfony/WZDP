@@ -4,4 +4,4 @@
     <item android:state_enabled="true" android:color="@color/frame_button_text_nor" />
     <item android:state_enabled="false" android:color="@color/frame_button_text_select" />
     <item android:color="@color/frame_button_text_nor" />
-</selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/color/frame_button_text_light.xml -->
+</selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/color/frame_button_text_light.xml -->

@@ -6,4 +6,4 @@
      <item android:state_focused="true"
            android:drawable="@drawable/point_down" /> <!-- focused -->
      <item android:drawable="@drawable/point_up" /> <!-- default -->
- </selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/sdingmenufony/src/main/res/drawable/point_btn_bg.xml -->
+ </selector><!-- From: file:/E:/as/WZDP/sdingmenufony/src/main/res/drawable/point_btn_bg.xml -->

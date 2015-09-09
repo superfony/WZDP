@@ -9,4 +9,4 @@
 	<item android:duration="100" android:drawable="@drawable/loading_5" />
 	<item android:duration="100" android:drawable="@drawable/loading_6" />
 	<item android:duration="100" android:drawable="@drawable/loading_7" />
-</animation-list> <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/anim/loading.xml -->
+</animation-list> <!-- From: file:/E:/as/WZDP/wZDP/src/main/res/anim/loading.xml -->

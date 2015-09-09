@@ -12,4 +12,4 @@
 	    android:toXDelta="50%"
 	    android:duration="@android:integer/config_longAnimTime" />
 </set>
-<!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/anim/out.xml -->
+<!-- From: file:/E:/as/WZDP/wZDP/src/main/res/anim/out.xml -->

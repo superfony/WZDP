@@ -7,4 +7,4 @@
            android:drawable="@drawable/up_end" /> <!-- focused -->
      <item android:drawable="@drawable/up_start" /> <!-- default -->
  </selector>
-<!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/up_btn_bg.xml -->
+<!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/up_btn_bg.xml -->

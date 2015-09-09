@@ -7,4 +7,4 @@
            android:drawable="@drawable/icon_proinfochange" /> <!-- focused -->
      <item android:drawable="@drawable/icon_proinfo" /> <!-- default -->
  </selector>
-<!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/icon_proinfo_btn.xml -->
+<!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/icon_proinfo_btn.xml -->

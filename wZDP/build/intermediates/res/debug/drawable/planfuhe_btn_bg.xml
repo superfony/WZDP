@@ -7,4 +7,4 @@
            android:drawable="@drawable/plan_reunite_down" /> <!-- focused -->
      <item android:drawable="@drawable/plan_reunite_up" /> <!-- default -->
  </selector>
- <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/planfuhe_btn_bg.xml -->
+ <!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/planfuhe_btn_bg.xml -->

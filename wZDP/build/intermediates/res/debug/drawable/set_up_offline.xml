@@ -5,4 +5,4 @@
      <item android:state_focused="true"
            android:drawable="@drawable/off_linexz" /> <!-- focused -->
      <item android:drawable="@drawable/off_line" /> <!-- default -->
- </selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/set_up_offline.xml -->
+ </selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/set_up_offline.xml -->

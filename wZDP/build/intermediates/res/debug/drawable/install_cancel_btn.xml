@@ -5,4 +5,4 @@
      <item android:state_focused="true"
            android:drawable="@drawable/set_cancle_btnxz" /> <!-- focused -->
      <item android:drawable="@drawable/set_cancle_btn" /> <!-- default -->
- </selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/install_cancel_btn.xml -->
+ </selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/install_cancel_btn.xml -->

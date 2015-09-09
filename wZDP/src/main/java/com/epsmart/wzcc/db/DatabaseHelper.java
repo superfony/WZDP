@@ -4,14 +4,13 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.epsmart.wzcc.activity.supply.approval.parcelable.BatchBean;
 import com.epsmart.wzcc.db.table.AppDetailTable;
 import com.epsmart.wzcc.db.table.AppHeadTable;
 import com.epsmart.wzcc.db.table.LeaveDetailTable;
 import com.epsmart.wzcc.db.table.LeaveHeadTable;
 import com.epsmart.wzcc.db.table.SimpleData;
-import com.epsmart.wzcc.db.table.StockPlaceTable;
 import com.epsmart.wzcc.db.table.SubmitDateTable;
-import com.epsmart.wzcc.db.table.UserData;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
@@ -39,7 +38,7 @@ public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
 			TableUtils.createTable(connectionSource, LeaveHeadTable.class);
 			TableUtils.createTable(connectionSource, LeaveDetailTable.class);
 			TableUtils.createTable(connectionSource, SubmitDateTable.class);
-			//TableUtils.createTable(connectionSource, StockPlaceTable.class);
+			TableUtils.createTable(connectionSource, BatchBean.class);
 		} catch (SQLException e) {
 			Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
 			throw new RuntimeException(e);
@@ -51,10 +50,15 @@ public class DatabaseHelper<E> extends OrmLiteSqliteOpenHelper {
 			int oldVersion, int newVersion) {
 		try {
 			Log.i(DatabaseHelper.class.getName(), "onUpgrade");
+			TableUtils.dropTable(connectionSource, AppHeadTable.class, true);
+			TableUtils.dropTable(connectionSource, AppDetailTable.class, true);
 			TableUtils.dropTable(connectionSource, SimpleData.class, true);
-			TableUtils.dropTable(connectionSource, UserData.class, true);
+			TableUtils.dropTable(connectionSource, LeaveHeadTable.class, true);
+			TableUtils.dropTable(connectionSource, LeaveDetailTable.class, true);
+			TableUtils.dropTable(connectionSource, SubmitDateTable.class, true);
+			TableUtils.dropTable(connectionSource, BatchBean.class, true);
 			onCreate(db, connectionSource);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			Log.e(DatabaseHelper.class.getName(), "Can't drop databases", e);
 			throw new RuntimeException(e);
 		}

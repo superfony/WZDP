@@ -13,7 +13,6 @@ import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.fragment.CommonFragment;
 import com.epsmart.wzcc.activity.pagination.PaginationWidget;
 import com.epsmart.wzcc.activity.search.QueryDialogListener;
-import com.epsmart.wzcc.activity.supply.approval.UnitInforActivity;
 import com.epsmart.wzcc.activity.supply.bean.Field;
 import com.epsmart.wzcc.bean.Pagination;
 import com.epsmart.wzcc.bean.QueryCondition;
@@ -96,6 +95,7 @@ public class ConnectionFat extends CommonFragment {
                     RequestParamConfig.ServerUrl);
             paginationWidget.setRequestType(RequestType.THRIFT);// TODO
             initPaginationWidget(paginationWidget);
+            paginationWidget.setDifferent("1");
             paginationWidget.loadPaginationData();
         } else {
             ArrayList<WorkOrder> arraylist = (ArrayList<WorkOrder>) paginationWidget.tableBodyAdapter.getDataCache();

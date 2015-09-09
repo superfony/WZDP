@@ -1,6 +1,5 @@
 package com.epsmart.wzcc.bean;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -58,7 +57,9 @@ public class ViewBuildBak extends ViewBuilder<WorkOrder> {
 
         field = null;
         field = workOrder.fields.get("ZDJZT");//0 未完成 1、已交接 2、 已完成
-        Log.w("zdjzt",".........fileld.fieldContent="+field.fieldContent);
+        if(field==null){
+            return;
+        }
         if ("0".equals(field.fieldContent)) {
             holder.icon.setBackgroundResource(R.drawable.state_noconfrimed);
         } else if ("1".equals(field.fieldContent)) {

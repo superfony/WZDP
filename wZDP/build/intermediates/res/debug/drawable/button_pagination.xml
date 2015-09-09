@@ -5,4 +5,4 @@
     <item android:drawable="@drawable/corner_button_normal" android:state_pressed="false"/>
     <item android:drawable="@drawable/corner_button_normal"/>
 
-</selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/button_pagination.xml -->
+</selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/button_pagination.xml -->

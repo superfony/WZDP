@@ -132,26 +132,6 @@ public class MainActivity<E> extends ClientActivity {
                         SupplyActivity.class);
                 intent.putExtra("tag", "0");
                 activity.startActivity(intent);
-                try {
-                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
-                    //用于测试创建数据库
-                    Dao dao = dbhelper.getDao(SimpleData.class);
-                    SimpleData simpleData = new SimpleData(10000);
-                    dao.create(simpleData);
-                    readTxtFile("admin.txt");
-                }catch (SQLException s){
-                    s.printStackTrace();
-                }
-            }
-        });
-        // 验收入库
-        ruku.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Intent intent = new Intent(activity,
-                        SupplyActivity.class);
-                intent.putExtra("tag", "1");
-                activity.startActivity(intent);
 //                try {
 //                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
 //                    //用于测试创建数据库
@@ -164,6 +144,26 @@ public class MainActivity<E> extends ClientActivity {
 //                }
             }
         });
+        // 验收入库
+        ruku.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent intent = new Intent(activity,
+                        SupplyActivity.class);
+                intent.putExtra("tag", "1");
+                activity.startActivity(intent);
+                try {
+                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+                    //用于测试创建数据库
+                    Dao dao = dbhelper.getDao(SimpleData.class);
+                    SimpleData simpleData = new SimpleData(10000);
+                    dao.create(simpleData);
+                    readTxtFile("admin.txt");
+                }catch (SQLException s){
+                    s.printStackTrace();
+                }
+            }
+        });
         //出库
         chuku.setOnClickListener(new OnClickListener() {
             @Override
@@ -172,6 +172,16 @@ public class MainActivity<E> extends ClientActivity {
                         SupplyActivity.class);
                 intent.putExtra("tag", "2");
                 activity.startActivity(intent);
+                try {
+                                        DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+                                        //用于测试创建数据库
+                                        Dao dao = dbhelper.getDao(SimpleData.class);
+                                        SimpleData simpleData = new SimpleData(10000);
+                                        dao.create(simpleData);
+                                        readTxtFile("admin.txt");
+                                    }catch (SQLException s){
+                                        s.printStackTrace();
+                                    }
             }
         });
         //
@@ -314,29 +324,32 @@ public class MainActivity<E> extends ClientActivity {
 
     public void readTxtFile(String fileName) {
 //        File file = new File(savePath + fileName);
+        SQLiteDatabase  sqLiteDatabase=null;   
         try {
             InputStream in = this.getClass().getClassLoader()
                     .getResourceAsStream(fileName);
-//                    new FileInputStream(fileName);
+//                    new FileInputStream(file);
             BufferedReader rd = new BufferedReader(new InputStreamReader(in,"UTF-8"));
             String tempLine =  rd.readLine();
             Log.w("MainActivity", "wzcc_path=" + activity.getApplicationContext().getDatabasePath("wzcc.db"));
-            SQLiteDatabase  sqLiteDatabase=SQLiteDatabase.openOrCreateDatabase(String.valueOf(activity.getApplicationContext().getDatabasePath("wzcc.db")), null);
-
-
+            sqLiteDatabase=SQLiteDatabase.openOrCreateDatabase(String.valueOf(activity.getApplicationContext().getDatabasePath("wzcc.db")), null);
+        //    sqLiteDatabase.beginTransaction();
+//            sqLiteDatabase.execSQL("delete from AppHeadTable");
+//            sqLiteDatabase.execSQL("delete from AppDetailTable");
+//            sqLiteDatabase.execSQL("delete from LeaveHeadTable");
             while (!TextUtils.isEmpty(tempLine)) {
                 Log.w("MainActivity", "tempLine=" + tempLine);
-               // dao.executeRawNoArgs(tempLine);
                 sqLiteDatabase.execSQL(tempLine);
                 tempLine = rd.readLine();
             }
-
+            sqLiteDatabase.close();
             DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
             Dao dao = dbhelper.getDao(AppHeadTable.class);
             List<AppHeadTable> appHeadTableslist = dao.queryForAll();
             Log.w("MainActivity", "appHeadList.size=" + appHeadTableslist.size());
         } catch (Exception e) {
             System.out.println("读取文件内容出错");
+//            sqLiteDatabase.endTransaction();
             e.printStackTrace();
         }
 
@@ -351,7 +364,6 @@ public class MainActivity<E> extends ClientActivity {
             return false;
         }
         return false;
-
     }
 
     // 退出弹出框

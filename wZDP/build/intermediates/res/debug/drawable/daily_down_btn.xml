@@ -7,4 +7,4 @@
            android:drawable="@drawable/daily_notice_downxz" /> <!-- focused -->
      <item android:drawable="@drawable/daily_notice_down" /> <!-- default -->
  </selector>
-<!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/daily_down_btn.xml -->
+<!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/daily_down_btn.xml -->

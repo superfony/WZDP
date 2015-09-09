@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/sdingmenufony/src/main/res/values/arrays.xml -->
+    <!-- From: file:/E:/as/WZDP/sdingmenufony/src/main/res/values/arrays.xml -->
     <eat-comment/>
     <string-array name="color_names">
         <item>Red</item>
@@ -15,7 +15,7 @@
         <item>设置</item>
         <item>退出</item>
     </string-array>
-    <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/sdingmenufony/src/main/res/values/colors.xml -->
+    <!-- From: file:/E:/as/WZDP/sdingmenufony/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="black">#000</color>
     <color name="blue">#009</color>
@@ -23,21 +23,21 @@
     <color name="red">#900</color>
     <color name="white">#FFF</color>
     <declare-styleable name="SlidingMenu"><attr name="mode"><enum name="left" value="0"/><enum name="right" value="1"/></attr><attr format="reference" name="viewAbove"/><attr format="reference" name="viewBehind"/><attr format="dimension" name="behindOffset"/><attr format="dimension" name="behindWidth"/><attr format="float" name="behindScrollScale"/><attr name="touchModeAbove"><enum name="margin" value="0"/><enum name="fullscreen" value="1"/></attr><attr name="touchModeBehind"><enum name="margin" value="0"/><enum name="fullscreen" value="1"/></attr><attr format="reference" name="shadowDrawable"/><attr format="dimension" name="shadowWidth"/><attr format="boolean" name="fadeEnabled"/><attr format="float" name="fadeDegree"/><attr format="boolean" name="selectorEnabled"/><attr format="reference" name="selectorDrawable"/></declare-styleable>
-    <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/sdingmenufony/src/main/res/values/dimens.xml -->
+    <!-- From: file:/E:/as/WZDP/sdingmenufony/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="list_padding">10dp</dimen>
     <dimen name="shadow_width">15dp</dimen>
     <dimen name="slidingmenu_offset">60dp</dimen>
-    <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/sdingmenufony/src/main/res/values/slide_menu_ids.xml -->
+    <!-- From: file:/E:/as/WZDP/sdingmenufony/src/main/res/values/slide_menu_ids.xml -->
     <eat-comment/>
     <item name="selected_view" type="id"/>
-    <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/sdingmenufony/src/main/res/values/dimens.xml -->
+    <!-- From: file:/E:/as/WZDP/sdingmenufony/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <integer name="num_cols">1</integer>
-    <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/sdingmenufony/src/main/res/values/strings.xml -->
+    <!-- From: file:/E:/as/WZDP/sdingmenufony/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">testMenu</string>
-    <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/sdingmenufony/src/main/res/values/styles.xml -->
+    <!-- From: file:/E:/as/WZDP/sdingmenufony/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
@@ -49,7 +49,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    <!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/sdingmenufony/src/main/res/values/slide_menu_styles.xml -->
+    <!-- From: file:/E:/as/WZDP/sdingmenufony/src/main/res/values/slide_menu_styles.xml -->
     <eat-comment/>
     <style name="menuList">
         <item name="android:layout_width">wrap_content</item>

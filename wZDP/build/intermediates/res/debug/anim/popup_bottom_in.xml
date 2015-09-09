@@ -12,4 +12,4 @@
         android:interpolator="@android:anim/decelerate_interpolator"
         android:toAlpha="1.0" />
 
-</set><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/anim/popup_bottom_in.xml -->
+</set><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/anim/popup_bottom_in.xml -->

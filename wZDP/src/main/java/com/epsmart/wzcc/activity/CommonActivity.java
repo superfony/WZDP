@@ -1,7 +1,5 @@
 package com.epsmart.wzcc.activity;
 
-import java.util.HashMap;
-
 import android.app.ActionBar;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -27,6 +25,8 @@ import com.epsmart.wzcc.widget.PullToRefreshListView.OnPositionChangedListener;
 import com.fony.menu.widget.slidingmenu.BaseSdingActivity;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
+import java.util.HashMap;
+
 
 public class CommonActivity extends BaseSdingActivity  implements  OnPositionChangedListener{
 
@@ -35,7 +35,7 @@ public class CommonActivity extends BaseSdingActivity  implements  OnPositionCha
 	protected FillTableHelp fillHelp;
 	protected FillTableHelpNew fillHelpNew;
 	protected String pspid;
-	
+
 	public String getPspid() {
 		return pspid;
 	}

@@ -3,6 +3,7 @@ package com.epsmart.wzcc.activity.supply.leavebase;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,6 @@ import com.epsmart.wzcc.activity.search.QueryDialogListener;
 import com.epsmart.wzcc.activity.supply.bean.Field;
 import com.epsmart.wzcc.bean.Pagination;
 import com.epsmart.wzcc.bean.QueryCondition;
-import com.epsmart.wzcc.bean.ViewBuildBak;
 import com.epsmart.wzcc.bean.WorkOrder;
 import com.epsmart.wzcc.http.request.BaseRequest.RequestType;
 import com.epsmart.wzcc.http.request.RequestAction;
@@ -94,7 +94,9 @@ public class LeavebaseFragment extends CommonFragment {
                     RequestParamConfig.ServerUrl);
             paginationWidget.setRequestType(RequestType.THRIFT);// TODO
             initPaginationWidget(paginationWidget);
+            paginationWidget.setDifferent("2");
             paginationWidget.loadPaginationData();
+
         } else {
             ArrayList<WorkOrder> arraylist = (ArrayList<WorkOrder>) paginationWidget.tableBodyAdapter.getDataCache();
             RequestAction requestAction = paginationWidget.requestAction;
@@ -167,7 +169,7 @@ public class LeavebaseFragment extends CommonFragment {
                 requestPram.param = req;
                 paginationWidget.getRequestAction().reset();
                 processQueryCondition(null);
-                paginationWidget.loadPaginationData();
+                paginationWidget.loadPaginationDatas();
             }
         };
     }

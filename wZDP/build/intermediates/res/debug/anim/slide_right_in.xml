@@ -18,4 +18,4 @@
     <translate android:fromXDelta="-100%p" android:toXDelta="0" android:duration="700"/>
     <!--  <alpha android:duration="700" android:fromAlpha="0.1" android:toAlpha="1.0" /> -->
 </set>
-<!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/anim/slide_right_in.xml -->
+<!-- From: file:/E:/as/WZDP/wZDP/src/main/res/anim/slide_right_in.xml -->

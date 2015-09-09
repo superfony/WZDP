@@ -31,4 +31,4 @@
     <alpha android:fromAlpha="1.0" android:toAlpha="0"
             android:duration="@android:integer/config_mediumAnimTime"/>
 </set>
-<!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/anim/zoom_exit.xml -->
+<!-- From: file:/E:/as/WZDP/wZDP/src/main/res/anim/zoom_exit.xml -->

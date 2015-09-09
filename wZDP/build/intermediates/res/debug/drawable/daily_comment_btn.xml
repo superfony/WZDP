@@ -7,4 +7,4 @@
            android:drawable="@drawable/daily_commentchange" /> <!-- focused -->
      <item android:drawable="@drawable/daily_comment" /> <!-- default -->
  </selector>
-<!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/daily_comment_btn.xml -->
+<!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/daily_comment_btn.xml -->

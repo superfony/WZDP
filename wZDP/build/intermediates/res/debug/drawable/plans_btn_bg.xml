@@ -6,4 +6,4 @@
            android:drawable="@drawable/tower_plantablexz" /> <!-- focused  获得焦点时的图片-->
      <item android:drawable="@drawable/tower_plantable" /> <!-- default -->
     
- </selector><!-- From: file:/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/src/main/res/drawable/plans_btn_bg.xml -->
+ </selector><!-- From: file:/E:/as/WZDP/wZDP/src/main/res/drawable/plans_btn_bg.xml -->

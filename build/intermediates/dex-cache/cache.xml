@@ -2,109 +2,109 @@
 <items version="2" >
 
     <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/slf4j-api-1.5.8.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="2aaf496dfd551adb9b079f58a7e2d55eb383fc82">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/slf4j-api-1.5.8-9581a632696213037cc527cf0afec22b73c39846.jar" />
-    </item>
-    <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/jxl.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="a6f224353653001716448dec51065d050ac782b7">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/jxl-dd20f259e48c017836efea30841a8a0927740778.jar" />
-    </item>
-    <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/exploded-aar/WZDP/sdingmenufony/unspecified/jars/libs/android-support-v4.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="307c1cc532eabbf1d135b43e5c983c9da700449d">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/android-support-v4-c1ac203ea7b9d8e91d53aae94ee24c867217123b.jar" />
-    </item>
-    <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/ormlite-android-4.45.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="8ff8c21e8d0162333559f35cafd6a2238a33e5ba">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/ormlite-android-4.45-6536edc3a0ad904f457560b1e1d92081299da065.jar" />
-    </item>
-    <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/achartengine-1.1.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="9932e3fb9fbe54e80873e77f72a99f79e33b3250">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/achartengine-1.1.0-4da954ad5141169f9fb771d17a8f584e166454ef.jar" />
-    </item>
-    <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/ormlite-core-4.45.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="3db7b73aecea723803e10b068777cf09ed42d4be">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/ormlite-core-4.45-8519aecf084822f9b302f4d5ad2ef3c5384b1d64.jar" />
-    </item>
-    <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/sun.misc.BASE64Decoder.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="acd93e3727886196f9b8434279ff445ba8611186">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/sun.misc.BASE64Decoder-eb1c62ca90a914a808e67b25dd37812418f3b6d5.jar" />
-    </item>
-    <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/jsch-0.1.51.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="21761cb18a9d6e22712d1429a50f255833cd7177">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/jsch-0.1.51-f77fcc5c5af34ab9d794100c89911a5fd6af02a6.jar" />
-    </item>
-    <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies.jar"
+        jar="E:\as\WZDP\wZDP\libs\ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="f8ddd5d69d8cdc994cde9af278ff79b06365eee3">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies-6a79b2abf48d03e8c50c01ac012c1f42da179338.jar" />
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies-1c3c734bc51b3a66dcd925d14eeed2218bff6d1a.jar" />
     </item>
     <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/slf4j-nop-1.5.2.jar"
+        jar="E:\as\WZDP\wZDP\libs\slf4j-nop-1.5.2.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="62baf9b0154f31fa61cf0cfcf08a20bcdc655f94">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/slf4j-nop-1.5.2-5ead7d5e2e2fab3873e5d1c55e199b297a1137bd.jar" />
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\slf4j-nop-1.5.2-0c96186bcbf1fdcb7ce126b6e1833b8164d8f203.jar" />
     </item>
     <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/zxing.jar"
+        jar="E:\as\WZDP\wZDP\build\intermediates\exploded-aar\WZDP\sdingmenufony\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="a985f133762a3917ef523728d7bd648e8fda62cd">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\classes-a598af1bb81dc00c6c9cb5f1158aff17905f4f55.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\zxing.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/zxing-9c8d52fb5afebea2e5032a3e8de76f4aeef43f39.jar" />
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\zxing-357feb0cd993d84f65b682480423aa9590bc5525.jar" />
     </item>
     <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/universal-image-loader-1.9.3-SNAPSHOT.jar"
+        jar="E:\as\WZDP\wZDP\libs\sun.misc.BASE64Decoder.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="acd93e3727886196f9b8434279ff445ba8611186">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\sun.misc.BASE64Decoder-e661ecb1dd9b5a735248a4cfc28ea55f217df969.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\jsch-0.1.51.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="21761cb18a9d6e22712d1429a50f255833cd7177">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\jsch-0.1.51-a8013fb31517ed9efa7a89401b38ed86550b57c7.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\jxl.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="a6f224353653001716448dec51065d050ac782b7">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\jxl-a5a66fe0cc10439591bd2b369d9e34c028abe67a.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\universal-image-loader-1.9.3-SNAPSHOT.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="29cf65d299e133ec68caba92b29f69289713975b">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-SNAPSHOT-72fd7c6c3bd47e29abc1553c19b807f5fabd5b62.jar" />
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.3-SNAPSHOT-ecef2a74165dc66d03d7ca4ac48fb445463547e5.jar" />
     </item>
     <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/commons-httpclient-3.1.jar"
+        jar="E:\as\WZDP\wZDP\libs\slf4j-api-1.5.8.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="2aaf496dfd551adb9b079f58a7e2d55eb383fc82">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\slf4j-api-1.5.8-f7a72e5e568a1fdfce7f72c7c36614d1ae45ab7e.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\ormlite-android-4.45.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="8ff8c21e8d0162333559f35cafd6a2238a33e5ba">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\ormlite-android-4.45-d6b9ada4ba0db8c380bea879b636eb8d1ecd65e3.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\build\intermediates\exploded-aar\WZDP\sdingmenufony\unspecified\jars\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="307c1cc532eabbf1d135b43e5c983c9da700449d">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\android-support-v4-d7336e2e0317103bbd90dcae86191d472fcdae04.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\achartengine-1.1.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="9932e3fb9fbe54e80873e77f72a99f79e33b3250">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\achartengine-1.1.0-3ca36ee4c2d047b7afb6ff03b72f174e643e4f5d.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\ormlite-core-4.45.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3db7b73aecea723803e10b068777cf09ed42d4be">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\ormlite-core-4.45-4a7002440bf819e9572e4c57b27377c9b7a04f94.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\commons-httpclient-3.1.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="964cd74171f427720480efdec40a7c7f6e58426a">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/commons-httpclient-3.1-2806cbad04e2e467044a951ae9cc27d5b21c26c8.jar" />
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\commons-httpclient-3.1-351a19e30fb6df69e318534573e6b1d7e477f5a5.jar" />
     </item>
     <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/exploded-aar/WZDP/sdingmenufony/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="4412593d5171bfe5d8c540619fc96e26be0e46cf">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/classes-9d46f09ea63b8dd87c157489511af201faac4573.jar" />
-    </item>
-    <item
-        jar="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/libs/thrift-0.9.1.jar"
+        jar="E:\as\WZDP\wZDP\libs\thrift-0.9.1.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="6892c209a9c004acdc1b2e2b4302cb7b42cf8771">
-        <dex dex="/Users/fony/Desktop/fony/as/asprojects/Android-Gradle-Examples-master/WZDP/wZDP/build/intermediates/pre-dexed/debug/thrift-0.9.1-c857d05beffdb2448f215b95b8e79ff8d227c625.jar" />
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\thrift-0.9.1-8cda98a5bcabc916a3bedccb3b61ac6111938d74.jar" />
     </item>
 
 </items>

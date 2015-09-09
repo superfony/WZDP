@@ -5,7 +5,7 @@ android {
     buildToolsVersion "19.1.0"
 
     defaultConfig {
-        applicationId "com.epsmart.wzdp"
+        applicationId "com.epsmart.wzcc"
         minSdkVersion 11
         targetSdkVersion 19
     }

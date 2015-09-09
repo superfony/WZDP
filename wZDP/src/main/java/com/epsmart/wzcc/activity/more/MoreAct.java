@@ -86,9 +86,7 @@ public class MoreAct extends CommonAct {
 		setting_btn = (Button) findViewById(R.id.setting);
 		off_line_date = (Button) findViewById(R.id.offlinedate);
 		more_head = (ImageView) findViewById(R.id.more_head);
-		
 		// 获取员工头像信息
-
 		ab_btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
