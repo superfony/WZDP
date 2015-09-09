@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -218,7 +219,6 @@ public class PaginationWidget<T> {
 
     @SuppressWarnings({"unchecked", "deprecation"})
     public void success(Object object) {
-        Log.w("PaginationWight", "success=" );
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.cancel();
         }
@@ -228,9 +228,7 @@ public class PaginationWidget<T> {
         }
 
         int allCount = response.pageBean.getAllCount();
-        Log.w("allCount", "allCount="+allCount );
-        if (allCount == 0) {
-        }
+
         requestAction.pageBean.setAllCount(allCount);
         int count = 0;
 
@@ -251,7 +249,7 @@ public class PaginationWidget<T> {
             lvNews_foot_more.setText(R.string.load_empty);
 
         }
-        if (count < RequestParamConfig.pagesize && count > -1) {// 末页返还
+        if (count < RequestParamConfig.pagesize && count > -1||(requestAction.pageBean.getCurrentPage()== requestAction.pageBean.getPageCount())&&count>-1) {// 末页返还
             lv_page_body.setTag(UIHelper.LISTVIEW_DATA_FULL);
             tableBodyAdapter.add((List<T>) response.pageBean.getPageDatas());
 
@@ -393,6 +391,7 @@ public class PaginationWidget<T> {
                 int lvDataState = StringUtils.toInt(lv_page_body.getTag());
 
                 if (scrollEnd && lvDataState == UIHelper.LISTVIEW_DATA_MORE) {
+                    Log.w("scrollEnd=",""+requestAction.pageBean.getCurrentPage());
                     lv_page_body.setTag(UIHelper.LISTVIEW_DATA_LOADING);
                     lvNews_foot_more.setText(R.string.load_ing);// 设置 显示“加载中。。。”
                     lvNews_foot_progress.setVisibility(View.VISIBLE);
@@ -483,7 +482,6 @@ public class PaginationWidget<T> {
        boolean isOnline=((AppContext)context.getApplicationContext()).isNetworkConnected();
          if(isOnline) {
              requestAction.serviceName = serviceName;
-             //requestAction.queryBundle.putString("txt", "listtest.txt");// 测试语句
              httpModule.executeRequest(requestAction, parseHandler,
                      new ProcessResponse(), requestType);
          }else{
@@ -495,32 +493,31 @@ public class PaginationWidget<T> {
      * 离线模式 查询本地数据库  这里进行分页查询 查询总记录数// TODO
      */
     public void querySqliteData() {
-//        if (progressDialog != null && progressDialog.isShowing()) {
-//            progressDialog.cancel();
-//        }
                 try {
                     DatabaseHelper dbhelper = DatabaseHelper.getHelper(context);
                     Dao dao = dbhelper.getDao(AppHeadTable.class);
                     QueryBuilder builder = dao.queryBuilder();
                     builder.offset((requestAction.pageBean
-                            .getCurrentPage()) * 5);//表示查询的起始位置
+                            .getCurrentPage() - 1) * 5);//表示查询的起始位置
                     builder.limit(5);//表示总共获取的对象数量
                     List<AppHeadTable> list = builder.query();
                     int allcount = dao.queryForAll().size();
                     Log.w("PaginationWight", "query.list=" + list.size());
                     Log.w("PaginationWight", "allcount=" + allcount);
 
-
-                    WorkOrderResponse workOrderResponse = new WorkOrderResponse();
+                    PagerResponse workOrderResponse = new PagerResponse();
                     workOrderResponse.pageBean = new PageBean();
 
                     workOrderResponse.pageBean.setAllCount(allcount);
-                    WorkOrder workOrder = new WorkOrder();
+
                     List<WorkOrder> workOrderList = new ArrayList<WorkOrder>();
-                    workOrder.fields = new HashMap<String, Field>();
-                    workOrder.fieldKeys = new ArrayList<String>();
+
 
                     for (int i = 0; i < list.size(); i++) {
+                        WorkOrder workOrder = new WorkOrder();
+                        workOrder.fields = new HashMap<String, Field>();
+                        workOrder.fieldKeys = new ArrayList<String>();
+
                         AppHeadTable appHeadTable = list.get(i);
                         Field field = new Field();
                         field.fieldEnName = "PROJECTNAME";
@@ -532,14 +529,12 @@ public class PaginationWidget<T> {
                         field.fieldEnName = "DELIVERINFORMCOD";
                         field.fieldChName="发货通知编号";
                         field.fieldContent = appHeadTable.getDELIVERINFORMCOD();
-                        Log.w("PaginationWight", "  field.DELIVERINFORMCOD=" +   field.fieldContent);
                         workOrder.fields.put("DELIVERINFORMCOD", field);
 
                         field = new Field();
                         field.fieldEnName = "SUPPLIERNAME";
                         field.fieldChName="供应商";
                         field.fieldContent = appHeadTable.getSUPPLIERNAME();
-                        Log.w("PaginationWight", "  field.SUPPLIERNAME=" +   field.fieldContent);
                         workOrder.fields.put("SUPPLIERNAME", field);
 
 
@@ -547,12 +542,10 @@ public class PaginationWidget<T> {
                         field.fieldEnName = "ZDJZT";
                         field.fieldChName="状态";
                         field.fieldContent = appHeadTable.getZDJZT();
-                        Log.w("PaginationWight", "  field.ZDJZT=" +   field.fieldContent);
                         workOrder.fields.put("ZDJZT", field);
 
                         workOrderList.add(workOrder);
                     }
-                    Log.w("PaginationWight", "workOrderList.size=" + workOrderList.size());
                     workOrderResponse.pageBean.setPageDatas(workOrderList);
                     mHandler.obtainMessage(0, workOrderResponse).sendToTarget();
                 } catch (SQLException e) {
