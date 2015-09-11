@@ -10,14 +10,6 @@
 
 package com.epsmart.wzcc.activity.pagination;
 
-import java.lang.ref.WeakReference;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -46,6 +38,7 @@ import com.epsmart.wzcc.bean.WorkOrderResponse;
 import com.epsmart.wzcc.common.StringUtils;
 import com.epsmart.wzcc.db.DatabaseHelper;
 import com.epsmart.wzcc.db.table.AppHeadTable;
+import com.epsmart.wzcc.db.table.LeaveHeadTable;
 import com.epsmart.wzcc.http.BaseHttpModule;
 import com.epsmart.wzcc.http.BaseHttpModule.RequestListener;
 import com.epsmart.wzcc.http.ModuleResponseProcessor;
@@ -62,6 +55,13 @@ import com.epsmart.wzcc.widget.PullToRefreshListView;
 import com.epsmart.wzcc.widget.PullToRefreshListView.OnPositionChangedListener;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
+
+import java.lang.ref.WeakReference;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * 分页控件
@@ -126,6 +126,15 @@ public class PaginationWidget<T> {
     protected BaseHttpModule httpModule = null;
     protected OnItemLongClick onLongClick;
 
+    protected String different;
+
+    public String getDifferent() {
+        return different;
+    }
+
+    public void setDifferent(String different) {
+        this.different = different;
+    }
     /**
      * 网络请求返回的结果
      */
@@ -485,7 +494,11 @@ public class PaginationWidget<T> {
              httpModule.executeRequest(requestAction, parseHandler,
                      new ProcessResponse(), requestType);
          }else{
-             querySqliteData();
+             if("1".equals(getDifferent())){
+                 querySqliteData();
+             }else {
+                 querySqliteDatas();
+             }
          }
     }
 
@@ -551,6 +564,66 @@ public class PaginationWidget<T> {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
+    }
+
+
+    /**
+     * 离线模式 查询本地数据库  这里进行分页查询 查询总记录数// TODO
+     */
+    public void querySqliteDatas() {
+        try {
+            DatabaseHelper dbhelper = DatabaseHelper.getHelper(context);
+            Dao dao = dbhelper.getDao(LeaveHeadTable.class);
+            QueryBuilder builder = dao.queryBuilder();
+            builder.offset((requestAction.pageBean
+                    .getCurrentPage()-1) * 5);//表示查询的起始位置
+            builder.limit(5);//表示总共获取的对象数量
+            List<LeaveHeadTable> list = builder.query();
+            int allcount = dao.queryForAll().size();
+            Log.w("PaginationWight", "query.list=" + list.size());
+            Log.w("PaginationWight", "allcount=" + allcount);
+
+
+            WorkOrderResponse workOrderResponse = new WorkOrderResponse();
+            workOrderResponse.pageBean = new PageBean();
+
+            workOrderResponse.pageBean.setAllCount(allcount);
+            WorkOrder workOrder = new WorkOrder();
+            List<WorkOrder> workOrderList = new ArrayList<WorkOrder>();
+            workOrder.fields = new HashMap<String, Field>();
+            workOrder.fieldKeys = new ArrayList<String>();
+
+            for (int i = 0; i < list.size(); i++) {
+                LeaveHeadTable leaveHeadTable = list.get(i);
+                Field field = new Field();
+                field.fieldEnName = "RESERV_NO";
+                field.fieldChName="预留号";
+                field.fieldContent = leaveHeadTable.getRESERV_NO();
+                workOrder.fields.put("RESERV_NO", field);
+
+                field = new Field();
+                field.fieldEnName = "ORDERID";
+                field.fieldChName="工单";
+                field.fieldContent = leaveHeadTable.getORDERID();
+                Log.w("PaginationWight", "  field.ORDERID=" +   field.fieldContent);
+                workOrder.fields.put("ORDERID", field);
+
+                field = new Field();
+                field.fieldEnName = "NETWORK";
+                field.fieldChName="网络号";
+                field.fieldContent = leaveHeadTable.getNETWORK();
+                Log.w("PaginationWight", "  field.NETWORK=" +   field.fieldContent);
+                workOrder.fields.put("NETWORK", field);
+
+                workOrderList.add(workOrder);
+            }
+            Log.w("PaginationWight", "workOrderList.size=" + workOrderList.size());
+            workOrderResponse.pageBean.setPageDatas(workOrderList);
+            mHandler.obtainMessage(0, workOrderResponse).sendToTarget();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 

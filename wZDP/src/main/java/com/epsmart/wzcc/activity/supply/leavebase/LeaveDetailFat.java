@@ -98,7 +98,8 @@ public class LeaveDetailFat extends BaseFragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     for (int i = 0; i < list.size(); i++) {
-                        list.get(i).isCheckbox = true;
+//                        list.get(i).isCheckbox = true;
+                        ((LeaveItemBean) leavebaseAdapter.getItem(i)).isCheckbox = true;
                         checkNum++;
                     }
                 } else {

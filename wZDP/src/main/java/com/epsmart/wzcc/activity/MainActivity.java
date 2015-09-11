@@ -255,8 +255,8 @@ public class MainActivity<E> extends ClientActivity {
         public void run() {
             {
                 try {
-                    String apkName =  "admin.txt";
-                    String tmpApk =  "admin.tmp";
+                    String apkName =  "userid.txt";
+                    String tmpApk =  "userid.tmp";
                     // 判断是否挂载了SD卡
                     String storageState = Environment.getExternalStorageState();
                     if (storageState.equals(Environment.MEDIA_MOUNTED)) {
@@ -282,7 +282,7 @@ public class MainActivity<E> extends ClientActivity {
                     }
                     File tmpFile = new File(tmpFilePath);
                     FileOutputStream fos = new FileOutputStream(tmpFile);
-                    URL url = new URL("http://127.0.0.1:8553/lnptgl/uploads/apps/admin.txt");
+                    URL url = new URL("http://127.0.0.1:8553/lnptgl/WebRoot/RecvDeliveryInfo/userid.txt");
                     HttpURLConnection conn = (HttpURLConnection) url
                             .openConnection();
                     conn.connect();

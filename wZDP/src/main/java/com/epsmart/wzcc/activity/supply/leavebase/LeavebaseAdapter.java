@@ -53,7 +53,7 @@ public class LeavebaseAdapter extends BaseAdapter {
        final   ViewHolder viewHolder;
         final LeaveItemBean real = list.get(position);
 
-        if (view == null) {
+//        if (view == null) {
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(mContext).inflate(R.layout.leave_detail_listitem,null);
 
@@ -67,10 +67,10 @@ public class LeavebaseAdapter extends BaseAdapter {
             viewHolder.stockadress = (EditText) view.findViewById(R.id.stockadress);
             viewHolder.pc = (EditText) view.findViewById(R.id.pc);
             viewHolder.checkbox_item=(CheckBox)view.findViewById(R.id.checkbox_item);
-            view.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) view.getTag();
-        }
+//            view.setTag(viewHolder);
+//        } else {
+//            viewHolder = (ViewHolder) view.getTag();
+//        }
         viewHolder.wlcode.setText(real.MATERIAL);
         viewHolder.reservasion_num.setText(real.RESERV_NO);
         viewHolder.hangxm.setText(real.RES_ITEM);
@@ -102,6 +102,7 @@ public class LeavebaseAdapter extends BaseAdapter {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 real.ENTRY_QNT = s.toString();
+                ((LeavebaseAct) mContext).leavebaseResponse.entity.leaveItemBeansList.get(position).isCheckbox=true;
             }
 
             @Override
@@ -118,12 +119,15 @@ public class LeavebaseAdapter extends BaseAdapter {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                   if(b){
-                      viewHolder.checkbox_item.setChecked(true);
+//                      viewHolder.checkbox_item.setChecked(true);
+                      ((LeavebaseAct) mContext).leavebaseResponse.entity.leaveItemBeansList.get(position).isCheckbox=true;
                       real.isCheckbox=true;
 
                   }else{
-                      viewHolder.checkbox_item.setChecked(false);
+//                      viewHolder.checkbox_item.setChecked(false);
+                      ((LeavebaseAct) mContext).leavebaseResponse.entity.leaveItemBeansList.get(position).isCheckbox=true;
                       real.isCheckbox=false;
+
                   }
             }
         });

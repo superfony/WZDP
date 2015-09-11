@@ -41,7 +41,7 @@
 
         <!-- LoginAct -->
         <activity
-            android:name="com.epsmart.wzcc.activity.LoginAct"
+            android:name="com.epsmart.wzcc.activity.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Black.NoTitleBar">
@@ -55,11 +55,11 @@
             android:name=".activity.supply.SupplyActivity"
             android:screenOrientation="landscape"></activity>
 
-         <activity
+        <!-- <activity
          android:name="com.epsmart.wzcc.activity.MainActivity"
          android:screenOrientation="landscape"
          android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
-         </activity>
+         </activity>-->
 
         <activity
             android:name=".activity.achar.DoStatisticsAct"
