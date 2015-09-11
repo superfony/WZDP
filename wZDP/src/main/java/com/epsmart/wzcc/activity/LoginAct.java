@@ -1,7 +1,5 @@
 package com.epsmart.wzcc.activity;
 
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,7 +8,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -29,7 +26,8 @@ import com.epsmart.wzcc.http.request.RequestAction;
 import com.epsmart.wzcc.http.response.model.Response;
 import com.epsmart.wzcc.http.xml.handler.DefaultSaxHandler;
 import com.epsmart.wzcc.util.Pub_method;
-import com.epsmart.wzcc.view.SwitchButton;
+
+import org.json.JSONObject;
 
 public class LoginAct extends Activity {
 	protected ProgressDialog pDialog;

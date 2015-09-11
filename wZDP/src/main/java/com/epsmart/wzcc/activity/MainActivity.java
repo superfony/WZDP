@@ -152,16 +152,16 @@ public class MainActivity<E> extends ClientActivity {
                         SupplyActivity.class);
                 intent.putExtra("tag", "1");
                 activity.startActivity(intent);
-                try {
-                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
-                    //用于测试创建数据库
-                    Dao dao = dbhelper.getDao(SimpleData.class);
-                    SimpleData simpleData = new SimpleData(10000);
-                    dao.create(simpleData);
-                    readTxtFile("admin.txt");
-                }catch (SQLException s){
-                    s.printStackTrace();
-                }
+//                try {
+//                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+//                    //用于测试创建数据库
+//                    Dao dao = dbhelper.getDao(SimpleData.class);
+//                    SimpleData simpleData = new SimpleData(10000);
+//                    dao.create(simpleData);
+//                    readTxtFile("admin.txt");
+//                }catch (SQLException s){
+//                    s.printStackTrace();
+//                }
             }
         });
         //出库
@@ -172,16 +172,16 @@ public class MainActivity<E> extends ClientActivity {
                         SupplyActivity.class);
                 intent.putExtra("tag", "2");
                 activity.startActivity(intent);
-                try {
-                                        DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
-                                        //用于测试创建数据库
-                                        Dao dao = dbhelper.getDao(SimpleData.class);
-                                        SimpleData simpleData = new SimpleData(10000);
-                                        dao.create(simpleData);
-                                        readTxtFile("admin.txt");
-                                    }catch (SQLException s){
-                                        s.printStackTrace();
-                                    }
+//                try {
+//                                        DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
+//                                        //用于测试创建数据库
+//                                        Dao dao = dbhelper.getDao(SimpleData.class);
+//                                        SimpleData simpleData = new SimpleData(10000);
+//                                        dao.create(simpleData);
+//                                        readTxtFile("admin.txt");
+//                                    }catch (SQLException s){
+//                                        s.printStackTrace();
+//                                    }
             }
         });
         //
@@ -255,8 +255,10 @@ public class MainActivity<E> extends ClientActivity {
         public void run() {
             {
                 try {
-                    String apkName =  "userid.txt";
-                    String tmpApk =  "userid.tmp";
+                    String uid= PerferenceModel.getPM(activity).getValue(
+                            "uuid_my", "");
+                    String apkName = uid +".txt";
+                    String tmpApk =  uid+".tmp";
                     // 判断是否挂载了SD卡
                     String storageState = Environment.getExternalStorageState();
                     if (storageState.equals(Environment.MEDIA_MOUNTED)) {
@@ -282,7 +284,7 @@ public class MainActivity<E> extends ClientActivity {
                     }
                     File tmpFile = new File(tmpFilePath);
                     FileOutputStream fos = new FileOutputStream(tmpFile);
-                    URL url = new URL("http://127.0.0.1:8553/lnptgl/WebRoot/RecvDeliveryInfo/userid.txt");
+                    URL url = new URL("http://127.0.0.1:8553/lnptgl/ReDI/"+uid+".txt");
                     HttpURLConnection conn = (HttpURLConnection) url
                             .openConnection();
                     conn.connect();
@@ -323,10 +325,11 @@ public class MainActivity<E> extends ClientActivity {
     };
 
     public void readTxtFile(String fileName) {
-//        File file = new File(savePath + fileName);
+        File file = new File(savePath + fileName);
         SQLiteDatabase  sqLiteDatabase=null;   
         try {
-            InputStream in = this.getClass().getClassLoader()
+            InputStream in =
+                    this.getClass().getClassLoader()
                     .getResourceAsStream(fileName);
 
             BufferedReader rd = new BufferedReader(new InputStreamReader(in,
