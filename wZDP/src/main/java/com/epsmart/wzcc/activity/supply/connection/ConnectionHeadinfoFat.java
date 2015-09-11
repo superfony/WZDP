@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.supply.approval.BaseFragment;
 import com.epsmart.wzcc.activity.supply.approval.UnitInforActivity;
@@ -155,7 +156,9 @@ public class ConnectionHeadinfoFat extends BaseFragment {
         requestAction.reset();
         RequestPram requestPram = new RequestPram();
         requestPram.param = req;
-        requestPram.userid ="100";
+        String uid = PerferenceModel.getPM(activity).getValue(
+                "uuid_my", "");
+        requestPram.userid = uid;
         requestPram.user_type = "5";
         requestPram.methodName = RequestParamConfig.pullCommit;
         requestAction.setReqPram(requestPram);

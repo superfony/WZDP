@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 
 import com.epsmart.wzcc.R;
 import com.epsmart.wzcc.activity.AppContext;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.fragment.CommonFragment;
 import com.epsmart.wzcc.activity.pagination.PaginationWidget;
@@ -159,8 +160,11 @@ public class ProductionFragment extends CommonFragment {
      * @param condition
      */
     public void processQueryCondition(QueryCondition condition) {
+
         requestPram.methodName = RequestParamConfig.receiveList;
-        requestPram.userid = "130";//((AppContext)activity.getApplication()).user.getUid();
+        String uid = PerferenceModel.getPM(activity).getValue(
+                "uuid_my", "");
+        requestPram.userid = uid;
         paginationWidget.requestAction.setReqPram(requestPram);
     }
 

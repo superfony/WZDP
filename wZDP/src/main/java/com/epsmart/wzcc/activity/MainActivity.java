@@ -139,7 +139,7 @@ public class MainActivity<E> extends ClientActivity {
                 tempLine = rd.readLine();
             }
 //            sqLiteDatabase.setTransactionSuccessful();
-//            sqLiteDatabase.close();
+            sqLiteDatabase.close();
 
             DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
             Dao dao = dbhelper.getDao(AppHeadTable.class);

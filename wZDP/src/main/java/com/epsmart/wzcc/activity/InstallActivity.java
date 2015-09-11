@@ -98,10 +98,12 @@ public class InstallActivity extends Activity {
 
 	private void sendLogin(String userpwdMd5, String newPwdMd5, int systemID,
 			String userName) {
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
 		RequestAction requestAction = new RequestAction();
 
 		requestAction.putParam("systemID", "1004");
-		requestAction.putParam("userName", (appContext.user.getUid()) + "");
+		requestAction.putParam("userName",uid );
 		requestAction.putParam("userpwdMd5", userpwdMd5);
 		requestAction.putParam("newPwdMd5", newPwdMd5);
 		init(requestAction);

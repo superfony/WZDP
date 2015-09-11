@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.fragment.CommonFragment;
 import com.epsmart.wzcc.activity.pagination.PaginationWidget;
@@ -156,7 +157,9 @@ public class LeavebaseFragment extends CommonFragment {
      */
     public void processQueryCondition(QueryCondition condition) {
         requestPram.methodName = RequestParamConfig.warehouseList;
-        requestPram.userid = "130";//((AppContext)activity.getApplication()).user.getUid();
+        String uid = PerferenceModel.getPM(activity).getValue(
+                "uuid_my", "");
+        requestPram.userid = uid;
         paginationWidget.requestAction.setReqPram(requestPram);
     }
 

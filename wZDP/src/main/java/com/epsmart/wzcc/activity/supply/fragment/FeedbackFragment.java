@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.fragment.SupplyFragmemt;
 import com.epsmart.wzcc.activity.supply.bean.BasicResponse;
@@ -126,7 +127,9 @@ public class FeedbackFragment extends SupplyFragmemt {
 		requestPram.bizId = 1004;
 		requestPram.password = "password";
 		requestPram.pluginId = 119;
-		requestPram.userid = appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		requestPram.methodName = RequestParamConfig.qualityIssueDownload;
 		requestPram.param = getArguments().getString("reqParam");
 		requestAction.setReqPram(requestPram);
@@ -155,7 +158,9 @@ public class FeedbackFragment extends SupplyFragmemt {
 		requestPram.bizId = 1004;
 		requestPram.password = "";
 		requestPram.pluginId = 119;
-		requestPram.userid = appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		requestPram.methodName = RequestParamConfig.qualityIssueUpload;
 		requestPram.param = fillHelpNew
 				.getparams(getArguments().getString("reqP")+RequestXmlHelp.getReqXML("user_type", PermissHelp.getUserType("000")));

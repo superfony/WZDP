@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.achar.service.CharResponse;
 import com.epsmart.wzcc.activity.search.QueryDialogListener;
@@ -62,7 +63,9 @@ public class WeeklyAct extends IndicatorFragmentActivity {
 			requestPram.bizId=1004;
 			requestPram.password="password";
 			requestPram.pluginId=119;
-			requestPram.userid=appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 			requestPram.methodName=RequestParamConfig.ehvReportReq;
 			requestAction.setReqPram(requestPram);
 			super.loadData(requestPram);

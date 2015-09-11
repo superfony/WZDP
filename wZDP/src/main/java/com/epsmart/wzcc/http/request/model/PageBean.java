@@ -113,10 +113,7 @@ public class PageBean implements Parcelable {
 	}
 
 	public void setCurrentPage(int currentPage) {
-		Log.i("", "..currentPage...>>"+currentPage);
-		Log.i("", "..pageCount...>>"+pageCount);
-		Log.i("", "..allCount...>>"+allCount);
-		
+
 		if (currentPage > pageCount) {//
 			this.currentPage = allCount > 0 ? pageCount : 1;
 		} else if (currentPage < 1) {

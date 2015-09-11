@@ -36,6 +36,7 @@ import android.widget.Toast;
 import com.epsmart.wzcc.R;
 import com.epsmart.wzcc.activity.AboutUsAct;
 import com.epsmart.wzcc.activity.InstallActivity;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.bean.RequestPram;
 import com.epsmart.wzcc.http.BaseHttpModule;
@@ -215,7 +216,9 @@ public class MoreAct extends CommonAct {
 	public void loadReq(RequestPram requestPram) {
 		RequestAction requestAction = new RequestAction();
 		requestAction.reset();
-		requestPram.userid = appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		requestAction.setReqPram(requestPram);
 		showModuleProgressDialog("提示", "数据请求中请稍后...");
 		httpModule.executeRequest(requestAction, null, new ProcessResponse(),
@@ -225,7 +228,9 @@ public class MoreAct extends CommonAct {
 	public void loadReqHead(RequestPram requestPram) {
 		RequestAction requestAction = new RequestAction();
 		requestAction.reset();
-		requestPram.userid = appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		requestAction.setReqPram(requestPram);
 		showModuleProgressDialog("提示", "数据请求中请稍后...");
 		httpModule.executeRequest(requestAction, null, new ProcessResponseHead(),

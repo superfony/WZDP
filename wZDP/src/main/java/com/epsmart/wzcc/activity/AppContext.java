@@ -52,7 +52,7 @@ public class AppContext extends Application {
 	private String saveImagePath;//保存图片路径
 	
 	public  PermissionResponse permission;//权限控制
-	public  User user;
+	//public  User user;
 	public WZDPTYPE wzdpType;
 	public boolean isOnline=true;
 	

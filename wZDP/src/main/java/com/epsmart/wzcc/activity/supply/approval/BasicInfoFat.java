@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
 import com.epsmart.wzcc.activity.AppContext;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.BatchBean;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.EntityContent;
@@ -217,7 +218,9 @@ public class BasicInfoFat extends BaseFragment {
         requestAction.reset();
         RequestPram requestPram = new RequestPram();
         requestPram.param = req;
-        requestPram.userid = "100";
+        String uid = PerferenceModel.getPM(activity).getValue(
+                "uuid_my", "");
+        requestPram.userid = uid;
         requestPram.user_type = "6";// 操作类型
         requestPram.methodName = RequestParamConfig.pullCommit;
         requestAction.setReqPram(requestPram);

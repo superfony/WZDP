@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.fragment.SupplyFragmemt;
 import com.epsmart.wzcc.activity.pagination.PaginationWidget;
@@ -164,7 +165,9 @@ public class ItemFragment extends SupplyFragmemt {
 		requestPram.methodName = RequestParamConfig.procedureReq;
 		requestPram.password = "password";
 		requestPram.pluginId = 119;
-		requestPram.userid = "12";
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		paginationWidget.requestAction.setReqPram(requestPram);
 
 	}

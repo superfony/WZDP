@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.fragment.SupplyFragmemt;
 import com.epsmart.wzcc.activity.supply.bean.BasicResponse;
@@ -89,7 +90,9 @@ public class QtyTopQuestion extends SupplyFragmemt {
 		requestPram.bizId=1004;
 		requestPram.password="password";
 		requestPram.pluginId=119;
-		requestPram.userid=appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		
 		requestPram.methodName=RequestParamConfig.qualityIssueDownload;
 		//bundle.putString("reqParam", RequestXmlHelp.getCommonXML(RequestXmlHelp.getReqXML("purchaseorder", purchaseorder.fieldContent).append(RequestXmlHelp.getReqXML("poitem", poitem.fieldContent)).append(RequestXmlHelp.getReqXML("issueno", Issueno.fieldContent)).append(RequestXmlHelp.getReqXML("releaseflag", Releaseflag.fieldContent)).append(RequestXmlHelp.getReqXML("user_type", "5"))));
@@ -115,7 +118,9 @@ public class QtyTopQuestion extends SupplyFragmemt {
 		requestPram.bizId=1004;
 		requestPram.password="password12";
 		requestPram.pluginId=119;
-		requestPram.userid=appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		requestPram.methodName =RequestParamConfig.qualityIssueUpload;
 		requestPram.param = fillHelp.getparams(getArguments().getString("reqP"));
 		super.submitMethod(requestPram);

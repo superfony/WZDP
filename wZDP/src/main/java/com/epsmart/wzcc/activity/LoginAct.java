@@ -114,7 +114,7 @@ public class LoginAct extends Activity {
 		user = new User();
 		user.setFace(username);
 		user.setPwd(userpwd);
-		appContext.user=user;
+
 		RequestAction requestAction = new RequestAction();
 		requestAction.putParam("systemID", "1004");
 		requestAction.putParam("deviceID", deviceID);
@@ -241,11 +241,9 @@ public class LoginAct extends Activity {
 				String success = jsonObj.get("success").toString();
 				if ("false".equals(success)) {
 					String msg=jsonObj.getString("fault").toString();
-					
 					mHandler.obtainMessage(3,msg).sendToTarget();
 				} else {
-					String uid = jsonObj.getJSONObject("userInfo").getString(
-							"name");
+					String uid = jsonObj.getJSONObject("userInfo").getString("name");
 					mHandler.obtainMessage(1, uid).sendToTarget();
 				}
 			} catch (Exception e) {
@@ -295,10 +293,10 @@ public class LoginAct extends Activity {
 				break;
 			case 1:
 				String uuid = (String) msg.obj;
-				appContext.user.setUid(uuid);
+				user.setUid(uuid);
 				PerferenceModel.getPM(LoginAct.this).insertPreference(
 						"uuid_my", uuid);
-				loginsetting(appContext.user);
+				loginsetting(user);
 				break;
 			case 3:
 				String error=(String)msg.obj;
