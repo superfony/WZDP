@@ -2,46 +2,18 @@
 <items version="2" >
 
     <item
-        jar="E:\as\WZDP\wZDP\libs\ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies.jar"
+        jar="E:\as\WZDP\wZDP\libs\achartengine-1.1.0.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="f8ddd5d69d8cdc994cde9af278ff79b06365eee3">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies-1c3c734bc51b3a66dcd925d14eeed2218bff6d1a.jar" />
+        sha1="9932e3fb9fbe54e80873e77f72a99f79e33b3250">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\achartengine-1.1.0-3ca36ee4c2d047b7afb6ff03b72f174e643e4f5d.jar" />
     </item>
     <item
-        jar="E:\as\WZDP\wZDP\libs\slf4j-nop-1.5.2.jar"
+        jar="E:\as\WZDP\wZDP\libs\universal-image-loader-1.9.3-SNAPSHOT.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="62baf9b0154f31fa61cf0cfcf08a20bcdc655f94">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\slf4j-nop-1.5.2-0c96186bcbf1fdcb7ce126b6e1833b8164d8f203.jar" />
-    </item>
-    <item
-        jar="E:\as\WZDP\wZDP\build\intermediates\exploded-aar\WZDP\sdingmenufony\unspecified\jars\classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="a985f133762a3917ef523728d7bd648e8fda62cd">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\classes-a598af1bb81dc00c6c9cb5f1158aff17905f4f55.jar" />
-    </item>
-    <item
-        jar="E:\as\WZDP\wZDP\libs\zxing.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\zxing-357feb0cd993d84f65b682480423aa9590bc5525.jar" />
-    </item>
-    <item
-        jar="E:\as\WZDP\wZDP\libs\sun.misc.BASE64Decoder.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="acd93e3727886196f9b8434279ff445ba8611186">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\sun.misc.BASE64Decoder-e661ecb1dd9b5a735248a4cfc28ea55f217df969.jar" />
-    </item>
-    <item
-        jar="E:\as\WZDP\wZDP\libs\jsch-0.1.51.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="21761cb18a9d6e22712d1429a50f255833cd7177">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\jsch-0.1.51-a8013fb31517ed9efa7a89401b38ed86550b57c7.jar" />
+        sha1="29cf65d299e133ec68caba92b29f69289713975b">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.3-SNAPSHOT-ecef2a74165dc66d03d7ca4ac48fb445463547e5.jar" />
     </item>
     <item
         jar="E:\as\WZDP\wZDP\libs\jxl.jar"
@@ -51,11 +23,11 @@
         <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\jxl-a5a66fe0cc10439591bd2b369d9e34c028abe67a.jar" />
     </item>
     <item
-        jar="E:\as\WZDP\wZDP\libs\universal-image-loader-1.9.3-SNAPSHOT.jar"
+        jar="E:\as\WZDP\wZDP\libs\slf4j-nop-1.5.2.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="29cf65d299e133ec68caba92b29f69289713975b">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.3-SNAPSHOT-ecef2a74165dc66d03d7ca4ac48fb445463547e5.jar" />
+        sha1="62baf9b0154f31fa61cf0cfcf08a20bcdc655f94">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\slf4j-nop-1.5.2-0c96186bcbf1fdcb7ce126b6e1833b8164d8f203.jar" />
     </item>
     <item
         jar="E:\as\WZDP\wZDP\libs\slf4j-api-1.5.8.jar"
@@ -72,18 +44,39 @@
         <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\ormlite-android-4.45-d6b9ada4ba0db8c380bea879b636eb8d1ecd65e3.jar" />
     </item>
     <item
-        jar="E:\as\WZDP\wZDP\build\intermediates\exploded-aar\WZDP\sdingmenufony\unspecified\jars\libs\android-support-v4.jar"
+        jar="E:\as\WZDP\wZDP\build\intermediates\exploded-aar\WZDP\sdingmenufony\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="307c1cc532eabbf1d135b43e5c983c9da700449d">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\android-support-v4-d7336e2e0317103bbd90dcae86191d472fcdae04.jar" />
+        sha1="e8e41de8ef2322b5b3211609a433f19ac94e1d4a">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\classes-a598af1bb81dc00c6c9cb5f1158aff17905f4f55.jar" />
     </item>
     <item
-        jar="E:\as\WZDP\wZDP\libs\achartengine-1.1.0.jar"
+        jar="E:\as\WZDP\wZDP\libs\jsch-0.1.51.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="9932e3fb9fbe54e80873e77f72a99f79e33b3250">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\achartengine-1.1.0-3ca36ee4c2d047b7afb6ff03b72f174e643e4f5d.jar" />
+        sha1="21761cb18a9d6e22712d1429a50f255833cd7177">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\jsch-0.1.51-a8013fb31517ed9efa7a89401b38ed86550b57c7.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="f8ddd5d69d8cdc994cde9af278ff79b06365eee3">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.0.0-RC.4-jar-with-dependencies-1c3c734bc51b3a66dcd925d14eeed2218bff6d1a.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\commons-httpclient-3.1.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="964cd74171f427720480efdec40a7c7f6e58426a">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\commons-httpclient-3.1-351a19e30fb6df69e318534573e6b1d7e477f5a5.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\libs\zxing.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\zxing-357feb0cd993d84f65b682480423aa9590bc5525.jar" />
     </item>
     <item
         jar="E:\as\WZDP\wZDP\libs\ormlite-core-4.45.jar"
@@ -93,11 +86,18 @@
         <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\ormlite-core-4.45-4a7002440bf819e9572e4c57b27377c9b7a04f94.jar" />
     </item>
     <item
-        jar="E:\as\WZDP\wZDP\libs\commons-httpclient-3.1.jar"
+        jar="E:\as\WZDP\wZDP\libs\sun.misc.BASE64Decoder.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="964cd74171f427720480efdec40a7c7f6e58426a">
-        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\commons-httpclient-3.1-351a19e30fb6df69e318534573e6b1d7e477f5a5.jar" />
+        sha1="acd93e3727886196f9b8434279ff445ba8611186">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\sun.misc.BASE64Decoder-e661ecb1dd9b5a735248a4cfc28ea55f217df969.jar" />
+    </item>
+    <item
+        jar="E:\as\WZDP\wZDP\build\intermediates\exploded-aar\WZDP\sdingmenufony\unspecified\jars\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="307c1cc532eabbf1d135b43e5c983c9da700449d">
+        <dex dex="E:\as\WZDP\wZDP\build\intermediates\pre-dexed\debug\android-support-v4-d7336e2e0317103bbd90dcae86191d472fcdae04.jar" />
     </item>
     <item
         jar="E:\as\WZDP\wZDP\libs\thrift-0.9.1.jar"

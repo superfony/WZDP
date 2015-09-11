@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.supply.approval.BaseFragment;
 import com.epsmart.wzcc.activity.supply.approval.BatchAdapter;
@@ -240,7 +241,9 @@ public class LeaveDetailFat extends BaseFragment {
         RequestAction requestAction = new RequestAction();
         requestAction.reset();
         RequestPram requestPram = new RequestPram();
-        requestPram.userid = "130";
+        String uid = PerferenceModel.getPM(activity).getValue(
+                "uuid_my", "");
+        requestPram.userid = uid;
         requestPram.methodName = RequestParamConfig.warehouseInfo;
         requestAction.setReqPram(requestPram);
 
@@ -262,7 +265,9 @@ public class LeaveDetailFat extends BaseFragment {
         RequestAction requestAction = new RequestAction();
         requestAction.reset();
         RequestPram requestPram = new RequestPram();
-        requestPram.userid = "130";
+        String uid = PerferenceModel.getPM(activity).getValue(
+                "uuid_my", "");
+        requestPram.userid = uid;
         requestPram.methodName = RequestParamConfig.pullwarehourseSubmit;
         requestPram.param = req;
         requestAction.setReqPram(requestPram);

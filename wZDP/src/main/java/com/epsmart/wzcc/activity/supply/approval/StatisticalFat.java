@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
 import com.epsmart.wzcc.activity.AppContext;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.BatchBean;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.BatchResponse;
@@ -171,7 +172,9 @@ public class StatisticalFat extends BaseFragment {
         RequestAction requestAction = new RequestAction();
         requestAction.reset();
         RequestPram requestPram = new RequestPram();
-        requestPram.userid = "130";
+        String uid = PerferenceModel.getPM(activity).getValue(
+                "uuid_my", "");
+        requestPram.userid = uid;
         requestPram.methodName = RequestParamConfig.warehouseInfo;
         requestAction.setReqPram(requestPram);
 

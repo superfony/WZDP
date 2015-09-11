@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.fragment.SupplyFragmemt;
 import com.epsmart.wzcc.activity.supply.bean.BasicResponse;
@@ -87,7 +88,9 @@ public class WitnessFragment extends SupplyFragmemt {
 		requestPram.bizId=1004;
 		requestPram.password="password";
 		requestPram.pluginId=119;
-		requestPram.userid=appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		requestPram.methodName=RequestParamConfig.keyPotQueryDownload;
 		requestPram.param=getArguments().getString("reqParam");
 		requestAction.setReqPram(requestPram);
@@ -116,7 +119,9 @@ public class WitnessFragment extends SupplyFragmemt {
 		requestPram.bizId=1004;
 		requestPram.password="password";
 		requestPram.pluginId=119;
-		requestPram.userid=appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		requestPram.methodName =RequestParamConfig.keyPotQueryUpload;
 		requestPram.param = fillHelpNew.getparams(getArguments().getString("reqP"));
 		super.submitMethod(requestPram);

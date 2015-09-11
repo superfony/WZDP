@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epsmart.wzcc.R;
+import com.epsmart.wzcc.activity.PerferenceModel;
 import com.epsmart.wzcc.activity.RequestParamConfig;
 import com.epsmart.wzcc.activity.achar.service.CharResponse;
 import com.epsmart.wzcc.activity.fragment.SupplyFragmemt;
@@ -149,7 +150,9 @@ public class EquipmentFragment extends SupplyFragmemt {
 		requestPram.bizId = 1004;
 		requestPram.password = "password";
 		requestPram.pluginId = 119;
-		requestPram.userid = appContext.user.getUid();
+		String uid = PerferenceModel.getPM(activity).getValue(
+				"uuid_my", "");
+		requestPram.userid = uid;
 		requestPram.methodName = RequestParamConfig.ehvTempDownload;
 		requestAction.setReqPram(requestPram);
 		// super.loadData(requestPram);

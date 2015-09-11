@@ -201,7 +201,7 @@ public class MainActivity<E> extends ClientActivity {
                 showDownloadDialog();
             }
         });
-// 设置
+       // 设置
         setting.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -328,20 +328,21 @@ public class MainActivity<E> extends ClientActivity {
         try {
             InputStream in = this.getClass().getClassLoader()
                     .getResourceAsStream(fileName);
-//                    new FileInputStream(file);
-            BufferedReader rd = new BufferedReader(new InputStreamReader(in,"UTF-8"));
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(in,
+                    "UTF-8"));
             String tempLine =  rd.readLine();
             Log.w("MainActivity", "wzcc_path=" + activity.getApplicationContext().getDatabasePath("wzcc.db"));
             sqLiteDatabase=SQLiteDatabase.openOrCreateDatabase(String.valueOf(activity.getApplicationContext().getDatabasePath("wzcc.db")), null);
         //    sqLiteDatabase.beginTransaction();
 //            sqLiteDatabase.execSQL("delete from AppHeadTable");
 //            sqLiteDatabase.execSQL("delete from AppDetailTable");
-//            sqLiteDatabase.execSQL("delete from LeaveHeadTable");
             while (!TextUtils.isEmpty(tempLine)) {
                 Log.w("MainActivity", "tempLine=" + tempLine);
                 sqLiteDatabase.execSQL(tempLine);
                 tempLine = rd.readLine();
             }
+//            sqLiteDatabase.setTransactionSuccessful();
             sqLiteDatabase.close();
             DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
             Dao dao = dbhelper.getDao(AppHeadTable.class);

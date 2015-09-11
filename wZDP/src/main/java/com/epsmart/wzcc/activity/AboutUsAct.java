@@ -18,7 +18,7 @@ public class AboutUsAct extends Activity {
 		TextView version_num = (TextView) findViewById(R.id.version_num);
 		version_num.setText("1.0");
 		TextView release_date = (TextView) findViewById(R.id.release_date);
-		release_date.setText("2015-08-01");
+		release_date.setText("2015-10-10");
 		TextView contact_num = (TextView) findViewById(R.id.contact_num);
 		contact_num.setText("0531-67983175");
 	}
