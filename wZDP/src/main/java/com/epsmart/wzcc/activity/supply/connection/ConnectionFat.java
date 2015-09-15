@@ -25,7 +25,7 @@ import com.epsmart.wzcc.http.request.RequestAction;
 import java.util.ArrayList;
 
 /*
- * 物资交接、验收列表界面
+ * 物资交接列表界面
  */
 public class ConnectionFat extends CommonFragment {
     private View view;
@@ -124,7 +124,6 @@ public class ConnectionFat extends CommonFragment {
      * 查询条件
      */
     protected QueryCondition queryCondition;
-
     protected void initPaginationWidget(
             final PaginationWidget<WorkOrder> paginationWidget) {
         processQueryCondition(queryCondition);
@@ -158,7 +157,6 @@ public class ConnectionFat extends CommonFragment {
      * @param condition
      */
     public void processQueryCondition(QueryCondition condition) {
-
         requestPram.methodName = RequestParamConfig.receiveList;
         String uid = PerferenceModel.getPM(activity).getValue(
                 "uuid_my", "");

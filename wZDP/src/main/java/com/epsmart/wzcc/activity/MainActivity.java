@@ -92,20 +92,19 @@ public class MainActivity<E> extends ClientActivity {
                     break;
                 case DOWN_OVER:
                     downloadDialog.dismiss();
-//                    readFile();
                     try {
                         DatabaseHelper Helper = DatabaseHelper.getHelper(activity);
                         Dao dao = Helper.getDao(SimpleData.class);
-                        SimpleData simpleData=new SimpleData(100);
+                        SimpleData simpleData = new SimpleData(100);
                         dao.create(simpleData);
-                        readTxtFile("admin.txt");
-                    }catch (SQLException s){
+                        readTxtFile(txtFilePath);
+                    } catch (SQLException s) {
                         s.printStackTrace();
                     }
                     break;
                 case DOWN_NOSDCARD:
                     downloadDialog.dismiss();
-                    Toast.makeText(activity, "无法下载文件，请检查SD卡是否挂载", 3000).show();
+                    Toast.makeText(activity, "无法下载文件，请检查SD卡是否挂载", Toast.LENGTH_LONG).show();
                     break;
             }
         }
@@ -132,16 +131,8 @@ public class MainActivity<E> extends ClientActivity {
                         SupplyActivity.class);
                 intent.putExtra("tag", "0");
                 activity.startActivity(intent);
-//                try {
-//                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
-//                    //用于测试创建数据库
-//                    Dao dao = dbhelper.getDao(SimpleData.class);
-//                    SimpleData simpleData = new SimpleData(10000);
-//                    dao.create(simpleData);
-//                    readTxtFile("admin.txt");
-//                }catch (SQLException s){
-//                    s.printStackTrace();
-//                }
+
+
             }
         });
         // 验收入库
@@ -152,16 +143,7 @@ public class MainActivity<E> extends ClientActivity {
                         SupplyActivity.class);
                 intent.putExtra("tag", "1");
                 activity.startActivity(intent);
-//                try {
-//                    DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
-//                    //用于测试创建数据库
-//                    Dao dao = dbhelper.getDao(SimpleData.class);
-//                    SimpleData simpleData = new SimpleData(10000);
-//                    dao.create(simpleData);
-//                    readTxtFile("admin.txt");
-//                }catch (SQLException s){
-//                    s.printStackTrace();
-//                }
+
             }
         });
         //出库
@@ -172,16 +154,7 @@ public class MainActivity<E> extends ClientActivity {
                         SupplyActivity.class);
                 intent.putExtra("tag", "2");
                 activity.startActivity(intent);
-//                try {
-//                                        DatabaseHelper dbhelper = DatabaseHelper.getHelper(activity);
-//                                        //用于测试创建数据库
-//                                        Dao dao = dbhelper.getDao(SimpleData.class);
-//                                        SimpleData simpleData = new SimpleData(10000);
-//                                        dao.create(simpleData);
-//                                        readTxtFile("admin.txt");
-//                                    }catch (SQLException s){
-//                                        s.printStackTrace();
-//                                    }
+
             }
         });
         //
@@ -201,7 +174,7 @@ public class MainActivity<E> extends ClientActivity {
                 showDownloadDialog();
             }
         });
-       // 设置
+        // 设置
         setting.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -249,16 +222,14 @@ public class MainActivity<E> extends ClientActivity {
     private Runnable mdownApkRunnable = new Runnable() {
 
 
-
-
         @Override
         public void run() {
             {
                 try {
-                    String uid= PerferenceModel.getPM(activity).getValue(
+                    String uid = PerferenceModel.getPM(activity).getValue(
                             "uuid_my", "");
-                    String apkName = uid +".txt";
-                    String tmpApk =  uid+".tmp";
+                    String apkName = uid + ".txt";
+                    String tmpApk = uid + ".tmp";
                     // 判断是否挂载了SD卡
                     String storageState = Environment.getExternalStorageState();
                     if (storageState.equals(Environment.MEDIA_MOUNTED)) {
@@ -276,15 +247,15 @@ public class MainActivity<E> extends ClientActivity {
                         mHandler.sendEmptyMessage(DOWN_NOSDCARD);
                         return;
                     }
-                    File ApkFile = new File(txtFilePath);
-                    if (ApkFile.exists()) {
+                    File TxtFile = new File(txtFilePath);
+                    if (TxtFile.exists()) {// 文件是否存在
                         downloadDialog.dismiss();
                         mHandler.sendEmptyMessage(DOWN_OVER);
                         return;
                     }
                     File tmpFile = new File(tmpFilePath);
                     FileOutputStream fos = new FileOutputStream(tmpFile);
-                    URL url = new URL("http://127.0.0.1:8553/lnptgl/ReDI/"+uid+".txt");
+                    URL url = new URL("http://127.0.0.1:8553/lnptgl/ReDI/" + uid + ".txt");
                     HttpURLConnection conn = (HttpURLConnection) url
                             .openConnection();
                     conn.connect();
@@ -302,8 +273,8 @@ public class MainActivity<E> extends ClientActivity {
                         mHandler.sendEmptyMessage(DOWN_UPDATE);
                         if (numread <= 0) {
                             // 下载完成 - 将临时下载文件转成APK文件
-                            if (tmpFile.renameTo(ApkFile)) {
-                                // 通知安装
+                            if (tmpFile.renameTo(TxtFile)) {
+
                                 mHandler.sendEmptyMessage(DOWN_OVER);
                             }
                             break;
@@ -325,19 +296,21 @@ public class MainActivity<E> extends ClientActivity {
     };
 
     public void readTxtFile(String fileName) {
-        File file = new File(savePath + fileName);
-        SQLiteDatabase  sqLiteDatabase=null;   
+        File file = new File(fileName);
+        SQLiteDatabase sqLiteDatabase = null;
         try {
-            InputStream in =
-                    this.getClass().getClassLoader()
-                    .getResourceAsStream(fileName);
+//            InputStream in =
+//                    this.getClass().getClassLoader()
+//                    .getResourceAsStream(fileName);
 
-            BufferedReader rd = new BufferedReader(new InputStreamReader(in,
+            Log.w("MainActivity","file="+fileName);
+            InputStream inputStream = new FileInputStream(file);
+            BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream,
                     "UTF-8"));
-            String tempLine =  rd.readLine();
+            String tempLine = rd.readLine();
             Log.w("MainActivity", "wzcc_path=" + activity.getApplicationContext().getDatabasePath("wzcc.db"));
-            sqLiteDatabase=SQLiteDatabase.openOrCreateDatabase(String.valueOf(activity.getApplicationContext().getDatabasePath("wzcc.db")), null);
-        //    sqLiteDatabase.beginTransaction();
+            sqLiteDatabase = SQLiteDatabase.openOrCreateDatabase(String.valueOf(activity.getApplicationContext().getDatabasePath("wzcc.db")), null);
+            //    sqLiteDatabase.beginTransaction();
 //            sqLiteDatabase.execSQL("delete from AppHeadTable");
 //            sqLiteDatabase.execSQL("delete from AppDetailTable");
             while (!TextUtils.isEmpty(tempLine)) {
@@ -369,10 +342,8 @@ public class MainActivity<E> extends ClientActivity {
         }
         return false;
     }
-
     // 退出弹出框
     Dialog dialog;
-
     private void dialog() {
 
         LayoutInflater inflater = LayoutInflater.from(activity);

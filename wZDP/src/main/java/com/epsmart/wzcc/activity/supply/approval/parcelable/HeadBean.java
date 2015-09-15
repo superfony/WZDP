@@ -28,6 +28,7 @@ public class HeadBean implements Parcelable {
 
 
 
+
 	public String getCONTRACTID() {
 		return CONTRACTID;
 	}

@@ -44,7 +44,7 @@ public class ConnectionFragment extends BaseFragment {
 				parent.removeView(view);
 		}
 		try {
-			view = inflater.inflate(R.layout.unitinfo_menu, container, false);
+			view = inflater.inflate(R.layout.connection_menu, container, false);
 		} catch (Exception e) {
 
 		}
@@ -92,7 +92,6 @@ public class ConnectionFragment extends BaseFragment {
 	@Override
 	public void onPause() {
 		super.onPause();
-
 	}
 
 	@Override

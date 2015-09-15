@@ -21,6 +21,7 @@ import com.epsmart.wzcc.activity.supply.approval.BaseFragment;
 import com.epsmart.wzcc.activity.supply.approval.parcelable.HeadBean;
 import com.epsmart.wzcc.bean.RequestPram;
 import com.epsmart.wzcc.common.RequestXmlHelp;
+import com.epsmart.wzcc.common.ValidateUtil;
 import com.epsmart.wzcc.db.DatabaseHelper;
 import com.epsmart.wzcc.db.table.SubmitDateTable;
 import com.epsmart.wzcc.http.BaseHttpModule;
@@ -96,22 +97,18 @@ public class ConnectionHeadinfoFat extends BaseFragment {
         shfqz_et.setText(((ConnectionAct) activity).shfqz_et_value);
         actualdate.setText(((ConnectionAct) activity).actualdate_value);
 
-
-
         submit_btn = (Button) view.findViewById(R.id.submit_btn);
-
         headBean = ((ConnectionAct) activity).approvalResponse.entity.headBean;
         if (headBean == null)
             return;
         consingment_note.setText(headBean.DELIVERINFORMCOD);
         controct_code.setText(headBean.CONTRACTID);
         pro_name.setText(headBean.PROJECTNAME);
-        prucase_unit.setText(headBean.PROJECTNAME);
+        prucase_unit.setText(headBean.PURCHASECODE);
         supply_unit.setText(headBean.SUPPLIERNAME);
-        supply_persion.setText(headBean.SUPPLINKMAN);
+        supply_persion.setText(headBean.SUPPLINKMAN+"/"+headBean.SUPPLINKMANTELEP);
         deli_point.setText(headBean.ACTUALDELIVERYPL);
-        receiver_persion.setText(headBean.CARRLINKMAN);
-
+        receiver_persion.setText(headBean.CARRLINKMAN+"/"+headBean.CARRLINKMANTELEP);
         submit_btn.setOnClickListener(submitOlck);
 
     }
@@ -143,10 +140,26 @@ public class ConnectionHeadinfoFat extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
+    private boolean checkData() {// TODO
+        boolean checked = false;
+        checked = (!ValidateUtil.isEmpty(fhfqz_et, "发货方签字") && !ValidateUtil
+                .isEmpty(shfqz_et, "收货方签字")&& !ValidateUtil
+                .isEmpty(actualdate, "日期"));
+        return checked;
+    }
+
+
     private void reqHttp() {
+
+        if(!checkData()){
+            return;
+        }
+
         String fhfqz_et_value = fhfqz_et.getText().toString();
         String shfqz_et_value = shfqz_et.getText().toString();
         String actualdate_value = actualdate.getText().toString();// 日期
+
+
 
         String req = RequestXmlHelp.getHeadXML(RequestXmlHelp.getReqXML("DELIVERINFORMCOD", headBean.DELIVERINFORMCOD)
                 .append(RequestXmlHelp.getReqXML("MWSN", System.currentTimeMillis() + ""))
@@ -170,11 +183,13 @@ public class ConnectionHeadinfoFat extends BaseFragment {
         requestAction.setReqPram(requestPram);
 
         Boolean isOnLine=((AppContext)activity.getApplicationContext()).isNetworkConnected();
+
+
         if(isOnLine) {
             httpModule.executeRequest(requestAction, new DefaultSaxHandler(),
                     new ProcessResponse(), BaseRequest.RequestType.THRIFT);
         }else{
-            submintOffline(RequestParamConfig.pullCommit,"100",req,"6");
+            submintOffline(RequestParamConfig.pullCommit,"100",req,"5");
         }
     }
 
@@ -223,6 +238,8 @@ public class ConnectionHeadinfoFat extends BaseFragment {
                 case 0:
                     Toast.makeText(activity, msg.obj + "",
                             Toast.LENGTH_LONG).show();
+
+                    activity.finish();
                     break;
                 case 1:
                     break;
